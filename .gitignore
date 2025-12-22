@@ -1,9 +1,23 @@
 # Ignore everything
 *
 
-# But not the uncode-child theme
+# But not the specified plugins and themes
 !wp-content/
+!wp-content/plugins/
+!wp-content/plugins/armember/
+!wp-content/plugins/armember/**
+!wp-content/plugins/armemberdirectlogins/
+!wp-content/plugins/armemberdirectlogins/**
+!wp-content/plugins/armembergroupmembership/
+!wp-content/plugins/armembergroupmembership/**
+!wp-content/plugins/armember-membership/
+!wp-content/plugins/armember-membership/**
+!wp-content/plugins/woocommerce/
+!wp-content/plugins/woocommerce/**
+
 !wp-content/themes/
+!wp-content/themes/uncode/
+!wp-content/themes/uncode/**
 !wp-content/themes/uncode-child/
 !wp-content/themes/uncode-child/**
 
