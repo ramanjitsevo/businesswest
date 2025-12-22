@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not the uncode-child theme
+!wp-content/
+!wp-content/themes/
+!wp-content/themes/uncode-child/
+!wp-content/themes/uncode-child/**
+
+# Also allow the directory structure to be traversed
+!.gitignore
