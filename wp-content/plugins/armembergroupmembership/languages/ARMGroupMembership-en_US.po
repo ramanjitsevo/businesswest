@@ -1,0 +1,1310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ARMember - Group/Umbrella Membership Addon v2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-11-20 05:42:08+0000\n"
+"Last-Translator: admin <testrepute1234@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: autoload.php:112
+#@ ARMGroupMembership
+msgid "One or more users have group membership enabled. So plugin cannot deactivate."
+msgstr "One or more users have group membership enabled. So plugin cannot deactivate."
+
+#: autoload.php:126
+#: autoload.php:127
+#@ ARMGroupMembership
+msgid "Group Membership"
+msgstr "Group Membership"
+
+#: autoload.php:260
+#@ ARMGroupMembership
+msgid "Users Deleted Successfully"
+msgstr "Users Deleted Successfully"
+
+#: autoload.php:261
+#@ ARMGroupMembership
+msgid "Data Updated Successfully"
+msgstr "Data Updated Successfully"
+
+#: autoload.php:262
+#@ ARMGroupMembership
+msgid "Sub User Added Successfully"
+msgstr "Sub User Added Successfully"
+
+#: autoload.php:323
+#@ ARMGroupMembership
+msgid "ARMember Multiple Membership module is Activated. So Group Membership can't Activate."
+msgstr "ARMember Multiple Membership module is Activated. So Group Membership can't Activate."
+
+#: autoload.php:698
+#@ ARMGroupMembership
+msgid "ARMember - Group Membership plugin requires ARMember Plugin installed and active"
+msgstr "ARMember - Group Membership plugin requires ARMember Plugin installed and active"
+
+#: autoload.php:708
+#@ ARMGroupMembership
+msgid "Are you sure to delete configuration?"
+msgstr "Are you sure to delete configuration?"
+
+#: autoload.php:718
+#@ ARMGroupMembership
+msgid "One or more users have Group Membership, so addon can't be deactivated."
+msgstr "One or more users have Group Membership, so addon can't be deactivated."
+
+#: core/classes/class.arm_group_membership.php:992
+#@ ARMGroupMembership
+msgid "On users invite with invite code"
+msgstr "On users invite with invite code"
+
+#: core/classes/class.arm_group_membership.php:996
+#@ ARMGroupMembership
+msgid "Send Signup Notification to Parent User"
+msgstr "Send Signup Notification to Parent User"
+
+#: core/classes/class.arm_group_membership.php:1000
+#@ ARMGroupMembership
+msgid "Send Signup Notification to Child User"
+msgstr "Send Signup Notification to Child User"
+
+#: core/classes/class.arm_group_membership.php:1036
+#@ ARMGroupMembership
+msgid "User have already assigned plan."
+msgstr "User have already assigned plan."
+
+#: core/classes/class.arm_group_membership.php:1059
+#@ ARMGroupMembership
+msgid "This will be replaced with total of selected child user."
+msgstr "This will be replaced with total of selected child user."
+
+#: core/classes/class.arm_group_membership.php:1273
+#@ ARMGroupMembership
+msgid "Sub User Added Successfully."
+msgstr "Sub User Added Successfully."
+
+#: core/views/admin/arm_gm_add_group_membership.php:84
+#: core/views/admin/arm_gm_members_add.php:112
+#@ ARMGroupMembership
+msgid "Child user seat purchase slot"
+msgstr "Child user seat purchase slot"
+
+#: core/classes/class.arm_group_membership.php:1414
+#@ ARMGroupMembership
+msgid "Your  are purchased. So you cannot enter less value."
+msgstr "Your  are purchased. So you cannot enter less value."
+
+#: core/classes/class.arm_group_membership.php:1414
+#@ ARMGroupMembership
+msgid "You have maximum  users limit."
+msgstr "You have maximum  users limit."
+
+#: core/classes/class.arm_group_membership.php:1414
+#@ ARMGroupMembership
+msgid "You have already purchased  seats and you can purchased upto  seats."
+msgstr "You have already purchased  seats and you can purchased upto  seats."
+
+#: core/classes/class.arm_group_membership.php:514
+#: core/classes/class.arm_group_membership.php:1583
+#@ ARMGroupMembership
+msgid "Please select at least one user."
+msgstr "Please select at least one user."
+
+#: core/classes/class.arm_group_membership.php:1751
+#: core/classes/class.arm_group_membership.php:1753
+#: core/classes/class.arm_group_membership.php:1772
+#: core/classes/class.arm_group_membership.php:1773
+#: core/classes/class.arm_group_membership.php:1896
+#: core/classes/class.arm_group_membership.php:1898
+#: core/classes/class.arm_group_membership.php:2600
+#: core/views/arm_gm_admin_shortcode_form_fields.php:47
+#@ ARMGroupMembership
+msgid "Delete"
+msgstr "Delete"
+
+#: autoload.php:305
+#: core/classes/class.arm_group_membership.php:1753
+#: core/classes/class.arm_group_membership.php:1773
+#@ ARMGroupMembership
+msgid "Are you sure you want to delete child user?"
+msgstr "Are you sure you want to delete child user?"
+
+#: core/classes/class.arm_group_membership.php:1865
+#@ ARMGroupMembership
+msgid "View Child Users"
+msgstr "View Child Users"
+
+#: core/classes/class.arm_group_membership.php:1879
+#: core/views/admin/arm_gm_members_listing.php:75
+#@ ARMGroupMembership
+msgid "Edit Group Membership"
+msgstr "Edit Group Membership"
+
+#: core/classes/class.arm_group_membership.php:1898
+#@ ARMGroupMembership
+msgid "Are you sure you want to delete parent user because all coupons and child users delete ?"
+msgstr "Are you sure you want to delete parent user because all coupons and child users delete ?"
+
+#: core/classes/class.arm_group_membership.php:1787
+#: core/classes/class.arm_group_membership.php:3365
+#: core/classes/class.arm_group_membership_child_signup.php:322
+#: core/views/admin/arm_gm_child_users_listing.php:7
+#@ ARMGroupMembership
+msgid "Invite Code"
+msgstr "Invite Code"
+
+#: core/classes/class.arm_group_membership.php:2135
+#: core/classes/class.arm_group_membership.php:2717
+#@ ARMGroupMembership
+msgid "Parent User"
+msgstr "Parent User"
+
+#: core/classes/class.arm_group_membership.php:2364
+#@ ARMGroupMembership
+msgid "Coupon is Expired."
+msgstr "Coupon is Expired."
+
+#: core/classes/class.arm_group_membership.php:2224
+#: core/classes/class.arm_group_membership.php:2397
+#@ ARMGroupMembership
+msgid "Email Notification disabled from admin. Kindly contact to site admin for enable it"
+msgstr "Email Notification disabled from admin. Kindly contact to site admin for enable it"
+
+#: core/classes/class.arm_group_membership.php:2452
+#@ ARMGroupMembership
+msgid "Invitation Sent Successfully."
+msgstr "Invitation Sent Successfully."
+
+#: core/classes/class.arm_group_membership.php:2587
+#: core/views/arm_gm_admin_shortcode_form_fields.php:121
+#@ ARMGroupMembership
+msgid "There is no invite code exists."
+msgstr "There is no invite code exists."
+
+#: core/classes/class.arm_group_membership.php:2596
+#: core/views/arm_gm_admin_shortcode_form_fields.php:159
+#@ ARMGroupMembership
+msgid "Invite User"
+msgstr "Invite User"
+
+#: core/classes/class.arm_group_membership.php:2597
+#@ ARMGroupMembership
+msgid "Email Id For Invite User"
+msgstr "Email Id For Invite User"
+
+#: core/classes/class.arm_group_membership.php:2598
+#: core/views/arm_gm_admin_shortcode_form_fields.php:171
+#@ ARMGroupMembership
+msgid "Send Invitation"
+msgstr "Send Invitation"
+
+#: core/classes/class.arm_group_membership.php:3381
+#@ ARMGroupMembership
+msgid "Group Membership Messages"
+msgstr "Group Membership Messages"
+
+#: core/classes/class.arm_group_membership.php:3349
+#@ ARMGroupMembership
+msgid "Child User Invite Code Label"
+msgstr "Child User Invite Code Label"
+
+#: core/classes/class.arm_group_membership.php:3350
+#@ ARMGroupMembership
+msgid "Child User Invite Code Empty Error"
+msgstr "Child User Invite Code Empty Error"
+
+#: core/classes/class.arm_group_membership.php:3366
+#: core/classes/class.arm_group_membership_child_signup.php:323
+#@ ARMGroupMembership
+msgid "Please Enter Invite Code"
+msgstr "Please Enter Invite Code"
+
+#: core/classes/class.arm_group_membership.php:3351
+#@ ARMGroupMembership
+msgid "Child User Invite Code Used Error"
+msgstr "Child User Invite Code Used Error"
+
+#: core/classes/class.arm_group_membership.php:3367
+#@ ARMGroupMembership
+msgid "Sorry, This Invite Code is already redeemed"
+msgstr "Sorry, This Invite Code is already redeemed"
+
+#: core/classes/class.arm_group_membership.php:3352
+#@ ARMGroupMembership
+msgid "Child User Invite Email Available Error"
+msgstr "Child User Invite Email Available Error"
+
+#: core/classes/class.arm_group_membership.php:3353
+#@ ARMGroupMembership
+msgid "Child User Invite Code Available Error"
+msgstr "Child User Invite Code Available Error"
+
+#: core/classes/class.arm_group_membership_child_signup.php:88
+#@ ARMGroupMembership
+msgid "Invalid Invite Code."
+msgstr "Invalid Invite Code."
+
+#: core/classes/class.arm_group_membership_child_signup.php:518
+#@ ARMGroupMembership
+msgid "You cannot assign plan to child user."
+msgstr "You cannot assign plan to child user."
+
+#: core/classes/class.arm_group_membership_child_signup.php:556
+#: core/classes/class.arm_group_membership_child_signup.php:561
+#@ ARMGroupMembership
+msgid "Your current plan have group membership enabled and your new selected plan haven't enable group membership."
+msgstr "Your current plan have group membership enabled and your new selected plan haven't enable group membership."
+
+#: core/classes/class.arm_group_membership_child_signup.php:573
+#: core/classes/class.arm_group_membership_child_signup.php:578
+#@ ARMGroupMembership
+msgid "Your current plan have group membership enabled and your new selected plan has group membership enabled."
+msgstr "Your current plan have group membership enabled and your new selected plan has group membership enabled."
+
+#: core/classes/class.arm_group_membership_child_signup.php:648
+#@ ARMGroupMembership
+msgid "Payment through Auto-Debit payment method is not possible with Group Membership."
+msgstr "Payment through Auto-Debit payment method is not possible with Group Membership."
+
+#: core/views/admin/arm_gm_add_group_membership.php:21
+#: core/views/admin/arm_gm_members_listing.php:19
+#@ ARMGroupMembership
+msgid "Add Group Membership"
+msgstr "Add Group Membership"
+
+#: core/views/admin/arm_gm_add_group_membership.php:47
+#: core/views/arm_group_membership.php:13
+#@ ARMGroupMembership
+msgid "Enable Group Membership"
+msgstr "Enable Group Membership"
+
+#: core/views/admin/arm_gm_add_group_membership.php:61
+#: core/views/admin/arm_gm_members_add.php:96
+#: core/views/admin/arm_gm_members_add.php:99
+#@ ARMGroupMembership
+msgid "Maximum Members"
+msgstr "Maximum Members"
+
+#: core/views/admin/arm_gm_add_group_membership.php:65
+#@ ARMGroupMembership
+msgid "Maximum numbers cannot be left blank."
+msgstr "Maximum numbers cannot be left blank."
+
+#: core/views/admin/arm_gm_add_group_membership.php:72
+#: core/views/admin/arm_gm_members_add.php:104
+#: core/views/admin/arm_gm_members_add.php:107
+#@ ARMGroupMembership
+msgid "Minimum Members"
+msgstr "Minimum Members"
+
+#: core/views/admin/arm_gm_add_group_membership.php:76
+#@ ARMGroupMembership
+msgid "Minimum numbers cannot be left blank."
+msgstr "Minimum numbers cannot be left blank."
+
+#: core/classes/class.arm_group_membership.php:1448
+#: core/views/admin/arm_gm_add_group_membership.php:95
+#: core/views/admin/arm_gm_members_add.php:122
+#: core/views/admin/arm_gm_members_listing.php:123
+#@ ARMGroupMembership
+msgid "Save"
+msgstr "Save"
+
+#: core/classes/class.arm_group_membership.php:1447
+#: core/views/admin/arm_gm_add_group_membership.php:96
+#: core/views/admin/arm_gm_members_add.php:123
+#: core/views/admin/arm_gm_members_listing.php:122
+#@ ARMGroupMembership
+msgid "Close"
+msgstr "Close"
+
+#: core/views/admin/arm_gm_child_user_page_restrict_field.php:4
+#@ ARMGroupMembership
+msgid "Set Child User Restrict Page"
+msgstr "Set Child User Restrict Page"
+
+#: core/views/admin/arm_gm_child_user_page_restrict_field.php:16
+#@ ARMGroupMembership
+msgid "Select Child User Restrict Page"
+msgstr "Select Child User Restrict Page"
+
+#: core/views/admin/arm_gm_child_user_page_restrict_field.php:24
+#: core/views/admin/arm_gm_page_setup_section.php:13
+#@ ARMGroupMembership
+msgid "Select Page"
+msgstr "Select Page"
+
+#: core/classes/class.arm_group_membership.php:1787
+#: core/views/admin/arm_gm_child_users_listing.php:3
+#: core/views/admin/arm_gm_members_listing_records.php:4
+#@ ARMGroupMembership
+msgid "User ID"
+msgstr "User ID"
+
+#: core/classes/class.arm_group_membership.php:1787
+#: core/classes/class.arm_group_membership.php:2591
+#: core/views/admin/arm_gm_child_users_listing.php:4
+#: core/views/arm_gm_admin_shortcode_form_fields.php:11
+#@ ARMGroupMembership
+msgid "Username"
+msgstr "Username"
+
+#: core/classes/class.arm_group_membership.php:1787
+#: core/classes/class.arm_group_membership.php:2592
+#: core/views/admin/arm_gm_child_users_listing.php:5
+#: core/views/arm_gm_admin_shortcode_form_fields.php:15
+#@ ARMGroupMembership
+msgid "Email"
+msgstr "Email"
+
+#: core/views/admin/arm_gm_child_users_listing.php:44
+#: core/views/admin/arm_gm_members_listing_records.php:87
+#@ ARMGroupMembership
+msgid "Showing"
+msgstr "Showing"
+
+#: core/views/admin/arm_gm_child_users_listing.php:45
+#: core/views/admin/arm_gm_members_listing_records.php:88
+#@ ARMGroupMembership
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: core/views/admin/arm_gm_child_users_listing.php:46
+#: core/views/admin/arm_gm_members_listing_records.php:89
+#@ ARMGroupMembership
+msgid "to"
+msgstr "to"
+
+#: core/views/admin/arm_gm_child_users_listing.php:47
+#: core/views/admin/arm_gm_members_listing_records.php:90
+#@ ARMGroupMembership
+msgid "of"
+msgstr "of"
+
+#: core/views/admin/arm_gm_child_users_listing.php:48
+#@ ARMGroupMembership
+msgid "entries"
+msgstr "entries"
+
+#: core/views/admin/arm_gm_child_users_listing.php:50
+#@ ARMGroupMembership
+msgid "No child users found."
+msgstr "No child users found."
+
+#: core/views/admin/arm_gm_child_users_listing.php:51
+#: core/views/admin/arm_gm_members_listing_records.php:94
+#@ ARMGroupMembership
+msgid "No matching records found."
+msgstr "No matching records found."
+
+#: core/views/admin/arm_gm_members_add.php:41
+#@ ARMGroupMembership
+msgid "Select Group Membership Plan"
+msgstr "Select Group Membership Plan"
+
+#: core/views/admin/arm_gm_members_add.php:69
+#: core/views/admin/arm_gm_members_add.php:72
+#: core/views/admin/arm_gm_members_add.php:80
+#@ ARMGroupMembership
+msgid "Enter Username"
+msgstr "Enter Username"
+
+#: core/views/admin/arm_gm_members_add.php:77
+#@ ARMGroupMembership
+msgid "Enter Email"
+msgstr "Enter Email"
+
+#: core/views/admin/arm_gm_members_add.php:85
+#: core/views/admin/arm_gm_members_add.php:88
+#@ ARMGroupMembership
+msgid "Enter Password"
+msgstr "Enter Password"
+
+#: core/views/admin/arm_gm_members_listing.php:15
+#@ ARMGroupMembership
+msgid "Manage Group Membership"
+msgstr "Manage Group Membership"
+
+#: core/views/admin/arm_gm_members_listing.php:55
+#@ ARMGroupMembership
+msgid "Child Users List"
+msgstr "Child Users List"
+
+#: core/views/admin/arm_gm_members_listing_records.php:8
+#@ ARMGroupMembership
+msgid "Total Invite Codes"
+msgstr "Total Invite Codes"
+
+#: core/views/admin/arm_gm_members_listing_records.php:9
+#@ ARMGroupMembership
+msgid "Remaining Invite Codes"
+msgstr "Remaining Invite Codes"
+
+#: core/views/admin/arm_gm_members_listing_records.php:93
+#@ ARMGroupMembership
+msgid "No members have group membership."
+msgstr "No members have group membership."
+
+#: core/views/admin/arm_gm_shortcode_options.php:6
+#: core/views/arm_gm_admin_shortcode_form_fields.php:37
+#: core/views/arm_gm_admin_shortcode_form_fields.php:70
+#: core/views/arm_gm_admin_shortcode_form_fields.php:103
+#@ ARMGroupMembership
+msgid "No"
+msgstr "No"
+
+#: core/views/admin/arm_gm_shortcode_options.php:10
+#: core/views/arm_gm_admin_shortcode_form_fields.php:41
+#: core/views/arm_gm_admin_shortcode_form_fields.php:74
+#: core/views/arm_gm_admin_shortcode_form_fields.php:107
+#@ ARMGroupMembership
+msgid "Yes"
+msgstr "Yes"
+
+#: core/views/arm_gm_admin_shortcode_form_buttons.php:3
+#: core/views/arm_gm_admin_shortcode_form_buttons.php:13
+#@ ARMGroupMembership
+msgid "Add Shortcode"
+msgstr "Add Shortcode"
+
+#: core/classes/class.arm_group_membership.php:1753
+#: core/classes/class.arm_group_membership.php:1773
+#: core/classes/class.arm_group_membership.php:1898
+#: core/views/arm_gm_admin_shortcode_form_buttons.php:4
+#: core/views/arm_gm_admin_shortcode_form_buttons.php:14
+#@ ARMGroupMembership
+msgid "Cancel"
+msgstr "Cancel"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:175
+#: core/views/arm_gm_admin_shortcode_form_fields.php:178
+#@ ARMGroupMembership
+msgid "Custom CSS"
+msgstr "Custom CSS"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:113
+#@ ARMGroupMembership
+msgid "Records Per Page"
+msgstr "Records Per Page"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:119
+#@ ARMGroupMembership
+msgid "No Records Message"
+msgstr "No Records Message"
+
+#: core/views/arm_gm_child_member_list.php:151
+#: core/views/arm_gm_child_member_list.php:159
+#: core/views/arm_gm_child_member_list_5_2.php:202
+#@ ARMGroupMembership
+msgid "This field can not be left blank"
+msgstr "This field can not be left blank"
+
+#: core/classes/class.arm_group_membership.php:2608
+#@ ARMGroupMembership
+msgid "Invite Users"
+msgstr "Invite Users"
+
+#: core/classes/class.arm_group_membership.php:2593
+#: core/views/arm_gm_admin_shortcode_form_fields.php:19
+#@ ARMGroupMembership
+msgid "Name"
+msgstr "Name"
+
+#: core/classes/class.arm_group_membership.php:2595
+#: core/views/arm_gm_admin_shortcode_form_fields.php:29
+#@ ARMGroupMembership
+msgid "Action"
+msgstr "Action"
+
+#: core/classes/class.arm_group_membership.php:1742
+#: core/views/arm_gm_child_member_list.php:305
+#: core/views/arm_gm_child_member_list_5_2.php:330
+#: core/views/arm_gm_child_member_refresh_list.php:27
+#@ ARMGroupMembership
+msgid "Active"
+msgstr "Active"
+
+#: core/classes/class.arm_group_membership.php:1742
+#: core/classes/class.arm_group_membership.php:1768
+#: core/views/arm_gm_child_member_list.php:305
+#: core/views/arm_gm_child_member_list_5_2.php:330
+#: core/views/arm_gm_child_member_refresh_list.php:27
+#@ ARMGroupMembership
+msgid "Pending"
+msgstr "Pending"
+
+#: core/views/arm_gm_child_member_list.php:322
+#: core/views/arm_gm_child_member_list_5_2.php:347
+#: core/views/arm_gm_child_member_refresh_list.php:44
+#@ ARMGroupMembership
+msgid "Code:"
+msgstr "Code:"
+
+#: core/classes/class.arm_group_membership.php:2604
+#: core/views/arm_gm_admin_shortcode_form_fields.php:80
+#@ ARMGroupMembership
+msgid "Resend"
+msgstr "Resend"
+
+#: core/views/arm_group_membership.php:4
+#@ ARMGroupMembership
+msgid "Group Membership Settings"
+msgstr "Group Membership Settings"
+
+#: core/views/arm_group_membership.php:18
+#: core/views/arm_group_membership.php:22
+#@ ARMGroupMembership
+msgid "Minimum Child Members"
+msgstr "Minimum Child Members"
+
+#: core/views/arm_group_membership.php:18
+#: core/views/arm_group_membership.php:29
+#: core/views/arm_group_membership.php:40
+#@ ARMGroupMembership
+msgid "Seats"
+msgstr "Seats"
+
+#: core/views/arm_group_membership.php:23
+#@ ARMGroupMembership
+msgid "( Minimum Child Member value cannot be grater than Maximum Child Member. )"
+msgstr "( Minimum Child Member value cannot be grater than Maximum Child Member. )"
+
+#: core/views/arm_group_membership.php:29
+#: core/views/arm_group_membership.php:33
+#@ ARMGroupMembership
+msgid "Maximum Child Members"
+msgstr "Maximum Child Members"
+
+#: core/views/arm_group_membership.php:34
+#@ ARMGroupMembership
+msgid "( Maximum Child Member value can't low then Minimum Child Member. )"
+msgstr "( Maximum Child Member value can't low then Minimum Child Member. )"
+
+#: core/views/arm_group_membership.php:40
+#: core/views/arm_group_membership.php:44
+#@ ARMGroupMembership
+msgid "Child Member Purchase Slab"
+msgstr "Child Member Purchase Slab"
+
+#: core/views/arm_group_membership.php:50
+#@ ARMGroupMembership
+msgid "For Example: If you set \"Minimum Child Members\" to \"5\", \"Maximum Child Members\" to \"50\" and \"Child Member Purchase Slab\" to \"5\" then child user purchase selection will be as 5,10,15,20,... until Maximum seat."
+msgstr "For Example: If you set \"Minimum Child Members\" to \"5\", \"Maximum Child Members\" to \"50\" and \"Child Member Purchase Slab\" to \"5\" then child user purchase selection will be as 5,10,15,20,... until Maximum seat."
+
+#: core/views/arm_group_membership.php:64
+#@ ARMGroupMembership
+msgid "Note: For subscription plan type, group membership is not possible to purchase with Auto-Debit Recurring Payment Method."
+msgstr "Note: For subscription plan type, group membership is not possible to purchase with Auto-Debit Recurring Payment Method."
+
+#: core/classes/class.arm_group_membership.php:2245
+#@ ARMGroupMembership
+msgid "No Invite Code remains to Invite user"
+msgstr "No Invite Code remains to Invite user"
+
+#: core/classes/class.arm_group_membership.php:2339
+#: core/classes/class.arm_group_membership.php:2638
+#: core/classes/class.arm_group_membership.php:3370
+#@ ARMGroupMembership
+msgid "Invitation Sent Successfully"
+msgstr "Invitation Sent Successfully"
+
+#: core/classes/class.arm_group_membership.php:2636
+#: core/classes/class.arm_group_membership.php:3372
+#@ ARMGroupMembership
+msgid "Email Sent Successfully"
+msgstr "Email Sent Successfully"
+
+#: core/classes/class.arm_group_membership.php:2637
+#: core/classes/class.arm_group_membership.php:3373
+#@ ARMGroupMembership
+msgid "Invite Code Refresh Successfully"
+msgstr "Invite Code Refresh Successfully"
+
+#: core/classes/class.arm_group_membership.php:3354
+#@ ARMGroupMembership
+msgid "Child User Invitation Success Message"
+msgstr "Child User Invitation Success Message"
+
+#: core/classes/class.arm_group_membership.php:3355
+#@ ARMGroupMembership
+msgid "Child User Delete Message"
+msgstr "Child User Delete Message"
+
+#: core/classes/class.arm_group_membership.php:3356
+#@ ARMGroupMembership
+msgid "Child User Resend Email Success Message"
+msgstr "Child User Resend Email Success Message"
+
+#: core/classes/class.arm_group_membership.php:3357
+#@ ARMGroupMembership
+msgid "Child User Refresh Invite Code Message"
+msgstr "Child User Refresh Invite Code Message"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:157
+#@ ARMGroupMembership
+msgid "Invite User Title"
+msgstr "Invite User Title"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:163
+#@ ARMGroupMembership
+msgid "Invite User Email Field Label"
+msgstr "Invite User Email Field Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:165
+#@ ARMGroupMembership
+msgid "Invite User Email Address"
+msgstr "Invite User Email Address"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:169
+#@ ARMGroupMembership
+msgid "Invite User Button Text"
+msgstr "Invite User Button Text"
+
+#: core/classes/class.arm_group_membership.php:967
+#: core/classes/class.arm_group_membership.php:2635
+#: core/classes/class.arm_group_membership.php:3371
+#@ ARMGroupMembership
+msgid "Child User Deleted Successfully"
+msgstr "Child User Deleted Successfully"
+
+#: core/classes/class.arm_group_membership.php:1884
+#: core/classes/class.arm_group_membership.php:1890
+#: core/views/admin/arm_gm_members_listing.php:88
+#@ ARMGroupMembership
+msgid "Add Child User"
+msgstr "Add Child User"
+
+#: core/classes/class.arm_group_membership.php:2121
+#@ ARMGroupMembership
+msgid "To Display Group Membership Invited User Code"
+msgstr "To Display Group Membership Invited User Code"
+
+#: core/classes/class.arm_group_membership.php:2123
+#@ ARMGroupMembership
+msgid "Child User Invite Code"
+msgstr "Child User Invite Code"
+
+#: core/classes/class.arm_group_membership.php:2127
+#@ ARMGroupMembership
+msgid "To Display Group Membership Invited Page URL with Invite Code"
+msgstr "To Display Group Membership Invited Page URL with Invite Code"
+
+#: core/classes/class.arm_group_membership.php:2129
+#@ ARMGroupMembership
+msgid "Child User Signup Invite URL"
+msgstr "Child User Signup Invite URL"
+
+#: core/classes/class.arm_group_membership.php:2133
+#@ ARMGroupMembership
+msgid "To Display Group Membership Invited Parent User"
+msgstr "To Display Group Membership Invited Parent User"
+
+#: core/classes/class.arm_group_membership.php:2144
+#: core/classes/class.arm_group_membership.php:2155
+#@ ARMGroupMembership
+msgid "On Invite User For Group Membership"
+msgstr "On Invite User For Group Membership"
+
+#: core/classes/class.arm_group_membership.php:2145
+#: core/classes/class.arm_group_membership.php:2159
+#@ ARMGroupMembership
+msgid "Send Group Membership Signup to Parent User"
+msgstr "Send Group Membership Signup to Parent User"
+
+#: core/classes/class.arm_group_membership.php:2146
+#: core/classes/class.arm_group_membership.php:2163
+#@ ARMGroupMembership
+msgid "Send Group Membership Signup to Child User"
+msgstr "Send Group Membership Signup to Child User"
+
+#: core/classes/class.arm_group_membership.php:2563
+#@ ARMGroupMembership
+msgid "Group Membership Details"
+msgstr "Group Membership Details"
+
+#: core/classes/class.arm_group_membership.php:2565
+#@ ARMGroupMembership
+msgid "Group Membership Parent Seat Count"
+msgstr "Group Membership Parent Seat Count"
+
+#: core/classes/class.arm_group_membership.php:2823
+#: core/classes/class.arm_group_membership.php:3282
+#@ ARMGroupMembership
+msgid "Select Child User"
+msgstr "Select Child User"
+
+#: core/classes/class.arm_group_membership.php:3285
+#@ ARMGroupMembership
+msgid "Select Child User Label"
+msgstr "Select Child User Label"
+
+#: core/classes/class.arm_group_membership.php:3368
+#@ ARMGroupMembership
+msgid "Sorry, This Invite Email Address not exist"
+msgstr "Sorry, This Invite Email Address not exist"
+
+#: core/classes/class.arm_group_membership.php:3369
+#@ ARMGroupMembership
+msgid "Sorry, This Invite Code is not currently available"
+msgstr "Sorry, This Invite Code is not currently available"
+
+#: core/classes/class.arm_group_membership_child_signup.php:140
+#@ ARMGroupMembership
+msgid "Sorry, This Invite Email Address not exist."
+msgstr "Sorry, This Invite Email Address not exist."
+
+#: core/classes/class.arm_group_membership_child_signup.php:142
+#@ ARMGroupMembership
+msgid "Sorry, This Invite Code is not currently available."
+msgstr "Sorry, This Invite Code is not currently available."
+
+#: core/views/admin/arm_gm_members_listing_records.php:5
+#@ ARMGroupMembership
+msgid "Parent Username"
+msgstr "Parent Username"
+
+#: core/views/admin/arm_gm_members_listing_records.php:6
+#@ ARMGroupMembership
+msgid "Parent Email"
+msgstr "Parent Email"
+
+#: core/views/admin/arm_gm_members_listing_records.php:7
+#@ ARMGroupMembership
+msgid "Total Child Users"
+msgstr "Total Child Users"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:7
+#@ ARMGroupMembership
+msgid "Group Membership Listing Fields"
+msgstr "Group Membership Listing Fields"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:10
+#@ ARMGroupMembership
+msgid "Username Label"
+msgstr "Username Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:14
+#@ ARMGroupMembership
+msgid "Email Label"
+msgstr "Email Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:18
+#@ ARMGroupMembership
+msgid "Name Label"
+msgstr "Name Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:28
+#@ ARMGroupMembership
+msgid "Action Label"
+msgstr "Action Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:33
+#@ ARMGroupMembership
+msgid "Display Delete Button?"
+msgstr "Display Delete Button?"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:46
+#@ ARMGroupMembership
+msgid "Delete Button Text"
+msgstr "Delete Button Text"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:50
+#: core/views/arm_gm_admin_shortcode_form_fields.php:83
+#@ ARMGroupMembership
+msgid "Button CSS"
+msgstr "Button CSS"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:58
+#: core/views/arm_gm_admin_shortcode_form_fields.php:91
+#@ ARMGroupMembership
+msgid "Button Hover CSS"
+msgstr "Button Hover CSS"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:66
+#@ ARMGroupMembership
+msgid "Display Resend Email Button?"
+msgstr "Display Resend Email Button?"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:79
+#@ ARMGroupMembership
+msgid "Resend Email Button Text"
+msgstr "Resend Email Button Text"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:126
+#@ ARMGroupMembership
+msgid "Invite Popup Form Fields"
+msgstr "Invite Popup Form Fields"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:130
+#: core/views/arm_gm_admin_shortcode_form_fields.php:137
+#@ ARMGroupMembership
+msgid "Select Form"
+msgstr "Select Form"
+
+#: core/views/arm_gm_child_member_list.php:155
+#@ ARMGroupMembership
+msgid "Please enter valid email address"
+msgstr "Please enter valid email address"
+
+#: core/views/arm_gm_child_member_list.php:359
+#: core/views/arm_gm_child_member_list_5_2.php:384
+#: core/views/arm_gm_child_member_refresh_list.php:81
+#@ ARMGroupMembership
+msgid "No Child user found."
+msgstr "No Child user found."
+
+#: core/views/arm_group_membership.php:45
+#@ ARMGroupMembership
+msgid "Purchase Slab Value cannot be greater than Maximum Child Members."
+msgstr "Purchase Slab Value cannot be greater than Maximum Child Members."
+
+#: autoload.php:304
+#@ ARMGroupMembership
+msgid "Are you sure you want to re-generate invite code?"
+msgstr "Are you sure you want to re-generate invite code?"
+
+#: autoload.php:306
+#@ ARMGroupMembership
+msgid "Are you sure you want to resend invite code?"
+msgstr "Are you sure you want to resend invite code?"
+
+#: core/classes/class.arm_group_membership.php:1104
+#: core/classes/class.arm_group_membership.php:1886
+#@ ARMGroupMembership
+msgid "Maximum limit for adding child user is reached."
+msgstr "Maximum limit for adding child user is reached."
+
+#: core/classes/class.arm_group_membership.php:1400
+#@ ARMGroupMembership
+msgid "Parent user plan is \"Suspended\" therefore it will not possible to modify \"Add Child Users seat\"."
+msgstr "Parent user plan is \"Suspended\" therefore it will not possible to modify \"Add Child Users seat\"."
+
+#: core/classes/class.arm_group_membership.php:1406
+#@ ARMGroupMembership
+msgid "Membership Plan"
+msgstr "Membership Plan"
+
+#: core/classes/class.arm_group_membership.php:1411
+#@ ARMGroupMembership
+msgid "Add Child Users seat"
+msgstr "Add Child Users seat"
+
+#: core/classes/class.arm_group_membership.php:1415
+#@ ARMGroupMembership
+msgid "Please add child users seat"
+msgstr "Please add child users seat"
+
+#: core/classes/class.arm_group_membership.php:1416
+#@ ARMGroupMembership
+msgid "Please add valid child users seat"
+msgstr "Please add valid child users seat"
+
+#: core/classes/class.arm_group_membership.php:1417
+#@ ARMGroupMembership
+msgid "Note: The value entered in the above textbox will added to the current purchased child users value. e.g. So far if parent user has purchased 20 child users, and you will add 10 to this textbox, it will be total 30 child users purchased."
+msgstr "Note: The value entered in the above textbox will added to the current purchased child users value. e.g. So far if parent user has purchased 20 child users, and you will add 10 to this textbox, it will be total 30 child users purchased."
+
+#: core/classes/class.arm_group_membership.php:1432
+#@ ARMGroupMembership
+msgid "Maximum Allowed Child Users"
+msgstr "Maximum Allowed Child Users"
+
+#: core/classes/class.arm_group_membership.php:1433
+#@ ARMGroupMembership
+msgid "Currently Total Purchased Child Users"
+msgstr "Currently Total Purchased Child Users"
+
+#: core/classes/class.arm_group_membership.php:1434
+#@ ARMGroupMembership
+msgid "Remaining number of child users you are allowed to purchase"
+msgstr "Remaining number of child users you are allowed to purchase"
+
+#: core/classes/class.arm_group_membership.php:1748
+#@ ARMGroupMembership
+msgid "Edit User"
+msgstr "Edit User"
+
+#: core/classes/class.arm_group_membership.php:1787
+#: core/classes/class.arm_group_membership.php:2594
+#: core/views/admin/arm_gm_child_users_listing.php:6
+#: core/views/arm_gm_admin_shortcode_form_fields.php:24
+#@ ARMGroupMembership
+msgid "Invite Status"
+msgstr "Invite Status"
+
+#: core/classes/class.arm_group_membership.php:2780
+#@ ARMGroupMembership
+msgid "Sorry! you are not allowed to purchase any membership plan because you are a child user."
+msgstr "Sorry! you are not allowed to purchase any membership plan because you are a child user."
+
+#: core/views/admin/arm_gm_members_listing.php:34
+#@ ARMGroupMembership
+msgid "Okay"
+msgstr "Okay"
+
+#: core/views/admin/arm_gm_members_listing.php:96
+#@ ARMGroupMembership
+msgid "Enter Child Username"
+msgstr "Enter Child Username"
+
+#: core/views/admin/arm_gm_members_listing.php:99
+#@ ARMGroupMembership
+msgid "Please enter child user username"
+msgstr "Please enter child user username"
+
+#: core/views/admin/arm_gm_members_listing.php:100
+#@ ARMGroupMembership
+msgid "Child User Username already exists..."
+msgstr "Child User Username already exists..."
+
+#: core/views/admin/arm_gm_members_listing.php:104
+#@ ARMGroupMembership
+msgid "Enter Child Email"
+msgstr "Enter Child Email"
+
+#: core/views/admin/arm_gm_members_listing.php:107
+#@ ARMGroupMembership
+msgid "Please enter valid child user email"
+msgstr "Please enter valid child user email"
+
+#: core/views/admin/arm_gm_members_listing.php:108
+#@ ARMGroupMembership
+msgid "Please enter child user email"
+msgstr "Please enter child user email"
+
+#: core/views/admin/arm_gm_members_listing.php:109
+#@ ARMGroupMembership
+msgid "Child User Email already exists"
+msgstr "Child User Email already exists"
+
+#: core/views/admin/arm_gm_members_listing.php:113
+#@ ARMGroupMembership
+msgid "Enter Child Password"
+msgstr "Enter Child Password"
+
+#: core/views/admin/arm_gm_members_listing.php:117
+#@ ARMGroupMembership
+msgid "Please enter child user password"
+msgstr "Please enter child user password"
+
+#: core/views/admin/arm_gm_page_setup_section.php:2
+#@ ARMGroupMembership
+msgid "Child user signup page"
+msgstr "Child user signup page"
+
+#: core/views/admin/arm_gm_page_setup_section.php:21
+#@ ARMGroupMembership
+msgid "Shortcode of child user register not found on selected page. Please add shrotcode on that page Or please select appropriate page."
+msgstr "Shortcode of child user register not found on selected page. Please add shrotcode on that page Or please select appropriate page."
+
+#: core/views/admin/arm_gm_shortcode_options.php:2
+#@ ARMGroupMembership
+msgid "Enable Child User Invitation?"
+msgstr "Enable Child User Invitation?"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:23
+#@ ARMGroupMembership
+msgid "Invite Status Label"
+msgstr "Invite Status Label"
+
+#: core/views/arm_gm_admin_shortcode_form_fields.php:99
+#@ ARMGroupMembership
+msgid "Allow Re-generate Invite Code?"
+msgstr "Allow Re-generate Invite Code?"
+
+#: autoload.php:700
+#@ ARMGroupMembership
+msgid "ARMember - Group Membership plugin requires ARMember plugin installed with version 4.3 or higher."
+msgstr "ARMember - Group Membership plugin requires ARMember plugin installed with version 4.3 or higher."
+
+#: core/classes/class.arm_group_membership.php:1457
+#@ ARMGroupMembership
+msgid "Currently, Membership plan is not available for this member."
+msgstr "Currently, Membership plan is not available for this member."
+
+#: core/classes/class.arm_group_membership.php:2191
+#@ ARMGroupMembership
+msgid "email is already exists."
+msgstr "email is already exists."
+
+#: core/views/arm_group_membership.php:24
+#@ ARMGroupMembership
+msgid "( Minimum Child Member value must be greater than 0. )"
+msgstr "( Minimum Child Member value must be greater than 0. )"
+
+#: core/views/arm_group_membership.php:35
+#@ ARMGroupMembership
+msgid "( Maximum Child Member value must be greater than 0. )"
+msgstr "( Maximum Child Member value must be greater than 0. )"
+
+#: core/views/arm_gm_child_member_list_5_2.php:202
+#@ ARMGroupMembership
+msgid "Please enter valid email address."
+msgstr "Please enter valid email address."
+
+#: core/views/arm_gm_signup_sub_user_selection_form.php:99
+#: core/views/arm_gm_signup_sub_user_selection_form.php:117
+#@ ARMGroupMembership
+msgid "Select Child Users"
+msgstr "Select Child Users"
+
+#: autoload.php:695
+#, php-format
+#@ ARMGroupMembership
+msgid "Please activate the ARMember - Group/Umbrella Membership Addon License from ARMember ➝ Licensing page to get future updates. For more information, %1$s click here %2$s."
+msgstr "Please activate the ARMember - Group/Umbrella Membership Addon License from ARMember ➝ Licensing page to get future updates. For more information, %1$s click here %2$s."
+
+#: autoload.php:847
+#@ ARMGroupMembership
+msgid "Activate Group/Umbrella Membership Addon"
+msgstr "Activate Group/Umbrella Membership Addon"
+
+#: autoload.php:858
+#: autoload.php:876
+#@ ARMGroupMembership
+msgid "Remove License"
+msgstr "Remove License"
+
+#: autoload.php:851
+#@ ARMGroupMembership
+msgid "Activate License"
+msgstr "Activate License"
+
+#: autoload.php:864
+#: autoload.php:997
+#@ ARMGroupMembership
+msgid "License Activated Successfully."
+msgstr "License Activated Successfully."
+
+#: autoload.php:874
+#@ ARMGroupMembership
+msgid "Are you sure you want to Remove this License?"
+msgstr "Are you sure you want to Remove this License?"
+
+#: autoload.php:897
+#@ ARMGroupMembership
+msgid "Sorry, Something went wrong. Please try again."
+msgstr "Sorry, Something went wrong. Please try again."
+
+#: autoload.php:950
+#: autoload.php:985
+#@ ARMGroupMembership
+msgid "An error occurred, please try again."
+msgstr "An error occurred, please try again."
+
+#: autoload.php:961
+#, php-format
+#@ ARMGroupMembership
+msgid "Your license key expired on %1$s."
+msgstr "Your license key expired on %1$s."
+
+#: autoload.php:966
+#@ ARMGroupMembership
+msgid "Your license key has been disabled."
+msgstr "Your license key has been disabled."
+
+#: autoload.php:969
+#@ ARMGroupMembership
+msgid "Invalid license."
+msgstr "Invalid license."
+
+#: autoload.php:973
+#@ ARMGroupMembership
+msgid "Your license is not active for this URL."
+msgstr "Your license is not active for this URL."
+
+#: autoload.php:976
+#: autoload.php:979
+#@ ARMGroupMembership
+msgid "This appears to be an invalid license key for your selected package."
+msgstr "This appears to be an invalid license key for your selected package."
+
+#: autoload.php:982
+#@ ARMGroupMembership
+msgid "Your license key has reached its activation limit."
+msgstr "Your license key has reached its activation limit."
+
+#. translators: the plugin name.
+#: core/classes/class.armember_pro_plugin_updater.php:257
+#, php-format
+#@ ARMGroupMembership
+msgid "There is a new version of %1$s available."
+msgstr "There is a new version of %1$s available."
+
+#: core/classes/class.armember_pro_plugin_updater.php:263
+#@ ARMGroupMembership
+msgid "Contact your network administrator to install the update."
+msgstr "Contact your network administrator to install the update."
+
+#. translators: 1. opening anchor tag, do not translate 2. the new plugin version 3. closing anchor tag, do not translate.
+#: core/classes/class.armember_pro_plugin_updater.php:268
+#, php-format
+#@ ARMGroupMembership
+msgid "%1$sView version %2$s details%3$s."
+msgstr "%1$sView version %2$s details%3$s."
+
+#. translators: 1. link for changelog 2. version name 3. opening anchor tag for update link 4. closing tag for update link
+#: core/classes/class.armember_pro_plugin_updater.php:277
+#, php-format
+#@ ARMGroupMembership
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+
+#: core/classes/class.armember_pro_plugin_updater.php:288
+#@ ARMGroupMembership
+msgid "Update now."
+msgstr "Update now."
+
+#: core/classes/class.armember_pro_plugin_updater.php:520
+#@ ARMGroupMembership
+msgid "You do not have permission to install plugin updates"
+msgstr "You do not have permission to install plugin updates"
+
+#: core/classes/class.armember_pro_plugin_updater.php:520
+#@ ARMGroupMembership
+msgid "Error"
+msgstr "Error"
+
+#: autoload.php:695
+#@ ARMGroupMembership
+msgid "Dismiss for 7 days"
+msgstr "Dismiss for 7 days"
+
+#: autoload.php:790
+#@ ARMGroupMembership
+msgid "Security check failed, please try again."
+msgstr "Security check failed, please try again."
+
+#: autoload.php:794
+#@ ARMGroupMembership
+msgid "You do not have sufficient permissions to access this page."
+msgstr "You do not have sufficient permissions to access this page."
+
+#: core/classes/class.arm_group_membership.php:193
+#@ ARMGroupMembership
+msgid "Welcome! You've Been Added to a Group Membership"
+msgstr "Welcome! You've Been Added to a Group Membership"
+
+#: core/classes/class.arm_group_membership.php:194
+#, php-format
+#@ ARMGroupMembership
+msgid "%s Hello,%s You've been invited to join a group membership on %s  has added you to their group membership, giving you access to exclusive content, benefits, and features.%s Signup Page%s Invited By%s Invite Code%s If you have any questions, feel free to reach out to us at %s Welcome aboard!%s Team %s "
+msgstr "%s Hello,%s You've been invited to join a group membership on %s  has added you to their group membership, giving you access to exclusive content, benefits, and features.%s Signup Page%s Invited By%s Invite Code%s If you have any questions, feel free to reach out to us at %s Welcome aboard!%s Team %s "
+
+#: core/classes/class.arm_group_membership.php:218
+#@ ARMGroupMembership
+msgid "A New Member Joined Your Group Membership"
+msgstr "A New Member Joined Your Group Membership"
+
+#: core/classes/class.arm_group_membership.php:220
+#, php-format
+#@ ARMGroupMembership
+msgid "%s Hello %s Great news! A new member has successfully joined your group membership on %s If you didn't authorize this addition or have any questions, please contact us at %s Thank you for being a valued member of %s Best regards,%s Team %s "
+msgstr "%s Hello %s Great news! A new member has successfully joined your group membership on %s If you didn't authorize this addition or have any questions, please contact us at %s Thank you for being a valued member of %s Best regards,%s Team %s "
+
+#: core/classes/class.arm_group_membership.php:231
+#@ ARMGroupMembership
+msgid "You're Now Part of a Group Membership"
+msgstr "You're Now Part of a Group Membership"
+
+#: core/classes/class.arm_group_membership.php:233
+#, php-format
+#@ ARMGroupMembership
+msgid "%s Hello,%s Welcome to %s You've been successfully added to a group membership by %s . You now have access to all the great benefits included in the group plan.%s You can now log in from here: %s  and start enjoying everything your membership offers.%s If you need any help getting started or have any questions, our team is here for you at %s Happy exploring!%s Team %s "
+msgstr "%s Hello,%s Welcome to %s You've been successfully added to a group membership by %s . You now have access to all the great benefits included in the group plan.%s You can now log in from here: %s  and start enjoying everything your membership offers.%s If you need any help getting started or have any questions, our team is here for you at %s Happy exploring!%s Team %s "
+
+#: core/views/admin/arm_gm_child_user_page_restrict_field.php:9
+#@ ARMGroupMembership
+msgid "Restrict Page"
+msgstr "Restrict Page"
+
+#: autoload.php:395
+#: autoload.php:408
+#: autoload.php:526
+#: autoload.php:559
+#: autoload.php:571
+#@ ARMGroupMembership
+msgid "Please activate license of ARMember premium plugin to use ARMember - Group/Umbrella Membership Addon"
+msgstr "Please activate license of ARMember premium plugin to use ARMember - Group/Umbrella Membership Addon"
+
+#. translators: 1. Redirect URL link starts 2.Redirect URL link ends
+#: autoload.php:397
+#: autoload.php:410
+#: autoload.php:528
+#: autoload.php:561
+#: autoload.php:573
+#, php-format
+#@ ARMGroupMembership
+msgid "Please %s Click Here %s to Continue"
+msgstr "Please %s Click Here %s to Continue"
+
+#: autoload.php:855
+#@ ARMGroupMembership
+msgid "Your license is currently Active."
+msgstr "Your license is currently Active."
+
+#: autoload.php:856
+#: autoload.php:1001
+#@ ARMGroupMembership
+msgid "Purchase Code:"
+msgstr "Purchase Code:"
+
+#: autoload.php:861
+#@ ARMGroupMembership
+msgid "Please enter your license code."
+msgstr "Please enter your license code."
+
+#: autoload.php:874
+#@ ARMGroupMembership
+msgid "This will disable all features of the add-on and stop access to related updates or support. You can reactivate anytime with your license key."
+msgstr "This will disable all features of the add-on and stop access to related updates or support. You can reactivate anytime with your license key."
+
+#: autoload.php:935
+#: autoload.php:1009
+#@ ARMGroupMembership
+msgid "License Deactivated Successfully."
+msgstr "License Deactivated Successfully."
+
+#: core/classes/class.arm_group_membership.php:1546
+#@ ARMGroupMembership
+msgid "Select Child User Seats"
+msgstr "Select Child User Seats"
+
+#: core/classes/class.arm_group_membership_child_signup.php:72
+#@ ARMGroupMembership
+msgid "Child User Restrict Page"
+msgstr "Child User Restrict Page"
+
+#: core/views/admin/arm_gm_child_users_listing.php:49
+#@ ARMGroupMembership
+msgid "Members Per page"
+msgstr "Members Per page"
+
+#: core/views/admin/arm_gm_members_listing_records.php:28
+#@ ARMGroupMembership
+msgid "Search Plans"
+msgstr "Search Plans"
+
+#: core/views/admin/arm_gm_members_listing_records.php:91
+#@ ARMGroupMembership
+msgid "Group Members"
+msgstr "Group Members"
+
+#: core/views/admin/arm_gm_members_listing_records.php:92
+#@ ARMGroupMembership
+msgid "Group Members per page"
+msgstr "Group Members per page"
+

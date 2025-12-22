@@ -1,0 +1,115 @@
+/* VC Custom Fields
+---------------------------------------------------------- */
+.uncode-custom-fields p {
+  margin-top: 0;
+}
+.uncode-custom-fields .detail-container > *:first-child {
+  margin-top: 0 !important;
+}
+.detail-container.detail-container--single {
+  display: block;
+}
+.detail-container.detail-container--single .detail-label {
+  display: block;
+}
+.detail-container.detail-container--single .detail-value {
+  display: block;
+  padding: 0;
+}
+.data-fields {
+  display: grid;
+  gap: 36px;
+}
+.data-fields.data-fields--columns-desktop-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.data-fields.data-fields--columns-desktop-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.data-fields.data-fields--columns-desktop-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.data-fields.data-fields--columns-desktop-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.data-fields.data-fields--columns-desktop-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.data-fields.data-fields--columns-desktop-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+@media (max-width: 959px) {
+  .data-fields.data-fields--columns-tablet-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .data-fields.data-fields--columns-tablet-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .data-fields.data-fields--columns-tablet-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .data-fields.data-fields--columns-tablet-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .data-fields.data-fields--columns-tablet-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .data-fields.data-fields--columns-tablet-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 569px) {
+  .data-fields.data-fields--columns-mobile-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .data-fields.data-fields--columns-mobile-2 {
+    grid-template-columns: repeat(21, 1fr);
+  }
+  .data-fields.data-fields--columns-mobile-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .data-fields.data-fields--columns-mobile-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .data-fields.data-fields--columns-mobile-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .data-fields.data-fields--columns-mobile-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.data-field {
+  grid-column-gap: 18px;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+.data-field-icon {
+  width: 30px;
+  min-width: 30px;
+  line-height: 0;
+}
+.data-field--has-icon-value {
+  grid-column-gap: 9px;
+}
+.data-field--has-icon-value .data-field-icon {
+  width: 24px;
+  min-width: 24px;
+}
+.data-field-label {
+  font-size: .9em;
+  display: block;
+  margin-bottom: 2px;
+}
+.data-field-value {
+  font-size: 1em;
+}
+.data-field-icon--rounded {
+  border-radius: 10px;
+  padding: 10px;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
