@@ -61,3 +61,6 @@ add_filter( 'uncode_woocommerce_sidecart_mobile_enabled', '__return_true', 100 )
 
 // Disable uncode dynamic images
 add_filter( 'uncode_ot_get_option_uncode_adaptive', function(){ return 'off';});
+
+// Include BW Dashboard
+require_once get_stylesheet_directory() . '/bw-dashboard/bw-dashboard.php';
