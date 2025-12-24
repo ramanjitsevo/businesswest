@@ -76,7 +76,7 @@ function bw_render_tabs($user_roles)
             'title' => 'My Team',
             'icon' => '<i class="fa fa-users" role="presentation"></i>',
             'roles' => array('administrator'),
-            'content' => ''
+            'content' => do_shortcode('[arm_group_child_member_list]')
         )
     );
 

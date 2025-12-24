@@ -430,6 +430,54 @@
   font-size: 16px;
 }
 
+/* Dropdown container */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list {  
+padding: 6px 0 !important;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid #e5e7eb !important;
+    min-width: 220px;
+}
+
+/* Links */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li a {
+  padding: 10px 14px !important;
+  color: #303133 !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              transform 0.15s ease;
+}
+
+/* Hover + focus */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li a:hover,
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li a:focus {
+  background-color: #f3f4f6;
+  color: #111827 !important;
+  transform: translateX(2px);
+}
+
+/* Active (click) state */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li a:active {
+  background-color: #e5e7eb;
+}
+
+/* Optional divider between items */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li:not(:last-child) a {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* Keyboard accessibility */
+.bw-tabs-content ul.tribe-events-c-subscribe-dropdown__list li a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .bw-dashboard-content {
