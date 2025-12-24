@@ -17,8 +17,8 @@ function bw_render_banner() {
     ?>
     <div class="bw-banner">
         <div class="bw-container">
-            <h1 class="bw-banner-title">Welcome to Your Dashboard</h1>
-            <p class="bw-banner-subtitle">Manage your account and settings</p>
+            <h1 class="bw-banner-title">Welcome back, <?php echo wp_get_current_user()->display_name; ?></h1>
+            <p class="bw-banner-subtitle">Your Business West member area – events, connections and opportunities</p>
         </div>
     </div>
     <?php

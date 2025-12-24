@@ -29,7 +29,6 @@ function bw_dashboard_shortcode($atts){
     include_once 'includes/bw-helpers.php';
     include_once 'includes/bw-content-shortcodes.php';
 
-
     echo '<div class="bw-dashboard">';
 
     bw_render_banner();

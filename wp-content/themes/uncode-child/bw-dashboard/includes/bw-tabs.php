@@ -19,7 +19,7 @@ function bw_render_tabs($user_roles)
     // Define tabs with role permissions
     $tabs = array(
         'dashboard' => array(
-            'title' => 'Dashboard',
+            'title' => 'Home',
             'icon' => '<i class="fa fa-home" role="presentation"></i>',
             'roles' => array('administrator', 'subscriber'),
             'content' => bw_dashboard_home_content()
@@ -28,54 +28,55 @@ function bw_render_tabs($user_roles)
             'title' => 'Events',
             'icon' => '<i class="fa fa-calendar" role="presentation"></i>',
             'roles' => array('administrator', 'subscriber'),
-            'has_submenu' => true,
-            'submenus' => array(
-                'upcoming-events' => array(
-                    'title' => 'Upcoming Events',
-                    'icon' => '<i class="fa fa-clock-o" role="presentation"></i>',
-                    'roles' => array('administrator'),
-                    'content' => do_shortcode('[tribe_events view="list"]')
-                ),
-                'calendar' => array(
-                    'title' => 'Calendar',
-                    'icon' => '<i class="fa fa-calendar-o" role="presentation"></i>',
-                    'roles' => array('administrator'),
-                    'content' => do_shortcode("[tribe_mini_calendar]")
-                ),
-                'manage-events' => array(
-                    'title' => 'Manage Events',
-                    'icon' => '<i class="fa fa-cog" role="presentation"></i>',
-                    'roles' => array('administrator'),
-                    'content' => '[bw_manage_events_content]',
-                    'link' => '/wp-admin/edit.php?post_type=tribe_events',
-                    'target' => '_blank'
-                )
-            ),
-            'content' => ''
+            'has_submenu' => false,
+            // 'submenus' => array(
+            //     'upcoming-events' => array(
+            //         'title' => 'Upcoming Events',
+            //         'icon' => '<i class="fa fa-clock-o" role="presentation"></i>',
+            //         'roles' => array('administrator'),
+            //         'content' => do_shortcode('[tribe_events view="list"]')
+            //     ),
+            //     'calendar' => array(
+            //         'title' => 'Calendar',
+            //         'icon' => '<i class="fa fa-calendar-o" role="presentation"></i>',
+            //         'roles' => array('administrator'),
+            //         'content' => do_shortcode("[tribe_mini_calendar]")
+            //     ),
+            //     'manage-events' => array(
+            //         'title' => 'Manage Events',
+            //         'icon' => '<i class="fa fa-cog" role="presentation"></i>',
+            //         'roles' => array('administrator'),
+            //         'content' => '[bw_manage_events_content]',
+            //         'link' => '/wp-admin/edit.php?post_type=tribe_events',
+            //         'target' => '_blank'
+            //     )
+            // ),
+            'content' => do_shortcode('[tribe_events view="list"]')
         ),
-        'classifieds' => array(
-            'title' => 'Classifieds',
-            'icon' => '<i class="fa fa-bullhorn" role="presentation"></i>',
-            'roles' => array('administrator', 'subscriber'),
-            'content' => ''
-        ),
-        'my-details' => array(
-            'title' => 'My Details',
+        //Hide entirely for Phase 1
+        // 'classifieds' => array(
+        //     'title' => 'Classifieds',
+        //     'icon' => '<i class="fa fa-bullhorn" role="presentation"></i>',
+        //     'roles' => array('administrator', 'subscriber'),
+        //     'content' => ''
+        // ),
+        'my-profile' => array(
+            'title' => 'My Profile',
             'icon' => '<i class="fa fa-user" role="presentation"></i>',
             'roles' => array('administrator', 'subscriber'),
-            'content' => ''
-        ),
-        'team-management' => array(
-            'title' => 'Team Management',
-            'icon' => '<i class="fa fa-users" role="presentation"></i>',
-            'roles' => array('administrator'),
-            'content' => ''
+            'content' => bw_dashboard_home_content()
         ),
         'my-business' => array(
             'title' => 'My Business',
             'icon' => '<i class="fa fa-building" role="presentation"></i>',
             'roles' => array('administrator', 'subscriber'),
             'content' => do_shortcode('[arm_template type="profile" id="1"]')
+        ),
+        'my-team' => array(
+            'title' => 'My Team',
+            'icon' => '<i class="fa fa-users" role="presentation"></i>',
+            'roles' => array('administrator'),
+            'content' => ''
         )
     );
 
