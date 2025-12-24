@@ -412,8 +412,6 @@
   color: #005AEE;
 }
 
-
-
 .bw-tabs-content .bw-tab-pane .arm_profile_detail_data{
   text-align: left !important;
 }
@@ -423,6 +421,13 @@
 
 .bw-tabs-content .arm-df__fields-wrapper .arm-control-group {
     width: 50%;
+}
+
+.bw-tabs-content ul{
+  list-style: none !important;
+}
+.bw-tabs-content .tribe-events-c-nav__prev,.bw-tabs-content .tribe-events-c-nav__next, .bw-tabs-content .tribe-events-c-nav__today{
+  font-size: 16px;
 }
 
 /* Responsive */

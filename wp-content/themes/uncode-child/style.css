@@ -49,3 +49,8 @@ Version: 2.1.0
   font-weight: 400;
   src: url('fonts/roboto-v49-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+/*** Customise event detail page ***/
+body.wp-singular.tribe_events-template-default.single{
+  background-color: transparent;
+}
