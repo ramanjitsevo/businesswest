@@ -227,7 +227,7 @@
 /* Tabs Content */
 .bw-tabs-content {
   flex: 1;
-  padding: 30px;
+  padding: 0px 30px;
 }
 
 .bw-tab-pane {
@@ -245,8 +245,7 @@
 }
 
 /* Tab Content Styles */
-.bw-tab-content-header {
-  margin-bottom: 25px;
+.bw-tab-content-header { 
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
 }
@@ -477,6 +476,20 @@ padding: 6px 0 !important;
   outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
+
+.bw-tabs-content .swiper-wrapper {
+  max-width: 300px;
+}
+
+.sp-pcp-title a {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.4em * 2);
+}
+
 
 /* Responsive */
 @media (max-width: 991px) {

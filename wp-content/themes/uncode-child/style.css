@@ -54,3 +54,13 @@ Version: 2.1.0
 body.wp-singular.tribe_events-template-default.single{
   background-color: transparent;
 }
+
+.bw-tabs-content .tribe-events-c-subscribe-dropdown__button{
+  color: #006cb0;
+  border-color: #006cb0;
+}
+.bw-tabs-content .tribe-events-c-subscribe-dropdown__button:hover, 
+.bw-tabs-content .tribe-events-c-subscribe-dropdown__button:focus,
+.bw-tabs-content .tribe-events-c-subscribe-dropdown__button:focus-within{  
+  background: #006cb0 !important;
+}

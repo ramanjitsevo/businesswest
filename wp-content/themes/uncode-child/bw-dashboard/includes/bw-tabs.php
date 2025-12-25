@@ -15,7 +15,6 @@ if (!defined('ABSPATH')) {
  */
 function bw_render_tabs($user_roles)
 {
-
     // Define tabs with role permissions
     $tabs = array(
         'dashboard' => array(
@@ -64,7 +63,7 @@ function bw_render_tabs($user_roles)
             'title' => 'My Profile',
             'icon' => '<i class="fa fa-user" role="presentation"></i>',
             'roles' => array('administrator', 'subscriber'),
-            'content' => bw_dashboard_home_content()
+            'content' => bw_my_profile()
         ),
         'my-business' => array(
             'title' => 'My Business',
