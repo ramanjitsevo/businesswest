@@ -18,7 +18,7 @@ function bw_dashboard_home_content() {
     ?>
     <div class="news-wrapper">
         <div class="bw-tab-content-header">
-            <h2>Latest Updates and News</h2>
+            <h2><?php _e('Latest Updates and News', 'uncode'); ?></h2>
         </div>
             <?php echo do_shortcode('[smart_post_show id="161110"]');?>
     </div>
@@ -100,7 +100,7 @@ function bw_upcoming_events_content_shortcode($atts) {
     $events = bw_get_upcoming_events(2);
     ?>
     <div class="bw-tab-content-header">
-        <h2>Upcoming Events</h2>        
+        <h2><?php _e('Upcoming Events', 'uncode'); ?></h2>        
     </div>
     
     <div class="bw-card">
@@ -144,7 +144,7 @@ function bw_upcoming_events_content_shortcode($atts) {
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <p class="bw-no-events">No upcoming events at this time.</p>
+            <p class="bw-no-events"><?php _e('No upcoming events at this time.', 'uncode'); ?></p>
         <?php endif; ?>
     </div>
     <?php
