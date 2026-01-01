@@ -230,7 +230,7 @@
 /* Tabs Content */
 .bw-tabs-content {
   flex: 1;
-  padding: 0px 30px;
+  padding: 0px 25px;
 }
 
 .bw-tab-pane {
@@ -591,6 +591,17 @@
   color: #999;
   padding: 40px 20px;
   font-size: 1.1rem;
+}
+
+.arm_group_membership_form_container{
+  margin-top: 1rem;
+}
+.arm_user_group_membership_list_table td, .arm_user_group_membership_list_table th {
+    padding: 5px;
+    font-size: 12px !important;
+}
+.arm_user_group_membership_list_table .arm_gm_username_th{
+ 
 }
 
 /* Responsive */

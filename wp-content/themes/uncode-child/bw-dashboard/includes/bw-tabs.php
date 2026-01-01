@@ -50,7 +50,7 @@ function bw_render_tabs($arm_roles)
                     'target' => '_blank'
                 )
             ),*/
-            'content' => do_shortcode('[tribe_events view="list"]')
+            'content' => bw_events()
         ),
 
         //Hide entirely for Phase 1
@@ -70,13 +70,13 @@ function bw_render_tabs($arm_roles)
             'title' => __(DASHBOARD_TAB_MY_BUSINESS, 'uncode'),
             'icon' => '<i class="fa fa-building" role="presentation"></i>',
             'roles' => array(ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
-            'content' => do_shortcode('[arm_template type="profile" id="1"]')
+            'content' => bw_my_business()
         ),
         'my-team' => array(
             'title' => __(DASHBOARD_TAB_MY_TEAM, 'uncode'),
             'icon' => '<i class="fa fa-users" role="presentation"></i>',
             'roles' => array(ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
-            'content' => do_shortcode('[arm_group_child_member_list]')
+            'content' => bw_my_team()
         )
     );
 

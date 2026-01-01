@@ -13,3 +13,7 @@ define('DASHBOARD_TAB_MY_PROFILE', 'My Profile');
 define('DASHBOARD_TAB_MY_TEAM', 'My Team');
 define('DASHBOARD_TAB_HOME', 'Home');
 define('DASHBOARD_TAB_EVENTS', 'Events');
+define('DASHBOARD_TAB_RESOURCES', 'Resources');
+
+define('DASHBOARD_UPCOMING_EVENTS', 'Upcoming Events');
+define('DASHBOARD_NEWS', 'Latest Updates and News');

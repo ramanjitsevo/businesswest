@@ -18,13 +18,19 @@ function bw_dashboard_home_content() {
     ?>
     <div class="news-wrapper">
         <div class="bw-tab-content-header">
-            <h2><?php _e('Latest Updates and News', 'uncode'); ?></h2>
+            <h2><?php _e(DASHBOARD_NEWS, 'uncode'); ?></h2>
         </div>
-            <?php echo do_shortcode('[smart_post_show id="161110"]');?>
+        <?php echo do_shortcode('[smart_post_show id="161110"]');?>
     </div>
-     <div class="events-wrapper">        
+
+    <div class="resources-wrapper">
+        <?php echo do_shortcode('[bw_posts_grid category="resources" limit="2"]');?>
+    </div>
+
+     <div class="events-wrapper">
             <?php echo do_shortcode('[bw_upcoming_events_content]');?>
     </div>
+
     <?php
     return ob_get_clean();
 }
@@ -41,54 +47,7 @@ function bw_my_profile() {
     return ob_get_clean();
 }
 
-/**
- * Get Upcoming Events
- * 
- * @param int $limit Number of events to retrieve
- * @return array Array of event objects
- */
-function bw_get_upcoming_events($limit = 2) {
-    $args = array(
-        'post_type' => 'tribe_events',
-        'posts_per_page' => $limit,
-        'post_status' => 'publish',
-        'meta_key' => '_EventStartDate',
-        'orderby' => 'meta_value',
-        'order' => 'ASC',
-        'meta_query' => array(
-            array(
-                'key' => '_EventStartDate',
-                'value' => current_time('Y-m-d H:i:s'),
-                'compare' => '>=',
-                'type' => 'DATETIME'
-            )
-        )
-    );
-    
-    $events_query = new WP_Query($args);
-    $events = array();
-    
-    if ($events_query->have_posts()) {
-        while ($events_query->have_posts()) {
-            $events_query->the_post();
-            $event_id = get_the_ID();
-            
-            $events[] = array(
-                'id' => $event_id,
-                'title' => get_the_title(),
-                'link' => get_permalink(),
-                'date' => tribe_get_start_date($event_id, false, 'F j, Y'),
-                'time' => tribe_get_start_date($event_id, false, 'g:i A'),
-                'featured_image' => get_the_post_thumbnail_url($event_id, 'full'),
-                'venue' => tribe_get_venue($event_id),
-                'excerpt' => get_the_excerpt()
-            );
-        }
-        wp_reset_postdata();
-    }
-    
-    return $events;
-}
+
 
 /**
  * Upcoming Events Content Shortcode
@@ -100,7 +59,7 @@ function bw_upcoming_events_content_shortcode($atts) {
     $events = bw_get_upcoming_events(2);
     ?>
     <div class="bw-tab-content-header">
-        <h2><?php _e('Upcoming Events', 'uncode'); ?></h2>        
+        <h2><?php _e(DASHBOARD_UPCOMING_EVENTS, 'uncode'); ?></h2>        
     </div>
     
     <div class="bw-card">
@@ -151,3 +110,129 @@ function bw_upcoming_events_content_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('bw_upcoming_events_content', 'bw_upcoming_events_content_shortcode');
+
+
+/**
+ * Posts Grid by Category Shortcode
+ * Usage: [bw_posts_grid category="resources" limit="6"]
+ */
+function bw_posts_grid_shortcode($atts) {
+    // Parse shortcode attributes with defaults
+    $atts = shortcode_atts(
+        array(
+            'category' => '',
+            'limit' => 6,
+            'title' => ''
+        ),
+        $atts,
+        'bw_posts_grid'
+    );
+    
+    ob_start();
+    
+    // Get posts by category
+    $posts = bw_get_posts_by_category($atts['category'], intval($atts['limit']));
+    
+    // Generate dynamic title if not provided
+    $header_title = $atts['title'];
+    if (empty($header_title) && !empty($atts['category'])) {
+        $category_obj = get_category_by_slug($atts['category']);
+        $header_title = $category_obj ? $category_obj->name : ucfirst(str_replace('-', ' ', $atts['category']));
+    } elseif (empty($header_title)) {
+        $header_title = __(DASHBOARD_TAB_RESOURCES, 'uncode');
+    }
+    ?>
+    <div class="bw-tab-content-header">
+        <h2 style="margin-top:0"><?php echo esc_html($header_title); ?></h2>        
+    </div>
+    
+    <div class="bw-card">
+        <?php if (!empty($posts)): ?>
+            <div class="bw-events-grid">
+                <?php foreach ($posts as $post): ?>
+                    <div class="bw-event-item">
+                        <?php if ($post['featured_image']): ?>
+                            <div class="bw-event-image">
+                                <a href="<?php echo esc_url($post['link']); ?>">
+                                    <img src="<?php echo esc_url($post['featured_image']); ?>" alt="<?php echo esc_attr($post['title']); ?>">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <div class="bw-event-content">
+                            <h3 class="bw-event-name">
+                                <a href="<?php echo esc_url($post['link']); ?>"><?php echo esc_html($post['title']); ?></a>
+                            </h3>
+                            
+                            <div class="bw-event-date">
+                                <i class="fa fa-calendar" role="presentation"></i>
+                                <span><?php echo esc_html($post['date']); ?></span>
+                            </div>
+                            
+                            <?php if ($post['author']): ?>
+                                <div class="bw-event-time">
+                                    <i class="fa fa-user" role="presentation"></i>
+                                    <span><?php echo esc_html($post['author']); ?></span>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($post['categories']): ?>
+                                <div class="bw-event-venue">
+                                    <i class="fa fa-folder" role="presentation"></i>
+                                    <span><?php echo esc_html($post['categories']); ?></span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p class="bw-no-events"><?php _e('No posts found.', 'uncode'); ?></p>
+        <?php endif; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('bw_posts_grid', 'bw_posts_grid_shortcode');
+
+
+function bw_my_team(){
+     ob_start();
+    ?>
+    <div class="team-wrapper">
+        <div class="bw-tab-content-header">
+            <h2><?php _e(DASHBOARD_TAB_MY_TEAM, 'uncode'); ?></h2>
+        </div>
+        <?php echo  do_shortcode('[arm_group_child_member_list display_refresh_invite_code_button="false"]');?>
+    </div>
+    <?php
+    return ob_get_clean();   
+}
+
+function bw_my_business(){
+    ob_start();
+    ?>
+    <div class="team-wrapper">
+        <div class="bw-tab-content-header">
+            <h2><?php _e(DASHBOARD_TAB_MY_BUSINESS, 'uncode'); ?></h2>
+        </div>
+        <?php echo  do_shortcode('[arm_template type="profile" id="1"]');?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+function bw_events(){
+
+    ob_start();
+    ?>
+    <div class="team-wrapper">
+        <div class="bw-tab-content-header">
+            <h2><?php _e(DASHBOARD_TAB_EVENTS, 'uncode'); ?></h2>
+        </div>
+        <?php echo do_shortcode('[tribe_events view="list"]');?>
+    </div>
+    <?php
+    return ob_get_clean();
+    
+}
