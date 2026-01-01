@@ -4,7 +4,7 @@ global $arm_direct_logins_newdbversion;
 
 $arm_direct_logins_version = get_option('arm_direct_logins_version');
 
-$arm_direct_logins_newdbversion = '2.0';
+$arm_direct_logins_newdbversion = '2.1';
 
 update_option('arm_direct_logins_old_version', $arm_direct_logins_version);
 update_option('arm_direct_logins_version', $arm_direct_logins_newdbversion);

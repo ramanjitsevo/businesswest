@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ARMember - Direct Login Addon v2.0\n"
+"Project-Id-Version: ARMember - Direct Login Addon v2.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-14 06:12:22+0000\n"
+"PO-Revision-Date: 2025-11-20 05:49:28+0000\n"
 "Last-Translator: admin <testrepute123@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "Direct login saved successfully."
 msgstr "Direct login saved successfully."
 
 #: core/classes/class.arm_direct_logins.php:95
-#: core/view/arm_direct_logins.php:82
+#: core/view/arm_direct_logins.php:80
 #@ ARM_DIRECT_LOGINS
 msgid "Please enter valid email."
 msgstr "Please enter valid email."
@@ -37,44 +37,44 @@ msgstr "Please enter valid email."
 msgid "Sorry, User not found."
 msgstr "Sorry, User not found."
 
-#: core/classes/class.arm_direct_logins.php:181
-#: core/view/arm_direct_logins_list_records.php:7
+#: core/classes/class.arm_direct_logins.php:182
+#: core/view/arm_direct_logins_list_records.php:8
 #@ ARM_DIRECT_LOGINS
 msgid "Email"
 msgstr "Email"
 
-#: core/classes/class.arm_direct_logins.php:183
-#: core/view/arm_direct_logins_list_records.php:9
+#: core/classes/class.arm_direct_logins.php:184
+#: core/view/arm_direct_logins_list_records.php:10
 #@ ARM_DIRECT_LOGINS
 msgid "Last Logged In"
 msgstr "Last Logged In"
 
-#: core/classes/class.arm_direct_logins.php:247
+#: core/classes/class.arm_direct_logins.php:248
 #@ ARM_DIRECT_LOGINS
 msgid "Not yet logged in"
 msgstr "Not yet logged in"
 
-#: core/classes/class.arm_direct_logins.php:290
+#: core/classes/class.arm_direct_logins.php:287
 #@ ARM_DIRECT_LOGINS
 msgid "Delete"
 msgstr "Delete"
 
-#: core/classes/class.arm_direct_logins.php:291
+#: core/classes/class.arm_direct_logins.php:288
 #@ ARM_DIRECT_LOGINS
 msgid "Are you sure you want to delete this direct login?"
 msgstr "Are you sure you want to delete this direct login?"
 
-#: core/classes/class.arm_direct_logins.php:300
+#: core/classes/class.arm_direct_logins.php:297
 #@ ARM_DIRECT_LOGINS
 msgid "Expired"
 msgstr "Expired"
 
-#: core/classes/class.arm_direct_logins.php:359
+#: core/classes/class.arm_direct_logins.php:356
 #@ ARM_DIRECT_LOGINS
 msgid "User direct login removed successfully"
 msgstr "User direct login removed successfully"
 
-#: core/classes/class.arm_direct_logins.php:526
+#: core/classes/class.arm_direct_logins.php:523
 #@ ARM_DIRECT_LOGINS
 msgid "You don't have permission to access this page"
 msgstr "You don't have permission to access this page"
@@ -94,139 +94,140 @@ msgstr "Add Direct Login"
 msgid "Add New Direct Login"
 msgstr "Add New Direct Login"
 
-#: core/view/arm_direct_logins.php:63
+#: core/view/arm_direct_logins.php:61
 #@ ARM_DIRECT_LOGINS
 msgid "Select User Type"
 msgstr "Select User Type"
 
-#: core/view/arm_direct_logins.php:67
+#: core/view/arm_direct_logins.php:65
 #@ ARM_DIRECT_LOGINS
 msgid "New User"
 msgstr "New User"
 
-#: core/view/arm_direct_logins.php:71
+#: core/view/arm_direct_logins.php:70
 #@ ARM_DIRECT_LOGINS
 msgid "Existing User"
 msgstr "Existing User"
 
-#: core/view/arm_direct_logins.php:80
+#: core/view/arm_direct_logins.php:78
 #@ ARM_DIRECT_LOGINS
 msgid "Email can not be left blank."
 msgstr "Email can not be left blank."
 
-#: core/view/arm_direct_logins.php:81
+#: core/view/arm_direct_logins.php:79
 #@ ARM_DIRECT_LOGINS
 msgid "Please enter an email address."
 msgstr "Please enter an email address."
 
-#: core/view/arm_direct_logins.php:83
+#: core/view/arm_direct_logins.php:81
 #@ ARM_DIRECT_LOGINS
 msgid "Email address already exists."
 msgstr "Email address already exists."
 
-#: core/view/arm_direct_logins.php:88
+#: core/view/arm_direct_logins.php:86
 #@ ARM_DIRECT_LOGINS
 msgid "Select User Role"
 msgstr "Select User Role"
 
-#: core/view/arm_direct_logins.php:136
-#: core/view/arm_direct_logins.php:233
+#: core/view/arm_direct_logins.php:135
+#: core/view/arm_direct_logins.php:225
 #@ ARM_DIRECT_LOGINS
 msgid "Direct Login Expiration"
 msgstr "Direct Login Expiration"
 
-#: core/view/arm_direct_logins.php:143
-#: core/view/arm_direct_logins.php:240
+#: core/view/arm_direct_logins.php:141
+#: core/view/arm_direct_logins.php:232
 #@ ARM_DIRECT_LOGINS
 msgid "After Selected Hours"
 msgstr "After Selected Hours"
 
-#: core/view/arm_direct_logins.php:167
-#: core/view/arm_direct_logins.php:264
+#: core/view/arm_direct_logins.php:161
+#: core/view/arm_direct_logins.php:253
 #@ ARM_DIRECT_LOGINS
 msgid "After Selected Days"
 msgstr "After Selected Days"
 
-#: core/view/arm_direct_logins.php:197
-#: core/view/arm_direct_logins.php:294
+#: core/view/arm_direct_logins.php:191
+#: core/view/arm_direct_logins.php:283
 #@ ARM_DIRECT_LOGINS
 msgid "Save"
 msgstr "Save"
 
-#: core/view/arm_direct_logins.php:198
-#: core/view/arm_direct_logins.php:295
+#: core/view/arm_direct_logins.php:190
+#: core/view/arm_direct_logins.php:282
 #@ ARM_DIRECT_LOGINS
 msgid "Cancel"
 msgstr "Cancel"
 
-#: core/view/arm_direct_logins_list_records.php:195
+#: core/view/arm_direct_logins_list_records.php:211
 #@ ARM_DIRECT_LOGINS
 msgid "Search"
 msgstr "Search"
 
-#: core/view/arm_direct_logins_list_records.php:197
+#: core/view/arm_direct_logins_list_records.php:213
 #@ ARM_DIRECT_LOGINS
 msgid "Show"
 msgstr "Show"
 
-#: core/view/arm_direct_logins_list_records.php:198
+#: core/view/arm_direct_logins_list_records.php:44
+#: core/view/arm_direct_logins_list_records.php:214
 #@ ARM_DIRECT_LOGINS
 msgid "Showing"
 msgstr "Showing"
 
-#: core/view/arm_direct_logins_list_records.php:199
+#: core/view/arm_direct_logins_list_records.php:46
+#: core/view/arm_direct_logins_list_records.php:215
 #@ ARM_DIRECT_LOGINS
 msgid "to"
 msgstr "to"
 
-#: core/view/arm_direct_logins_list_records.php:200
+#: core/view/arm_direct_logins_list_records.php:47
+#: core/view/arm_direct_logins_list_records.php:216
 #@ ARM_DIRECT_LOGINS
 msgid "of"
 msgstr "of"
 
-#: core/view/arm_direct_logins_list_records.php:203
+#: core/view/arm_direct_logins_list_records.php:219
 #@ ARM_DIRECT_LOGINS
 msgid "filtered from"
 msgstr "filtered from"
 
-#: core/view/arm_direct_logins_list_records.php:204
+#: core/view/arm_direct_logins_list_records.php:220
 #@ ARM_DIRECT_LOGINS
 msgid "total"
 msgstr "total"
 
-#: core/view/arm_direct_logins.php:68
+#: core/view/arm_direct_logins.php:66
 #@ ARM_DIRECT_LOGINS
 msgid "By selecting this option, It will create new user in site with selected user role & also will generate direct login token."
 msgstr "By selecting this option, It will create new user in site with selected user role & also will generate direct login token."
 
-#: core/view/arm_direct_logins.php:72
+#: core/view/arm_direct_logins.php:71
 #@ ARM_DIRECT_LOGINS
 msgid "By selecting this option, It will generate direct login token for selected user."
 msgstr "By selecting this option, It will generate direct login token for selected user."
 
-#: core/classes/class.arm_direct_logins.php:180
-#: core/view/arm_direct_logins.php:226
-#: core/view/arm_direct_logins_list_records.php:6
+#: core/classes/class.arm_direct_logins.php:181
+#: core/view/arm_direct_logins.php:218
+#: core/view/arm_direct_logins_list_records.php:7
 #@ ARM_DIRECT_LOGINS
 msgid "Username"
 msgstr "Username"
 
-#: core/classes/class.arm_direct_logins.php:182
-#: core/view/arm_direct_logins_list_records.php:8
+#: core/classes/class.arm_direct_logins.php:183
+#: core/view/arm_direct_logins_list_records.php:9
 #@ ARM_DIRECT_LOGINS
 msgid "User Role"
 msgstr "User Role"
 
-#: core/view/arm_direct_logins.php:112
-#: core/view/arm_direct_logins.php:131
+#: core/view/arm_direct_logins.php:111
+#: core/view/arm_direct_logins.php:130
 #@ ARM_DIRECT_LOGINS
 msgid "Please select user."
 msgstr "Please select user."
 
-#: core/classes/class.arm_direct_logins.php:184
 #: core/classes/class.arm_direct_logins.php:229
-#: core/classes/class.arm_direct_logins.php:338
-#: core/view/arm_direct_logins_list_records.php:10
+#: core/classes/class.arm_direct_logins.php:335
 #@ ARM_DIRECT_LOGINS
 msgid "Active"
 msgstr "Active"
@@ -238,83 +239,83 @@ msgid "Link Status"
 msgstr "Link Status"
 
 #: core/classes/class.arm_direct_logins.php:234
-#: core/classes/class.arm_direct_logins.php:340
+#: core/classes/class.arm_direct_logins.php:337
 #@ ARM_DIRECT_LOGINS
 msgid "Inactive"
 msgstr "Inactive"
 
-#: core/classes/class.arm_direct_logins.php:286
+#: core/classes/class.arm_direct_logins.php:283
 #@ ARM_DIRECT_LOGINS
 msgid "Copy link to clipboard"
 msgstr "Copy link to clipboard"
 
-#: autoload.php:174
+#: autoload.php:364
 #@ ARM_DIRECT_LOGINS
 msgid "ARMember - Direct Login Addon plugin requires ARMember Plugin installed and active."
 msgstr "ARMember - Direct Login Addon plugin requires ARMember Plugin installed and active."
 
-#: autoload.php:102
-#: autoload.php:150
-#: autoload.php:275
-#: autoload.php:276
-#: core/view/arm_direct_logins_list_records.php:196
+#: autoload.php:101
+#: autoload.php:349
+#: autoload.php:467
+#: autoload.php:468
+#: core/view/arm_direct_logins_list_records.php:212
 #@ ARM_DIRECT_LOGINS
 msgid "Direct Login"
 msgstr "Direct Login"
 
-#: core/view/arm_direct_logins_list_records.php:39
-#: core/view/arm_direct_logins_list_records.php:201
+#: core/view/arm_direct_logins_list_records.php:41
+#: core/view/arm_direct_logins_list_records.php:217
 #@ ARM_DIRECT_LOGINS
 msgid "No matching direct login found."
 msgstr "No matching direct login found."
 
-#: core/view/arm_direct_logins_list_records.php:38
-#: core/view/arm_direct_logins_list_records.php:202
+#: core/view/arm_direct_logins_list_records.php:40
+#: core/view/arm_direct_logins_list_records.php:218
 #@ ARM_DIRECT_LOGINS
 msgid "No any direct login found."
 msgstr "No any direct login found."
 
-#: core/classes/class.arm_direct_logins.php:288
+#: core/classes/class.arm_direct_logins.php:285
 #@ ARM_DIRECT_LOGINS
 msgid "Modify Duration"
 msgstr "Modify Duration"
 
-#: core/view/arm_direct_logins.php:218
+#: core/view/arm_direct_logins.php:211
 #@ ARM_DIRECT_LOGINS
 msgid "Edit Direct Login"
 msgstr "Edit Direct Login"
 
-#: autoload.php:332
+#: autoload.php:527
 #@ ARM_DIRECT_LOGINS
 msgid "Please select one or more records."
 msgstr "Please select one or more records."
 
-#: autoload.php:333
+#: autoload.php:528
 #@ ARM_DIRECT_LOGINS
 msgid "Please select valid action."
 msgstr "Please select valid action."
 
-#: autoload.php:334
+#: autoload.php:529
 #@ ARM_DIRECT_LOGINS
 msgid "Settings has been saved successfully."
 msgstr "Settings has been saved successfully."
 
-#: autoload.php:335
+#: autoload.php:530
 #@ ARM_DIRECT_LOGINS
 msgid "There is a error while updating settings, please try again."
 msgstr "There is a error while updating settings, please try again."
 
-#: autoload.php:177
+#: autoload.php:367
 #@ ARM_DIRECT_LOGINS
 msgid "ARMember - Direct Login Addon plugin requires ARMember plugin installed with version 3.2 or higher."
 msgstr "ARMember - Direct Login Addon plugin requires ARMember plugin installed with version 3.2 or higher."
 
-#: core/view/arm_direct_logins.php:110
+#: core/view/arm_direct_logins.php:109
 #@ ARM_DIRECT_LOGINS
 msgid "Enter Username/Email"
 msgstr "Enter Username/Email"
 
-#: core/view/arm_direct_logins.php:112
+#: core/view/arm_direct_logins.php:111
 #@ ARM_DIRECT_LOGINS
 msgid "Search by username or email..."
 msgstr "Search by username or email..."
@@ -365,8 +366,59 @@ msgstr "You do not have permission to install plugin updates"
 msgid "Error"
 msgstr "Error"
 
-#: core/view/arm_direct_logins.php:78
+#: core/view/arm_direct_logins.php:76
 #@ ARM_DIRECT_LOGINS
 msgid "Email Address"
 msgstr "Email Address"
+
+#: autoload.php:125
+#: autoload.php:138
+#: autoload.php:256
+#: autoload.php:289
+#: autoload.php:301
+#@ ARM_DIRECT_LOGINS
+msgid "Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon"
+msgstr "Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon"
+
+#. translators: 1. Redirect URL link starts 2.Redirect URL link ends
+#: autoload.php:127
+#: autoload.php:140
+#: autoload.php:258
+#: autoload.php:291
+#: autoload.php:303
+#, php-format
+#@ ARM_DIRECT_LOGINS
+msgid "Please %s Click Here %s to Continue"
+msgstr "Please %s Click Here %s to Continue"
+
+#: core/classes/class.arm_direct_logins.php:180
+#: core/view/arm_direct_logins_list_records.php:6
+#@ ARM_DIRECT_LOGINS
+msgid "Active/Deactive"
+msgstr "Active/Deactive"
+
+#: core/view/arm_direct_logins_list_records.php:45
+#@ ARM_DIRECT_LOGINS
+msgid "Showing 0 to 0 of 0 records"
+msgstr "Showing 0 to 0 of 0 records"
+
+#: core/view/arm_direct_logins_list_records.php:48
+#@ ARM_DIRECT_LOGINS
+msgid "Records"
+msgstr "Records"
+
+#: core/view/arm_direct_logins_list_records.php:49
+#@ ARM_DIRECT_LOGINS
+msgid "Records per page"
+msgstr "Records per page"
+
+#: core/view/arm_direct_logins_list_records.php:50
+#@ ARM_DIRECT_LOGINS
+msgid "No records found."
+msgstr "No records found."
+
+#: core/view/arm_direct_logins_list_records.php:51
+#@ ARM_DIRECT_LOGINS
+msgid "No matching records found."
+msgstr "No matching records found."
 

@@ -46,10 +46,10 @@ if(!class_exists('ARM_Member_Direct_Logins')){
         
         function arm_direct_logins_save() {
             global $ARMember;
-            if( method_exists($ARMember, 'arm_check_user_cap') ){
-                $arm_directlogin_capabilities = 'arm_direct_logins';
-                $ARMember->arm_check_user_cap($arm_directlogin_capabilities,'1');
-            }
+            
+            $arm_directlogin_capabilities = 'arm_direct_logins';
+            $ARMember->arm_check_user_cap($arm_directlogin_capabilities,'1');
+
             $arm_dl_data = $_REQUEST;
             $arm_dl_expire_type = isset($arm_dl_data['arm_direct_logins_expire_type']) ? $arm_dl_data['arm_direct_logins_expire_type'] : 'hours';
             $arm_dl_expire_time_name  = 'arm_direct_logins_'.$arm_dl_expire_type;
@@ -177,11 +177,11 @@ if(!class_exists('ARM_Member_Direct_Logins')){
             
             $ai = 0;
             $grid_columns = array(
+                'Active' => __('Active/Deactive', 'ARM_DIRECT_LOGINS'),
                 'User_Name' => __('Username', 'ARM_DIRECT_LOGINS'),
                 'Email' => __('Email', 'ARM_DIRECT_LOGINS'),
                 'Role' => __('User Role', 'ARM_DIRECT_LOGINS'),
                 'Last_Logged_In' => __('Last Logged In', 'ARM_DIRECT_LOGINS'),
-                'Active' => __('Active', 'ARM_DIRECT_LOGINS'),
                 'Expiry' => __('Link Status', 'ARM_DIRECT_LOGINS'),
             );
             
@@ -209,19 +209,19 @@ if(!class_exists('ARM_Member_Direct_Logins')){
                     if($arm_dl_expire_time == 'Expired')
                     {    
                         $arm_dl_active = '';
-                        $arm_dl_active .= '<div class="arm_temp_switch_wrapper_disable" style="width: auto;margin: 5px 0px 0 -4px;">';
-                        $arm_dl_active .= '<img src="'.ARM_DIRECT_LOGINS_IMAGES_URL.'toggle_disable_icon.png">';
+                        $arm_dl_active .= '<div class="arm_temp_switch_wrapper_disable center" style="width:auto;margin: 5px 0px">';
+                        $arm_dl_active .= '<div class="armswitch center"><label class="armswitch_label" style="cursor: not-allowed  !important;"></label></div>';
                         $arm_dl_active .= '</div>';
                         $link_status = '<div class="link_status color_red">'.$arm_dl_expire_time.'</div>';
                     }
                     else
                     {
                         $arm_dl_active = '';
-                        $arm_dl_active .= '<div class="arm_temp_switch_wrapper" style="width: auto;margin: 5px 0;">';
-                        $arm_dl_active .= '<div class="armswitch arm_direct_login_active">';
+                        $arm_dl_active .= '<div class="arm_temp_switch_wrapper center" style="width: auto;margin: 5px 0;">';
+                        $arm_dl_active .= '<div class="armswitch arm_direct_login_active arm_margin_right_0">';
                         $arm_dl_active .= '<input type="checkbox" id="arm_direct_logins_active_switch_'.$arm_dl_user_id.'" value="1" class="armswitch_input arm_direct_logins_active_switch" name="arm_direct_logins_active_switch_'.$arm_dl_user_id.'" data-item_id="'.$arm_dl_user_id.'" '.checked($is_enable_direct_logins_enable, 1, false).'/>';
                         $arm_dl_active .= '<label for="arm_direct_logins_active_switch_'.$arm_dl_user_id.'" class="armswitch_label"></label>';
-                        $arm_dl_active .= '<span class="arm_status_loader_img" style="display: none;"></span>';
+                        $arm_dl_active .= '<span class="arm_status_loader_img" style="display: none; left:15px !important"></span>';
                         $arm_dl_active .= '</div></div>';
                         if($is_enable_direct_logins_enable)
                         {
@@ -237,26 +237,20 @@ if(!class_exists('ARM_Member_Direct_Logins')){
                     
                     $view_link = admin_url('admin.php?page=' . $arm_slugs->manage_members . '&action=view_member&id=' . $arm_dl_user_id);
                     
-                    $grid_view_popup_html = "<a class='arm_openpreview arm_dl_openpreview_popup armhelptip' href='javascript:void(0)' data-id='" . $arm_dl_user_id . "' title='" . __('View Detail', 'ARM_DIRECT_LOGINS') . "'>";
+                    $grid_view_popup_html = "<a class='arm_openpreview arm_openpreview_popup armhelptip' data-arm_hide_edit='1' href='javascript:void(0)' data-id='" . $arm_dl_user_id . "' title='" . __('View Detail', 'ARM_DIRECT_LOGINS') . "'>";
                     $grid_view_popup_html1 = "</a>";
 
 
-                    $grid_data[$ai][0] = $user->user_login;
-                    $grid_data[$ai][1] = $grid_view_popup_html.$user->user_email.$grid_view_popup_html1;
-                    $grid_data[$ai][2] = $user_role;
-                    $grid_data[$ai][3] = ($arm_dl_last_loggedin != '') ? date($date_format." ".get_option('time_format'), $arm_dl_last_loggedin) : __( 'Not yet logged in', 'ARM_DIRECT_LOGINS' );
+                    $grid_data[$ai][0] = $arm_dl_active;
+                    $grid_data[$ai][1] = $user->user_login;
+                    $grid_data[$ai][2] = $grid_view_popup_html.$user->user_email.$grid_view_popup_html1;
+                    $grid_data[$ai][3] = $user_role;
+                    $grid_data[$ai][4] = ($arm_dl_last_loggedin != '') ? date($date_format." ".get_option('time_format'), $arm_dl_last_loggedin) : __( 'Not yet logged in', 'ARM_DIRECT_LOGINS' );
                     
-                    $grid_data[$ai][4] = $arm_dl_active;
                     $grid_data[$ai][5] = $link_status;
-                    
-                    
-                    
                     $gridAction = "<div class='arm_grid_action_btn_container arm_direct_logins_action_{$arm_dl_user_id}'>";
                     $gridAction .= $this->arm_direct_logins_get_action($arm_dl_user_id, $user->user_login);
                     $gridAction .= "</div>";
-                    
-                    
-                    
                     $grid_data[$ai][6] = $gridAction;
                     
                     $ai++;
@@ -283,11 +277,11 @@ if(!class_exists('ARM_Member_Direct_Logins')){
                 $gridAction = ''; 
                 $login_url = add_query_arg('armdl_token', $is_enable_direct_logins_toekn, admin_url());
                 
-                $gridAction .= "<a href='javascript:void(0)'><span class='arm_dl_click_to_copy_text' data-code='{$login_url}'><img src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/grid_copy_icon.png' class='armhelptip' title='" . __('Copy link to clipboard', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/grid_copy_icon_hover.png';\" onmouseout=\"this.src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/grid_copy_icon.png';\" /></span></a>";
+                $gridAction .= "<a href='javascript:void(0)'><span class='arm_dl_click_to_copy_text' data-code='{$login_url}'><img src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/duplicate_icon.svg' class='armhelptip' title='" . __('Copy link to clipboard', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/duplicate_icon.svg';\" onmouseout=\"this.src='" . ARM_DIRECT_LOGINS_IMAGES_URL . "/duplicate_icon.svg';\" /></span></a>";
                 
-                $gridAction .= "<a href='javascript:void(0)' onclick='arm_direct_logins_edit({$arm_dl_user_id}, \"{$arm_dl_username}\");'><img src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit.png' class='armhelptip' title='" . __('Modify Duration', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit_hover.png';\" onmouseout=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit.png';\" /></a>";
+                $gridAction .= "<a href='javascript:void(0)' onclick='arm_direct_logins_edit({$arm_dl_user_id}, \"{$arm_dl_username}\");'><img src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit.svg' class='armhelptip' title='" . __('Modify Duration', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit_hover.svg';\" onmouseout=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_edit.svg';\" /></a>";
                 
-                $gridAction .= "<a href='javascript:void(0)' onclick='showConfirmBoxCallback({$arm_dl_user_id});'><img src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete.png' class='armhelptip' title='" . __('Delete', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete_hover.png';\" onmouseout=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete.png';\" /></a>";
+                $gridAction .= "<a href='javascript:void(0)' onclick='showConfirmBoxCallback({$arm_dl_user_id});'><img src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete.svg' class='armhelptip' title='" . __('Delete', 'ARM_DIRECT_LOGINS') . "' onmouseover=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete_hover.svg';\" onmouseout=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_delete.svg';\" /></a>";
                 $gridAction .= $arm_global_settings->arm_get_confirm_box($arm_dl_user_id, __("Are you sure you want to delete this direct login?", 'ARM_DIRECT_LOGINS'), 'arm_direct_logins_delete_btn');
                 
             return $gridAction;

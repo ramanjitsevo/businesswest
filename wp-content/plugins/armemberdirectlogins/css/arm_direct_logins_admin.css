@@ -1,11 +1,6 @@
 .arm_selectbox dd ul, .arm_multiple_selectbox dd ul{
     max-height: 121px !important;   
 }
-
-.arm_table_label_direct_logins{
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
 .arm_table_label_direct_logins tr{
     display: inline-block;
     width: 100%;
@@ -22,17 +17,17 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
-    padding: 10px 0 0 20px;
+    padding: 10px 0 0 0;
 } 
 .arm_table_label_direct_logins tr td{
     display: inline-block;
     float: left;
-    width: 67%;
+    width: 70%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
-    padding: 5px 20px 12px;
+    padding: 5px 0px 12px 20px;
 }
 .arm_table_label_direct_logins tr th{font-weight: normal;text-align: left; padding: 10px 0 0 20px;}
 .arm_add_achievements_wrapper .arm_table_label_direct_logins tr th,
@@ -42,7 +37,7 @@
 }
 .arm_table_label_direct_logins .chosen-container{min-width: 500px;margin-bottom: 2px;}
 .popup_wrapper{
-    font-family: 'NotoSans', sans-serif, "Trebuchet MS";
+    font-family: 'Poppins';
 }
 .arm_table_label_direct_logins .bootstrap-datetimepicker-widget table tr{
     display: table-row;
@@ -90,7 +85,7 @@ span.arm_dl_set_disable_switch{ background-image: url(../images/toggle_disable_i
 }
 
 .arm_page_rtl.arm_add_direct_logins_wrapper_frm [dir='rtl'] .arm_admin_form .icheckbox_minimal-red + label, 
-.arm_page_rtl.arm_add_direct_logins_wrapper_frm [dir='rtl'] .arm_admin_form .iradio_minimal-red + label, .
+.arm_page_rtl.arm_add_direct_logins_wrapper_frm [dir='rtl'] .arm_admin_form .iradio_minimal-red + label,
 .arm_page_rtl.arm_add_direct_logins_wrapper_frm arm_page_rtl .arm_admin_form .icheckbox_minimal-red + label, 
 .arm_page_rtl.arm_add_direct_logins_wrapper_frm .arm_page_rtl .arm_admin_form .iradio_minimal-red + label{
     margin-left: 12px;
@@ -127,4 +122,70 @@ span.arm_dl_set_disable_switch{ background-image: url(../images/toggle_disable_i
 .arm_page_rtl .wrap #example_1_wrapper tr:not(.arm_child_user_row):hover td{
     box-shadow: 0px 1px 0px 0px rgba(214,214,214,0.4) !important;
     -webkit-box-shadow: 0px 1px 0px 0px rgba(214,214,214,0.4) !important;
+  border-right: 1px solid var(--arm-white-table_border) !important;
+}
+#example {
+  border-top: 1px solid var(--arm-white-table_border) ;
+  border-collapse: collapse;
+}
+.wrap.arm_manage_members_main_wrapper #example_wrapper tr.odd td,
+.wrap.arm_manage_members_main_wrapper #example_wrapper tr.even td {
+  border-bottom: 1px solid var(--arm-white-table_border)!important;
+  padding-left: 24px;
+}
+.wrap.arm_manage_members_main_wrapper #example_wrapper tr td.armGridActionTD{
+    padding: 16px 15px !important;
+}
+
+.wrap.arm_manage_members_main_wrapper #example_wrapper tr.odd td:not(:nth-last-child(-n+2)),
+.wrap.arm_manage_members_main_wrapper #example_wrapper tr.even td:not(:nth-last-child(-n+2)) {
+  border-right: 1px solid var(--arm-white-table_border) !important;
+}
+.wrap #example_wrapper tr td.armGridActionTD, .wrap #example_wrapper tr:hover td.armGridActionTD{
+    border-bottom: none !important;
+    padding: 8px;
+}
+.arm_add_direct_logins_wrapper_frm .arm_display_grid.arm_grid_col_2,
+.arm_edit_direct_logins_wrapper_frm .arm_display_grid.arm_grid_col_2{
+    gap: 28px !important; 
+}
+.arm_dl_set_username{
+    color : var(--arm-dt-black-600);
+}
+.wrap.arm_manage_members_main_wrapper #arm_referral_list_form #armember_datatable_wrapper tr.odd td, 
+.wrap #arm_referral_list_form #armember_datatable_wrapper tr.even td{
+    color: var(--arm-dt-black-600) !important;
+}
+
+#arm_add_direct_logins_wrapper_frm .arm_auto_user_field .ui-menu{
+    width: 326px !important;
+    border-color: var(--arm-gt-gray-100);
+    border-top: 0;
+    background: #fff;
+    -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    top: 275px !important;
+    left: 33px !important;
+}
+.rtl input.arm_iradio+label:not(.arm_setup_plan_label){
+    float: unset !important;
+    margin-top: 0;
+}
+.rtl .arm_dl_select_user_type.right_content.arm_radio_btn_wrapper .arm_helptip_icon {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 46px !important;
+}
+.rtl .arm_add_direct_logins_wrapper_frm .arm_subscription_btn_wrapper button,
+.rtl .arm_edit_direct_logins_wrapper_frm  .arm_subscription_btn_wrapper button{
+    margin: 0 !important;
+}
+.rtl #arm_add_direct_logins_wrapper_frm .arm_auto_user_field .ui-menu{
+    left:  auto !important;
+}
+.rtl #arm_referral_list_form .armswitch .arm_status_loader_img:not(.arm_right_30){
+    right: 50px !important;
+}
+.rtl #arm_members_grid_container .arm_temp_switch_wrapper .armswitch, .arm_page_rtl .arm_temp_switch_wrapper .armswitch {
+    margin-left: 0 !important;
 }

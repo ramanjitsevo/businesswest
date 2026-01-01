@@ -22,7 +22,7 @@ if(!defined('ARMADDON_STORE_URL')){
 }
 
 global $arm_direct_logins_version;
-$arm_direct_logins_version = '2.0';
+$arm_direct_logins_version = '2.1';
 
 global $armdirectlogin_api_url, $armdirectlogin_plugin_slug, $wp_version;
 
@@ -44,7 +44,9 @@ if (!class_exists('ARM_Direct_Logins'))
 
             add_action('activated_plugin',array($this,'arm_is_direct_logins_addon_activated'),11,2);
             
-            add_action( 'admin_notices', array( &$this, 'arm_admin_notices' ) );
+            add_filter( 'arm_admin_notice', array( &$this, 'arm_admin_notices' ), 10, 1 );
+
+            add_action('admin_notices', array(&$this, 'arm_version_check_admin_notices_func'));
             
             add_action( 'admin_init', array( &$this, 'arm_direct_logins_hide_update_notice' ), 1 );
             
@@ -65,7 +67,6 @@ if (!class_exists('ARM_Direct_Logins'))
 
             add_filter('arm_page_slugs_modify_external',array($this,'arm_direct_login_page_slugs_modify_external_func'),10,1);
         }
-
 
         public function arm_direct_login_page_slugs_modify_external_func($arm_slugs){
             $arm_slugs->arm_direct_logins = 'arm_direct_logins';
@@ -110,6 +111,206 @@ if (!class_exists('ARM_Direct_Logins'))
                 }
             }
         }
+
+        function arm_is_direct_logins_addon_activated($plugin,$network_activation)
+        {
+            global $armember_check_plugin_copy, $arm_check_addon_copy_flag;
+            $myaddon_name = "armemberdirectlogins/armemberdirectlogins.php";
+
+            if($plugin == $myaddon_name && empty($arm_check_addon_copy_flag))
+            {
+
+                if(!(is_plugin_active('armember/armember.php')))
+                {
+                    deactivate_plugins($myaddon_name, FALSE);
+                    $redirect_url = network_admin_url('plugins.php?deactivate=true&arm_license_deactivate=true&arm_deactivate_plugin='.$myaddon_name);
+                    $armpa_dact_message = __('Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon', 'ARM_DIRECT_LOGINS');
+                    /* translators: 1. Redirect URL link starts 2.Redirect URL link ends */
+                    $arm_link = sprintf( __('Please %s Click Here %s to Continue', 'ARM_DIRECT_LOGINS'), '<a href="javascript:void(0)" onclick="window.location.href=\'' . $redirect_url . '\'">', '</a>');
+                    wp_die('<p>'.$armpa_dact_message.'<br/>'.$arm_link.'</p>'); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
+                    die;
+                }
+
+                $license = trim( get_option( 'arm_pkg_key' ) );
+
+                if($armember_check_plugin_copy == 1 && ('' === $license || false === $license )) 
+                {
+                    deactivate_plugins($myaddon_name, FALSE);
+                    $redirect_url = network_admin_url('plugins.php?deactivate=true&arm_license_deactivate=true&arm_deactivate_plugin='.$myaddon_name);
+                    $armpa_dact_message = __('Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon', 'ARM_DIRECT_LOGINS');
+                    /* translators: 1. Redirect URL link starts 2.Redirect URL link ends */
+                    $arm_link = sprintf( __('Please %s Click Here %s to Continue', 'ARM_DIRECT_LOGINS'), '<a href="javascript:void(0)" onclick="window.location.href=\'' . $redirect_url . '\'">', '</a>');
+                    wp_die('<p>'.$armpa_dact_message.'<br/>'.$arm_link.'</p>'); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
+                    die;
+                }
+                else
+                {
+                    
+                    if(empty($armember_check_plugin_copy)){
+                        
+                        global $wp_version, $arm_members_activity;
+                        $lidata = array();
+                        
+                        $get_purchased_info = get_option('armSortInfo');
+                        $cust_name = '';
+                        $pcodecustemail = "";
+                        $arm_pkg_key = '';
+                        if(!empty($get_purchased_info)){
+                            $sortorderval = base64_decode($get_purchased_info);
+
+                            $ordering = explode("^", $sortorderval);
+
+                            if (is_array($ordering)) {
+                                if (isset($ordering[0]) && $ordering[0] != "") {
+                                    $arm_pkg_key = $ordering[0];
+                                } else {
+                                    $arm_pkg_key = "";
+                                }
+                                if (isset($ordering[4]) && $ordering[4] != "") {
+                                    $pcodecustemail = $ordering[4];
+                                } else {
+                                    $pcodecustemail = "";
+                                }
+                            }
+                        }    
+
+                        $lidata[] = !empty($cust_name) ? $cust_name : ' '; //phpcs:ignore
+                        $lidata[] = $pcodecustemail; //phpcs:ignore
+                        $lidata[] = $arm_pkg_key; //phpcs:ignore
+                        $lidata[] = $_SERVER["SERVER_NAME"]; //phpcs:ignore
+
+                        $pluginuniquecode = $arm_members_activity->generateplugincode();
+                        $lidata[] = $pluginuniquecode;
+                        $lidata[] = MEMBERSHIP_URL;//phpcs:ignore
+                        $lidata[] = get_option("arm_version");
+                        $lidata[] = 0; //phpcs:ignore
+
+                        $valstring = implode("||", $lidata);
+                        $encodedval = base64_encode($valstring);
+
+                        $urltopost = "https://www.reputeinfosystems.com/tf/plugins/armember/verify/lic_act_arm.php";
+
+                        $response = wp_remote_post($urltopost, array(
+                            'method' => 'POST',
+                            'timeout' => 45,
+                            'redirection' => 5,
+                            'httpversion' => '1.0',
+                            'blocking' => true,
+                            'headers' => array(),
+                            'body' => array('verifypurchase' => $encodedval),
+                            'user-agent' => 'ARM-WordPress/' . $wp_version . '; ' . ARM_HOME_URL,
+                            'cookies' => array()
+                                )
+                        );
+                        
+                        if(is_wp_error($response)) 
+                        {
+                            $urltopost = "http://www.reputeinfosystems.com/tf/plugins/armember/verify/lic_act_arm.php";
+
+                            $response = wp_remote_post($urltopost, array(
+                                'method' => 'POST',
+                                'timeout' => 45,
+                                'redirection' => 5,
+                                'httpversion' => '1.0',
+                                'blocking' => true,
+                                'headers' => array(),
+                                'body' => array('verifypurchase' => $encodedval),
+                                'user-agent' => 'ARM-WordPress/' . $wp_version . '; ' . ARM_HOME_URL,
+                                'cookies' => array()
+                                    )
+                            );
+                        }
+
+                        if (array_key_exists('body', $response) && isset($response["body"]) && $response["body"] != "")
+                            $responsemsg = $response["body"];
+                        else
+                            $responsemsg = "";
+
+                        $checklic = 0;
+                        if ($responsemsg != "") {
+                            $responsemsg = explode("|^|", $responsemsg);
+                            if (is_array($responsemsg) && count($responsemsg) > 0) {
+
+                                if (isset($responsemsg[0]) && $responsemsg[0] != "") {
+                                    $msg = $responsemsg[0];
+                                } else {
+                                    $msg = "";
+                                }
+                                if (isset($responsemsg[1]) && $responsemsg[1] != "") {
+                                    $code = $responsemsg[1];
+                                } else {
+                                    $code = "";
+                                }
+                                if (isset($responsemsg[2]) && $responsemsg[2] != "") {
+                                    $info = $responsemsg[2];
+                                } else {
+                                    $info = "";
+                                }
+
+                                if ($msg == "1") {
+                                    $checklic = $arm_members_activity->checksoringcode($code, $info);                                    
+                                }
+                            } 
+                        }
+                        if ($checklic != "1") {
+                            deactivate_plugins($myaddon_name, FALSE);
+                            $redirect_url = network_admin_url('plugins.php?deactivate=true&arm_license_deactivate=true&arm_deactivate_plugin='.$myaddon_name);
+                            $armpa_dact_message = __('Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon', 'ARM_DIRECT_LOGINS');
+                            /* translators: 1. Redirect URL link starts 2.Redirect URL link ends */
+                            $arm_link = sprintf( __('Please %s Click Here %s to Continue', 'ARM_DIRECT_LOGINS'), '<a href="javascript:void(0)" onclick="window.location.href=\'' . $redirect_url . '\'">', '</a>');
+                            wp_die('<p>'.$armpa_dact_message.'<br/>'.$arm_link.'</p>'); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
+                            die;
+                        }
+                    }else{
+
+                        $package = trim( get_option( 'arm_pkg' ) );
+                        $store_url = ARMADDON_STORE_URL;
+                        $api_params = array(
+                            'edd_action' => 'check_license',
+                            'license' => $license,
+                            'item_id'  => $package,
+                            //'item_name' => urlencode( $item_name ),
+                            'url' => home_url()
+                        );
+                        $response = wp_remote_post( $store_url, array( 'body' => $api_params, 'timeout' => 15, 'sslverify' => false ) );
+                        if ( is_wp_error( $response ) ) {
+                            return false;
+                        }
+            
+                        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
+                        $license_data_string =  wp_remote_retrieve_body( $response );
+            
+                        $message = '';
+
+                        if ( true === $license_data->success ) 
+                        {
+                            if($license_data->license != "valid")
+                            {
+                                deactivate_plugins($myaddon_name, FALSE);
+                                $redirect_url = network_admin_url('plugins.php?deactivate=true&arm_license_deactivate=true&arm_deactivate_plugin='.$myaddon_name);
+                                $armpa_dact_message = __('Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon', 'ARM_DIRECT_LOGINS');
+                                /* translators: 1. Redirect URL link starts 2.Redirect URL link ends */
+                                $arm_link = sprintf( __('Please %s Click Here %s to Continue', 'ARM_DIRECT_LOGINS'), '<a href="javascript:void(0)" onclick="window.location.href=\'' . $redirect_url . '\'">', '</a>');
+                                wp_die('<p>'.$armpa_dact_message.'<br/>'.$arm_link.'</p>'); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
+                                die;
+                            }
+
+                        }
+                        else
+                        {
+                            deactivate_plugins($myaddon_name, FALSE);
+                            $redirect_url = network_admin_url('plugins.php?deactivate=true&arm_license_deactivate=true&arm_deactivate_plugin='.$myaddon_name);
+                            $armpa_dact_message = __('Please activate license of ARMember premium plugin to use ARMember - Direct Login Addon', 'ARM_DIRECT_LOGINS');
+                            /* translators: 1. Redirect URL link starts 2.Redirect URL link ends */
+                            $arm_link = sprintf( __('Please %s Click Here %s to Continue', 'ARM_DIRECT_LOGINS'), '<a href="javascript:void(0)" onclick="window.location.href=\'' . $redirect_url . '\'">', '</a>');
+                            wp_die('<p>'.$armpa_dact_message.'<br/>'.$arm_link.'</p>'); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
+                            die;
+                        }
+                    }    
+                }
+            }
+
+        }
 		
         /*
          * Restrict Network Activation
@@ -129,7 +330,7 @@ if (!class_exists('ARM_Direct_Logins'))
 			if (!isset($arm_direct_logins_newdbversion) || $arm_direct_logins_newdbversion == "")
 				$arm_direct_logins_newdbversion = get_option('arm_direct_logins_version');
 	
-            if (version_compare($arm_direct_logins_newdbversion, '2.0', '<')) {
+            if (version_compare($arm_direct_logins_newdbversion, '2.1', '<')) {
 				$path = ARM_DIRECT_LOGINS_VIEW_DIR . '/upgrade_latest_data_directlogins.php';
 				include($path);
 			}
@@ -158,23 +359,25 @@ if (!class_exists('ARM_Direct_Logins'))
             }
         }
 
-        public static function arm_is_direct_logins_addon_activated($plugin,$network_activation) {
-            if(!file_exists( WP_PLUGIN_DIR . "/armember/armember.php") || !is_plugin_active( 'armember/armember.php' )) {
-                $arm_direct_logins_plugin = 'armemberdirectlogins/armemberdirectlogins.php';
-                deactivate_plugins( $arm_direct_logins_plugin, TRUE);
-                header('Location: ' . network_admin_url('plugins.php?deactivate=true'));
-                die;
-            }
-        }
-
-        function arm_admin_notices() {
+        function arm_admin_notices($arm_license_notice = '') {
             global $pagenow, $arm_slugs;    
             if($pagenow == 'plugins.php' || (isset($_REQUEST['page']) && in_array($_REQUEST['page'], (array) $arm_slugs))) {
                 if( !$this->is_armember_support() )
-                    echo "<div class='updated updated_notices'><p>" . esc_html__('ARMember - Direct Login Addon plugin requires ARMember Plugin installed and active.', 'ARM_DIRECT_LOGINS') . "</p></div>";
+                    $arm_license_notice .= "<div class='armember_notice_warning'>" . esc_html__('ARMember - Direct Login Addon plugin requires ARMember Plugin installed and active.', 'ARM_DIRECT_LOGINS') . "</div>";
 
                 else if ( !$this->is_version_compatible() )
-                    echo "<div class='updated updated_notices'><p>" . esc_html__('ARMember - Direct Login Addon plugin requires ARMember plugin installed with version 3.2 or higher.', 'ARM_DIRECT_LOGINS') . "</p></div>";
+                    $arm_license_notice .= "<div class='armember_notice_warning'>" . esc_html__('ARMember - Direct Login Addon plugin requires ARMember plugin installed with version 3.2 or higher.', 'ARM_DIRECT_LOGINS') . "</div>";
+            }
+
+            return $arm_license_notice;
+        }
+
+        function arm_version_check_admin_notices_func(){
+            global $arm_version;
+            if(!empty($arm_version) && version_compare($arm_version , "7.0","<"))
+            {
+                $arm_license_notice = '<div class="error arm_admin_notices_container"><p><strong>Warning:</strong>&nbsp;It seems that you MUST update to ARMember pro to the latest version 7.0 to get new UI changes. If you do not update, some design changes can break the admin panel form.</p></div>';
+                echo $arm_license_notice; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Reason - Text is escaped properly
             }
         }
         
@@ -287,6 +490,9 @@ if (!class_exists('ARM_Direct_Logins'))
                     $pageWrapperClass = 'arm_page_rtl';
                 }
                 echo '<div class="arm_page_wrapper '.esc_attr($pageWrapperClass).'" id="arm_page_wrapper">';
+
+                $arm_admin_notice = '';
+                echo apply_filters('arm_admin_notice',$arm_admin_notice);  //phpcs:ignore
                 
                 $this->admin_messages();
                 

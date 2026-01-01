@@ -1,13 +1,13 @@
 <?php
-global $wpdb, $arm_global_settings, $arm_subscription_plans, $arm_version;
+global $wpdb, $arm_global_settings, $arm_subscription_plans, $arm_version , $arm_common_lite;
 
 /* **************./Begin Set Member Grid Fields/.************** */
 $grid_columns = array(
+    'Active' => __('Active/Deactive', 'ARM_DIRECT_LOGINS'),
     'User_Name' => __('Username', 'ARM_DIRECT_LOGINS'),
     'Email' => __('Email', 'ARM_DIRECT_LOGINS'),
     'Role' => __('User Role', 'ARM_DIRECT_LOGINS'),
     'Last_Logged_In' => __('Last Logged In', 'ARM_DIRECT_LOGINS'),
-    'Active' => __('Active', 'ARM_DIRECT_LOGINS'),
     'Expiry' => __('Link Status', 'ARM_DIRECT_LOGINS'),
 );
 
@@ -21,29 +21,42 @@ $grid_columns = array(
 // <![CDATA[
     function show_grid_loader() {
         jQuery('.arm_loading_grid').show();
+        jQuery('#arm_referral_list_form .dataTables_scroll').hide();
+		jQuery('#arm_referral_list_form .footer').hide();
     }
     jQuery(document).ready(function () {
         arm_load_direct_logins_grid(false);
     });
     function arm_load_direct_logins_grid_after_filtered(msg) {
-        jQuery('#example').dataTable().fnDestroy();
+        jQuery('#armember_datatable').dataTable().fnDestroy();
         arm_load_direct_logins_grid(true, msg);
     }
     function arm_load_direct_logins_grid(is_filtered, msg) {
         var search_term = jQuery("#armmanagesearch_new").val();        
         var db_search_term = (typeof search_term !== 'undefined' && search_term !== '') ? search_term : '';
-        var ajax_url = '<?php echo admin_url("admin-ajax.php"); //phpcs:ignore ?>';
+        var ajax_url = '<?php echo admin_url("admin-ajax.php"); ?>';
         var _wpnonce = jQuery('input[name="_wpnonce"]').val();
         jQuery('#csv_sSearch').val(search_term);
-        var __ARM_NO_FOUNT = '<?php echo addslashes(esc_html__('No any direct login found.','ARM_DIRECT_LOGINS')); //phpcs:ignore?>';
-        var __ARM_NO_MATCHING = '<?php echo addslashes(esc_html__('No matching direct login found.','ARM_DIRECT_LOGINS')); //phpcs:ignore ?>';
-        var __ARMVersion = '<?php echo $arm_version; //phpcs:ignore?>';
-        var oTables = jQuery('#example');
+        var __ARM_NO_FOUNT = '<?php echo addslashes(esc_html__('No any direct login found.','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_NO_MATCHING = '<?php echo addslashes(esc_html__('No matching direct login found.','ARM_DIRECT_LOGINS')); ?>';
+        var __ARMVersion = '<?php echo $arm_version; ?>';
+        var oTables = jQuery('#armember_datatable');
+        var __ARM_Showing = '<?php echo addslashes(esc_html__('Showing','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_Showing_empty = '<?php echo addslashes(esc_html__('Showing 0 to 0 of 0 records','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_to = '<?php echo addslashes(esc_html__('to','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_of = '<?php echo addslashes(esc_html__('of','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_RECORDS = '<?php echo addslashes(esc_html__('Records','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_Show = '<?php echo addslashes(esc_html__('Records per page','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_NO_FOUND = '<?php echo addslashes(esc_html__('No records found.','ARM_DIRECT_LOGINS')); ?>';
+        var __ARM_NO_MATCHING = '<?php echo addslashes(esc_html__('No matching records found.','ARM_DIRECT_LOGINS')); ?>';
 
         var dt_obj = {
-             "oLanguage": {
+            "oLanguage": {
                 "sProcessing": show_grid_loader(),
-                "sEmptyTable": __ARM_NO_FOUNT,
+                "sInfo": __ARM_Showing + " _START_ " + __ARM_to + " _END_ " + __ARM_of + " _TOTAL_ " + __ARM_RECORDS,
+                "sInfoEmpty": __ARM_Showing_empty,
+                "sLengthMenu": __ARM_Show + "_MENU_",
+                "sEmptyTable": __ARM_NO_FOUND,
                 "sZeroRecords": __ARM_NO_MATCHING
             },
             "sDom": '<"H"Cfr>t<"F"ipl>',
@@ -56,22 +69,24 @@ $grid_columns = array(
                 aoData.push({'name': 'sColumns', 'value':null});
                 aoData.push({'name': '_wpnonce', 'value':_wpnonce});
             },
-            "bRetrieve": false,
-            "sPaginationType": "four_button",
-            "bJQueryUI": true,
-            "bPaginate": true,
-            "bAutoWidth": false,
-            "sScrollX": "100%",
-            "bScrollCollapse": true,
+            "fixedColumns": true,
+
+            "aoColumnDefs": [
+                {"sType": "html", "bVisible": false, "aTargets": []},
+                {"sClass": "center", "aTargets": [0]},
+                {"sClass": "left", "aTargets": [1,2,3,4]},
+                {"bSortable": false, "aTargets": [0,3,4]}
+            ],
+           "bRetrieve": false,
+			"sPaginationType": "four_button",
+			"bJQueryUI": true,
+			"bPaginate": true,
+			"bAutoWidth": false,
+			"sScrollX": "100%",
+			"bScrollCollapse": true,
             "oColVis": {
                 "aiExclude": [0]
             },
-            "aoColumnDefs": [
-                {"sType": "html", "bVisible": false, "aTargets": []}, 
-                {"sClass": "center", "aTargets": [] },
-                {"sClass": "left", "aTargets": [0,1,2,3,4] },
-                {"bSortable": false, "aTargets": [0,3,4]}
-            ],
             "order":[[2,'desc']],
             "fixedColumns": true,
             "bStateSave": true,
@@ -93,10 +108,10 @@ $grid_columns = array(
             "fnStateLoadParams": function (oSettings, oData) {
                 oData.iLength = 10;
                 oData.iStart = 0;
-                //oData.oSearch.sSearch = db_search_term;
             },
             "fnPreDrawCallback": function () {
-                jQuery('.arm_loading_grid').show();
+				jQuery('.arm_loading_grid').fadeIn(0);
+                show_grid_loader();
             },
             "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                 jQuery(nRow).find('.arm_grid_action_btn_container').each(function () {
@@ -106,9 +121,10 @@ $grid_columns = array(
             },
             "fnDrawCallback": function (oSettings) {
                 jQuery('.arm_loading_grid').hide();
+                jQuery('#arm_referral_list_form .dataTables_scroll').show();
+                jQuery('#arm_referral_list_form .footer').show();
+                arm_show_data();
                 jQuery("#cb-select-all-1").removeAttr("checked");
-                //arm_selectbox_init();
-                
                 if (jQuery.isFunction(jQuery().tipso)) {
                     jQuery('.armhelptip').each(function () {
                         jQuery(this).tipso({
@@ -122,41 +138,34 @@ $grid_columns = array(
                         });
                     });
                 }
-                if(typeof msg != 'undefined'){
-                    if(msg!='')
-                    {
+                if (typeof msg != 'undefined') {
+                    if (msg != '') {
                         armToast(msg, 'success');
                         msg = '';
                     }
                 }
+                jQuery(oSettings.nTable).DataTable().columns.adjust();
             }
+
         };
 
-
-        if(__ARMVersion > "4.0")
-        {
+        if (__ARMVersion > "4.0") {
             dt_obj.language = {
                 "searchPlaceholder": "Search",
                 "search":"",
             };
-
             dt_obj.buttons = [{
                 "extend":"colvis",
                 "columns":":not(.noVis)",
             }];
-
             dt_obj.sDom = '<"H"CBfr>t<"footer"ipl>';
-
             dt_obj.fixedColumns = false;
         }
 
-
         oTables.dataTable(dt_obj);
-
-
         var filter_box = jQuery('#arm_filter_wrapper').html();
-        jQuery('div#example_filter').parent().append(filter_box);
-        jQuery('div#example_filter').hide();
+        jQuery('div#armember_datatable_filter').parent().append(filter_box);
+        jQuery('div#armember_datatable_filter').hide();
         jQuery('#arm_filter_wrapper').remove();
         jQuery('#armmanagesearch_new').bind('keyup', function (e) {
             e.stopPropagation();
@@ -175,17 +184,24 @@ $grid_columns = array(
         <input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? $_REQUEST['page'] : '' ; ?>" />
         <input type="hidden" name="armaction" value="list" />
         <div id="armmainformnewlist" class="arm_filter_grid_list_container">
-            <div class="arm_loading_grid" style="display: none;"><img src="<?php echo MEMBERSHIPLITE_IMAGES_URL;?>/loader.gif" alt="Loading.."></div>
+            <div class="arm_loading_grid" style="display: none;"><?php echo $arm_common_lite->arm_loader_img_func();?></div>
             <div class="response_messages"></div>
             <div class="armclear"></div>
-            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+            <table cellpadding="0" cellspacing="0" border="0" class="display arm_hide_datatable" id="armember_datatable">
                 <thead>
-                    <tr>
-                        <?php if(!empty($grid_columns)):?>
-                            <?php foreach($grid_columns as $key=>$title):?>
-                                <th data-key="<?php echo $key; ?>" class="arm_grid_th_<?php echo $key; ?> " style="text-align:left;" ><?php echo $title; ?></th><?php //phpcs:ignore?>
-                            <?php endforeach;?>
-                        <?php endif;?>
+                <tr>
+                    <?php if (!empty($grid_columns)): ?>
+                        <?php $i = 0; foreach ($grid_columns as $key => $title): ?>
+                            <th 
+                                data-key="<?php echo $key; ?>" 
+                                class="arm_grid_th_<?php echo $key; ?>" 
+                                style="text-align:<?php echo ($i === 0) ? 'center' : 'left'; ?>;"
+                            >
+                                <?php echo $title; ?>
+                            </th>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                         <th data-key="armGridActionTD" class="armGridActionTD"></th>
                     </tr>
                 </thead>
@@ -211,3 +227,4 @@ $grid_columns = array(
     </form>
 </div>
 <div class="arm_member_view_detail_container"></div>
+<?php require_once(MEMBERSHIPLITE_VIEWS_DIR.'/arm_view_member_details.php')?>
