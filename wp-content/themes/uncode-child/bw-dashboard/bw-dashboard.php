@@ -65,6 +65,11 @@ function bw_dashboard_shortcode($atts)
     $arm_roles = array_unique($arm_roles);
     ob_start();
 
+    if(empty($arm_roles)) {
+        echo "<h2>" . __('This account is not associated with any Membership plans', 'uncode') . "</h2>";
+        return;
+    }
+    
     // Include required files
     include_once 'includes/bw-banner.php';
     include_once 'includes/bw-tabs.php';
