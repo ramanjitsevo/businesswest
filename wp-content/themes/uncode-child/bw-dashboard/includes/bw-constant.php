@@ -1,7 +1,5 @@
 <?php
 
-define('BW_DASHBOARD_VERSION', '1.0.0');
-
 /** ARM Roles */
 define('ARM_ROLE_STAFF', 'staff');
 define('ARM_ROLE_ADMIN', 'admin');
@@ -15,5 +13,14 @@ define('DASHBOARD_TAB_HOME', 'Home');
 define('DASHBOARD_TAB_EVENTS', 'Events');
 define('DASHBOARD_TAB_RESOURCES', 'Resources');
 
+/**
+ * ** Dashboard Tab content heading
+ */
 define('DASHBOARD_UPCOMING_EVENTS', 'Upcoming Events');
 define('DASHBOARD_NEWS', 'Latest Updates and News');
+
+/**
+ * ** Dashboard Welcome Text
+ */
+define('DASHBOARD_WELCOME', 'Welcome,');
+define('DASHBOARD_WELCOME_TEXT', 'Your Business West member area – events, connections and opportunities');

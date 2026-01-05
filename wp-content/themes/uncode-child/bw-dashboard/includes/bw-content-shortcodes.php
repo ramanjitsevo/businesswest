@@ -80,7 +80,7 @@ function bw_upcoming_events_content_shortcode($atts) {
                                 <a href="<?php echo esc_url($event['link']); ?>"><?php echo esc_html($event['title']); ?></a>
                             </h3>
                             
-                            <div class="bw-event-date">
+                            <!-- <div class="bw-event-date">
                                 <i class="fa fa-calendar" role="presentation"></i>
                                 <span><?php echo esc_html($event['date']); ?></span>
                             </div>
@@ -90,14 +90,8 @@ function bw_upcoming_events_content_shortcode($atts) {
                                     <i class="fa fa-clock-o" role="presentation"></i>
                                     <span><?php echo esc_html($event['time']); ?></span>
                                 </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($event['venue']): ?>
-                                <div class="bw-event-venue">
-                                    <i class="fa fa-map-marker" role="presentation"></i>
-                                    <span><?php echo esc_html($event['venue']); ?></span>
-                                </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
+
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -164,24 +158,25 @@ function bw_posts_grid_shortcode($atts) {
                                 <a href="<?php echo esc_url($post['link']); ?>"><?php echo esc_html($post['title']); ?></a>
                             </h3>
                             
-                            <div class="bw-event-date">
+                            <!-- <div class="bw-event-date">
                                 <i class="fa fa-calendar" role="presentation"></i>
                                 <span><?php echo esc_html($post['date']); ?></span>
-                            </div>
+                            </div> -->
                             
-                            <?php if ($post['author']): ?>
+                            <!-- <?php if ($post['author']): ?>
                                 <div class="bw-event-time">
                                     <i class="fa fa-user" role="presentation"></i>
                                     <span><?php echo esc_html($post['author']); ?></span>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
                             
-                            <?php if ($post['categories']): ?>
+                            <!-- <?php if ($post['categories']): ?>
                                 <div class="bw-event-venue">
                                     <i class="fa fa-folder" role="presentation"></i>
                                     <span><?php echo esc_html($post['categories']); ?></span>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
+
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -206,7 +201,7 @@ function bw_my_team(){
         <?php echo  do_shortcode('[arm_group_child_member_list display_refresh_invite_code_button="false"]');?>
     </div>
     <?php
-    return ob_get_clean();   
+    return ob_get_clean();
 }
 
 function bw_my_business(){

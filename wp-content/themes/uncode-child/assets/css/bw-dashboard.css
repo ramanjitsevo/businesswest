@@ -501,6 +501,10 @@
   max-height: calc(1.4em * 2);
 }
 
+ .bw-tabs-content .arm-df__fields-wrapper .arm-control-group {
+    width: 50%;
+  }
+
 /* Event Grid Styles */
 .bw-events-grid {
   display: grid;
@@ -527,7 +531,7 @@
 
 .bw-event-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   overflow: hidden;
   position: relative;
 }
@@ -593,6 +597,10 @@
   font-size: 1.1rem;
 }
 
+.bw-tabs-content .sp-pcp-title a{
+  font-size: 16px;
+}
+
 .arm_group_membership_form_container{
   margin-top: 1rem;
 }
@@ -650,7 +658,7 @@
   }
 }
 
-@media (min-width: 500px) {
+@media (max-width: 550px) {
   .bw-tabs-content .arm-df__fields-wrapper .arm-control-group {
     width: 100%;
   }
