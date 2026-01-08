@@ -104,4 +104,30 @@ function bw_get_posts_by_category($category_slug = '', $limit = 6) {
     
     return $posts;
 }
+
+function bw_current_user_plans() {
+
+  $user_plan_ids = get_user_meta(get_current_user_id(), 'arm_user_plan_ids', true);
+
+    $arm_plans = array();
+    if (!empty($user_plan_ids) && is_array($user_plan_ids)) {
+        foreach ($user_plan_ids as $plan_id) {
+            $arm_plan = new ARM_Plan($plan_id);
+            $plan_name_lower = strtolower($arm_plan->name);
+
+            if (strpos($plan_name_lower, 'owner') !== false || strpos($plan_name_lower, 'business_owner') !== false || strpos($plan_name_lower, 'business owner') !== false) {
+                $arm_plans[] = ARM_PLAN_OWNER;
+            }
+            if (strpos($plan_name_lower, 'staff') !== false || strpos($plan_name_lower, 'employee') !== false) {
+                $arm_plans[] = ARM_PLAN_STAFF;
+            }
+            if (strpos($plan_name_lower, 'admin') !== false || strpos($plan_name_lower, 'administrator') !== false) {
+                $arm_plans[] = ARM_PLAN_ADMIN;
+            }
+        }
+    }
+
+    $arm_plans = array_unique($arm_plans);
+    return $arm_plans;
+}
 ?>

@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) {
 
 include_once 'includes/bw-constant.php';
 include_once 'includes/bw-helper.php';
+include_once 'includes/bw-invite-role-manager.php';
 
 /**
  * Register the shortcode
@@ -40,32 +41,10 @@ function bw_dashboard_shortcode($atts)
     wp_enqueue_style('bw-dashboard-css', get_stylesheet_directory_uri() . '/assets/css/bw-dashboard.css', array(), '1.0.0');
     wp_enqueue_script('bw-dashboard-js', get_stylesheet_directory_uri() . '/assets/js/bw-dashboard.js', array('jquery'), '1.0.0', true);
     
-
-    $user_roles = wp_get_current_user()->roles;
-    $user_plan_ids = get_user_meta(get_current_user_id(), 'arm_user_plan_ids', true);
-
-    $arm_roles = array();
-    if (!empty($user_plan_ids) && is_array($user_plan_ids)) {
-        foreach ($user_plan_ids as $plan_id) {
-            $arm_plan = new ARM_Plan($plan_id);
-            $plan_name_lower = strtolower($arm_plan->name);
-
-            if (strpos($plan_name_lower, 'owner') !== false || strpos($plan_name_lower, 'business_owner') !== false || strpos($plan_name_lower, 'business owner') !== false) {
-                $arm_roles[] = ARM_ROLE_OWNER;
-            }
-            if (strpos($plan_name_lower, 'staff') !== false || strpos($plan_name_lower, 'employee') !== false) {
-                $arm_roles[] = ARM_ROLE_STAFF;
-            }
-            if (strpos($plan_name_lower, 'admin') !== false || strpos($plan_name_lower, 'administrator') !== false) {
-                $arm_roles[] = ARM_ROLE_ADMIN;
-            }
-        }
-    }
-
-    $arm_roles = array_unique($arm_roles);
+    $arm_plans = bw_current_user_plans();
     ob_start();
 
-    if(empty($arm_roles)) {
+    if(empty($arm_plans)) {
         echo "<h2>" . __('This account is not associated with any Membership plans', 'uncode') . "</h2>";
         return;
     }
@@ -79,7 +58,7 @@ function bw_dashboard_shortcode($atts)
 
     bw_render_banner();
 
-    bw_render_tabs($arm_roles);
+    bw_render_tabs($arm_plans);
 
     echo '</div>';
 

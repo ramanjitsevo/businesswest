@@ -12,39 +12,39 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Render the dashboard tabs based on user role
+ * Render the dashboard tabs based on user plan
  */
-function bw_render_tabs($arm_roles)
+function bw_render_tabs($arm_plans)
 { 
     $tabs = array(
         'dashboard' => array(
             'title' => __(DASHBOARD_TAB_HOME, 'uncode'),
             'icon' => '<i class="fa fa-home" role="presentation"></i>',
-            'roles' => array(ARM_ROLE_STAFF, ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+            'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
             'content' => bw_dashboard_home_content()
         ),
         'events' => array(
             'title' => __(DASHBOARD_TAB_EVENTS, 'uncode'),
             'icon' => '<i class="fa fa-calendar" role="presentation"></i>',
-            'roles' => array(ARM_ROLE_STAFF, ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+            'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
             'has_submenu' => false,
           /* 'submenus' => array(
                 'upcoming-events' => array(
                     'title' => 'Upcoming Events',
                     'icon' => '<i class="fa fa-clock-o" role="presentation"></i>',
-                    'roles' => array(ARM_ROLE_STAFF, ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+                    'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
                     'content' => do_shortcode('[tribe_events view="list"]')
                 ),
                 'calendar' => array(
                     'title' => 'Calendar',
                     'icon' => '<i class="fa fa-calendar-o" role="presentation"></i>',
-                    'roles' => array('owner', 'staff', 'admin'),
+                    'plans' => array('owner', 'staff', 'admin'),
                     'content' => do_shortcode("[tribe_mini_calendar]")
                 ),
                 'manage-events' => array(
                     'title' => 'Manage Events',
                     'icon' => '<i class="fa fa-cog" role="presentation"></i>',
-                   'roles' => array('owner', 'staff', 'admin'),
+                   'plans' => array('owner', 'staff', 'admin'),
                     'content' => '[bw_manage_events_content]',
                     'link' => '/wp-admin/edit.php?post_type=tribe_events',
                     'target' => '_blank'
@@ -57,25 +57,25 @@ function bw_render_tabs($arm_roles)
        /* 'classifieds' => array(
             'title' => 'Classifieds',
             'icon' => '<i class="fa fa-bullhorn" role="presentation"></i>',
-            'roles' => array('owner', 'staff', 'admin'),
+            'plans' => array('owner', 'staff', 'admin'),
             'content' => ''
         ),*/
         'my-profile' => array(
             'title' => __(DASHBOARD_TAB_MY_PROFILE, 'uncode'),
             'icon' => '<i class="fa fa-user" role="presentation"></i>',
-            'roles' => array(ARM_ROLE_STAFF, ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+            'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
             'content' => bw_my_profile()
         ),
         'my-business' => array(
             'title' => __(DASHBOARD_TAB_MY_BUSINESS, 'uncode'),
             'icon' => '<i class="fa fa-building" role="presentation"></i>',
-            'roles' => array(ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+            'plans' => array(ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
             'content' => bw_my_business()
         ),
         'my-team' => array(
             'title' => __(DASHBOARD_TAB_MY_TEAM, 'uncode'),
             'icon' => '<i class="fa fa-users" role="presentation"></i>',
-            'roles' => array(ARM_ROLE_ADMIN, ARM_ROLE_OWNER),
+            'plans' => array(ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
             'content' => bw_my_team()
         )
     );
@@ -88,7 +88,7 @@ function bw_render_tabs($arm_roles)
     $first_tab = true;
     foreach ($tabs as $tab_id => $tab) {
 
-        if (!empty(array_intersect($arm_roles, $tab['roles']))) {
+        if (!empty(array_intersect($arm_plans, $tab['plans']))) {
 
             $active_class = $first_tab ? 'bw-active' : '';
 
@@ -106,7 +106,7 @@ function bw_render_tabs($arm_roles)
 
                 foreach ($tab['submenus'] as $submenu_id => $submenu) {
 
-                    if (!empty(array_intersect($arm_roles, $submenu['roles']))) {
+                    if (!empty(array_intersect($arm_plans, $submenu['plans']))) {
 
                         $submenu_active = ($first_tab && $first_submenu) ? 'bw-active' : '';
 
@@ -145,8 +145,8 @@ function bw_render_tabs($arm_roles)
     $first_content = true;
     foreach ($tabs as $tab_id => $tab) {
 
-        // Check if current user role can view this tab
-        if (!empty(array_intersect($arm_roles, $tab['roles']))) {
+        // Check if current user plan can view this tab
+        if (!empty(array_intersect($arm_plans, $tab['plans']))) {
 
             // Check if tab has submenus
             if (!empty($tab['has_submenu']) && !empty($tab['submenus'])) {
@@ -154,7 +154,7 @@ function bw_render_tabs($arm_roles)
                 $first_submenu_content = true;
                 foreach ($tab['submenus'] as $submenu_id => $submenu) {
 
-                    if (!empty(array_intersect($arm_roles, $submenu['roles']))) {
+                    if (!empty(array_intersect($arm_plans, $submenu['plans']))) {
 
                         $active_class = ($first_content && $first_submenu_content) ? 'bw-active' : '';
                         echo '<div class="bw-tab-pane ' . $active_class . '" id="tab-' . $tab_id . '-' . $submenu_id . '">';
