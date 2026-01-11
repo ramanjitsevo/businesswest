@@ -64,8 +64,12 @@ add_filter( 'uncode_ot_get_option_uncode_adaptive', function(){ return 'off';});
 
 include_once get_stylesheet_directory() . '/global/bw-constant.php';
 
-// Include BW Dashboard
-require_once get_stylesheet_directory() . '/bw-dashboard/bw-dashboard.php';
+//  only if ARMember plugin is active
+if ( is_plugin_active( 'armember/armember.php' ) || class_exists( 'ARMEMBERPLUGIN' ) ) {
 
-// Include BW Members Directory
-require_once get_stylesheet_directory() . '/bw-members/bw-members-listing.php';
+	// Include BW Dashboard
+    require_once get_stylesheet_directory() . '/bw-dashboard/bw-dashboard.php';
+	
+	//Include BW Members Directory
+    require_once get_stylesheet_directory() . '/bw-members/bw-members-listing.php';
+}
