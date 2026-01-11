@@ -62,5 +62,10 @@ add_filter( 'uncode_woocommerce_sidecart_mobile_enabled', '__return_true', 100 )
 // Disable uncode dynamic images
 add_filter( 'uncode_ot_get_option_uncode_adaptive', function(){ return 'off';});
 
+include_once get_stylesheet_directory() . '/global/bw-constant.php';
+
 // Include BW Dashboard
 require_once get_stylesheet_directory() . '/bw-dashboard/bw-dashboard.php';
+
+// Include BW Members Directory
+require_once get_stylesheet_directory() . '/bw-members/bw-members-listing.php';

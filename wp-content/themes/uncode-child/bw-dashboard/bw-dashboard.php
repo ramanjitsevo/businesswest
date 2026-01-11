@@ -11,7 +11,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-include_once 'includes/bw-constant.php';
 include_once 'includes/bw-helper.php';
 include_once 'includes/bw-invite-role-manager.php';
 

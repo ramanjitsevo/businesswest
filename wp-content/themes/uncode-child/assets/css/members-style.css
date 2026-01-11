@@ -1,0 +1,671 @@
+/**
+ * Business Members Directory Styles
+ * 
+ * Color Scheme:
+ * - Primary Green: #69b654
+ * - Dark: #303133
+ * - Accent Pink: #d7367d
+ * - Blue: #005AEE
+ * 
+ * @package BusinessWest
+ * @since 1.0.0
+ */
+
+:root {
+    --bw-primary: #69b654;
+    --bw-dark: #303133;
+    --bw-accent: #d7367d;
+    --bw-blue: #005AEE;
+    --bw-light-gray: #f8f9fa;
+    --bw-border: #ddd;
+}
+
+/* ========================================
+   Main Container
+======================================== */
+.bw-members-directory {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========================================
+   Filters Section
+======================================== */
+.bw-members-filters {
+    background: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bw-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Search Box */
+.bw-search-box {
+    position: relative;
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.bw-search-input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.bw-search-input:focus {
+    outline: none;
+    border-color: var(--bw-primary);
+}
+
+.bw-search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bw-primary);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bw-search-btn:hover {
+    background: #5a9f47;
+}
+
+/* Industry Filter */
+.bw-industry-filter {
+    flex: 0 1 250px;
+}
+
+.bw-filter-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.bw-filter-select:focus {
+    outline: none;
+    border-color: var(--bw-primary);
+}
+
+/* Results Count */
+.bw-results-count {
+    flex: 1 1 auto;
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ========================================
+   Map Container
+======================================== */
+.bw-map-container {
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bw-map {
+    width: 100%;
+    height: 500px;
+}
+
+.bw-map-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.bw-map-loading .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--bw-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Map Info Window Custom Styles */
+.bw-map-info-window {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    max-width: 300px;
+}
+
+.bw-info-logo {
+    flex-shrink: 0;
+}
+
+.bw-info-content {
+    flex: 1;
+}
+
+/* ========================================
+   Members Grid
+======================================== */
+.bw-members-grid-container {
+    position: relative;
+}
+
+.bw-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Member Card */
+.bw-member-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bw-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bw-member-card.highlighted {
+    border: 3px solid var(--bw-primary);
+    box-shadow: 0 0 20px rgba(105, 182, 84, 0.4);
+}
+
+/* Member Banner */
+.bw-member-banner {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.bw-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bw-banner-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Member Logo */
+.bw-member-logo {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.bw-logo-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: #f0f0f0; /* Light gray background when image fails to load */
+}
+
+/* Fallback for when image fails to load */
+.bw-logo-image:-moz-loading,
+.bw-logo-image:-moz-broken,
+.bw-logo-image:invalid {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 40px;
+}
+
+/* Member Content */
+.bw-member-content {
+    padding: 70px 20px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bw-member-name {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.bw-member-link {
+    color: var(--bw-dark);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bw-member-link:hover {
+    color: var(--bw-primary);
+}
+
+/* Member Plan Badge */
+.bw-member-plan {
+    margin-bottom: 12px;
+}
+
+.bw-plan-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, var(--bw-primary) 0%, #5a9f47 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(105, 182, 84, 0.3);
+}
+
+/* Company */
+.bw-member-company {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    color: var(--bw-dark);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bw-member-company .dashicons {
+    color: var(--bw-blue);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Industry */
+.bw-member-industry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 13px;
+}
+
+.bw-member-industry .dashicons {
+    color: var(--bw-accent);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.bw-industry-text {
+    font-weight: 500;
+}
+
+/* Phone */
+.bw-member-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.bw-member-phone .dashicons {
+    color: var(--bw-primary);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.bw-phone-link {
+    color: var(--bw-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.bw-phone-link:hover {
+    color: var(--bw-primary);
+    text-decoration: underline;
+}
+
+/* Industry Badge (Legacy) */
+.bw-industry-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(215, 54, 125, 0.1);
+    color: var(--bw-accent);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Address */
+.bw-member-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+.bw-member-address .dashicons {
+    color: var(--bw-blue);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Description */
+.bw-member-description {
+    margin-bottom: 20px;
+}
+
+.bw-member-description p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Member Actions */
+.bw-member-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.bw-view-profile-btn,
+.bw-show-map-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.bw-view-profile-btn {
+    background: var(--bw-primary);
+    color: white;
+}
+
+.bw-view-profile-btn:hover {
+    background: #5a9f47;
+    color: white !important; /* Maintain white text color on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(105, 182, 84, 0.3);
+}
+
+.bw-show-map-btn {
+    background: white;
+    color: var(--bw-dark);
+    border: 2px solid var(--bw-primary);
+}
+
+.bw-show-map-btn:hover {
+    background: var(--bw-primary);
+    color: white !important; /* Maintain white text color on hover */
+    border-color: var(--bw-primary);
+}
+
+/* ========================================
+   Loading States
+======================================== */
+.bw-grid-loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.bw-grid-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--bw-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   No Results
+======================================== */
+.bw-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.bw-no-results p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ========================================
+   Pagination
+======================================== */
+.bw-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 30px;
+    background: var(--bw-light-gray);
+    border-radius: 8px;
+}
+
+.bw-page-btn {
+    padding: 10px 20px;
+    background: var(--bw-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bw-page-btn:hover:not(:disabled) {
+    background: #5a9f47;
+}
+
+.bw-page-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.bw-page-info {
+    color: var(--bw-dark);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ========================================
+   Responsive Design
+======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .bw-members-directory {
+        padding: 15px;
+    }
+
+    .bw-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bw-search-box,
+    .bw-industry-filter {
+        flex: 1 1 100%;
+    }
+
+    .bw-results-count {
+        text-align: left;
+    }
+
+    .bw-map {
+        height: 400px;
+    }
+
+    .bw-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .bw-member-actions {
+        flex-direction: column;
+        margin-top: auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .bw-members-directory {
+        padding: 10px;
+    }
+
+    .bw-map {
+        height: 300px;
+    }
+
+    .bw-members-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .bw-member-banner {
+        height: 120px;
+    }
+
+    .bw-logo-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .bw-member-content {
+        padding: 55px 15px 15px;
+    }
+
+    .bw-member-name {
+        font-size: 18px;
+    }
+
+    .bw-pagination {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bw-page-btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   Accessibility
+======================================== */
+.bw-member-card:focus-within {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+}
+
+.bw-search-input:focus,
+.bw-filter-select:focus,
+.bw-page-btn:focus,
+.bw-view-profile-btn:focus,
+.bw-show-map-btn:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .bw-members-filters,
+    .bw-map-container,
+    .bw-member-actions,
+    .bw-pagination {
+        display: none !important;
+    }
+
+    .bw-members-grid {
+        display: block;
+    }
+
+    .bw-member-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+}

@@ -30,3 +30,8 @@ define('DASHBOARD_WELCOME_TEXT', 'Your Business West member area – events, con
  */
 define('ARM_STAFF_REGISTRATION_PAGE_ID', 161151); //http://businesswest.com/register-staff/
 define('ARM_ADMIN_REGISTRATION_PAGE_ID', 159868); //http://businesswest.com/register-admin/
+
+// Define Google Maps API key if not already defined elsewhere
+if (!defined('GOOGLE_MAPS_API_KEY')) {
+    define('GOOGLE_MAPS_API_KEY', '');
+}
