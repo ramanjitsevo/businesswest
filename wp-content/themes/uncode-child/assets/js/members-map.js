@@ -39,7 +39,7 @@
             initMembersDirectory();
         } else {
             console.warn('Google Maps API not loaded. Please add your API key to wp-config.php');
-            $('#bw-map-loading').html('<p style="padding: 20px; text-align: center; color: #d63638;"><strong>Map unavailable.</strong><br>Please configure Google Maps API key in wp-config.php<br><code>define( \'GOOGLE_MAPS_API_KEY\', \'your-key-here\' );</code></p>');
+            $('#bw-map-loading').html('<p style="padding: 20px; text-align: center; color: #d63638;"><strong>Map unavailable.</strong></p>');
             
             // Still bind events for cards even without map
             bindEvents();
