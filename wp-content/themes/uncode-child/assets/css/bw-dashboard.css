@@ -150,7 +150,7 @@
 .bw-tab.bw-active {
   background: rgba(105, 182, 84, 0.15);
   color: #69b654;
-  border-left: 3px solid #69b654;
+  /* border-left: 3px solid #69b654; */
 }
 
 .bw-tab-icon {
@@ -230,7 +230,7 @@
 /* Tabs Content */
 .bw-tabs-content {
   flex: 1;
-  padding: 0px 25px;
+  padding: 0px 0px 0px 25px;
 }
 
 .bw-tab-pane {
@@ -640,6 +640,10 @@
     margin-bottom: 5px !important;
     font-weight: 500 !important;
     color: #333 !important;
+}
+
+td[data-label="Username"], .arm_gm_username_th {
+    display: none !important;
 }
 
 /* Responsive */
