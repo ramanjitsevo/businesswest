@@ -64,3 +64,13 @@ body.wp-singular.tribe_events-template-default.single{
 .bw-tabs-content .tribe-events-c-subscribe-dropdown__button:focus-within{  
   background: #006cb0 !important;
 }
+
+/* Customise Owner registration form*/
+.arm_form.arm_form_101 .arm-control-group, .arm-df__form-group .arm-df__form-group{
+   width:50%;
+   float:left
+}
+
+.arm_form.arm_form_101 .arm-control-group.w-100 {
+    width: 100%;
+}

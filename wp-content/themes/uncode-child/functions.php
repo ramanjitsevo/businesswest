@@ -73,3 +73,19 @@ if ( is_plugin_active( 'armember/armember.php' ) || class_exists( 'ARMEMBERPLUGI
 	//Include BW Members Directory
     require_once get_stylesheet_directory() . '/bw-members/bw-members-listing.php';
 }
+
+/**
+ * Adds a custom logo to the admin login page.
+ * @return void
+ */
+function bw_logo_on_admin_login() {
+    ?>
+    <style>
+        body.login div#login h1.wp-login-logo a {
+            background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/logo.webp' ); ?>') !important;
+            height: 85px !important;
+        }
+    </style>
+    <?php
+}
+add_action('login_enqueue_scripts', 'bw_logo_on_admin_login');
