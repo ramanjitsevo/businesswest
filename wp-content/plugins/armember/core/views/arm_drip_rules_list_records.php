@@ -528,13 +528,13 @@ function show_grid_loader() {
 				<table cellpadding="0" cellspacing="0" border="0" class="display arm_hide_datatable" id="armember_datatable">
 					<thead>
 						<tr>
-							<th class="center cb-select-all-th arm_max_width_60 arm_width_80" ><input id="cb-select-all-1" type="checkbox" class="chkstanard"></th>
+							<th class="center cb-select-all-th arm_max_width_60 arm_min_width_60"><input id="cb-select-all-1" type="checkbox" class="chkstanard"></th>
 							<th class="center"><?php esc_html_e('Enable/Disable','ARMember');?></th>
-							<th><?php esc_html_e('Content Type','ARMember');?></th>
-							<th><?php esc_html_e('Page/Post Name','ARMember');?></th>
-							<th><?php esc_html_e('Drip Type', 'ARMember'); ?></th>
-							<th><?php esc_html_e('Shortcode','ARMember');?></th>
-							<th><?php esc_html_e('Plans','ARMember');?></th>
+							<th class="arm_min_width_150"><?php esc_html_e('Content Type','ARMember');?></th>
+							<th class="arm_min_width_150"><?php esc_html_e('Page/Post Name','ARMember');?></th>
+							<th class="arm_min_width_150"><?php esc_html_e('Drip Type', 'ARMember'); ?></th>
+							<th class="arm_min_width_200"><?php esc_html_e('Shortcode','ARMember');?></th>
+							<th class="arm_min_width_250"><?php esc_html_e('Plans','ARMember');?></th>
 							<th class="armGridActionTD"></th>
 						</tr>
 					</thead>

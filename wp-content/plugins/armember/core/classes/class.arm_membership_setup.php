@@ -800,8 +800,8 @@ if (!class_exists('ARM_membership_setup')) {
             $output .= '<div class="arm-ffw__file-upload-box">';
             $output .= '<div class="arm_old_file arm_field_file_display arm_setup_image_display">';
             if ( $display_file ) {
-                $output .= '<div class="arm_uploaded_file_info"><img alt="" src="' . esc_attr($arm_credit_card_logos) . '" id="arm_preview_file_id"/>'; //phpcs:ignore 
-                $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span>';
+                $output .= '<div class="arm_uploaded_file_info"><a href="'.esc_attr($arm_credit_card_logos).'" target="_blank"><img alt="" src="' . esc_attr($arm_credit_card_logos) . '" id="arm_preview_file_id"/>'; //phpcs:ignore 
+                $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span></a>';
                 $output .= '<div class="armFileRemoveContainer"><img class="armFileRemoveContainer_btn" src="'.MEMBERSHIPLITE_IMAGES_URL.'/delete.svg" class="armhelptip tipso_style" title="'.esc_attr__('Remove','ARMember').'" onmouseover="this.src=\''.MEMBERSHIPLITE_IMAGES_URL.'/delete_hover.svg\';" onmouseout="this.src=\''.MEMBERSHIPLITE_IMAGES_URL.'/delete.svg\';"></div>
                 </div>';
             }
@@ -6300,6 +6300,7 @@ if (!class_exists('ARM_membership_setup')) {
                     $country_tax_field_opts = isset($general_settings['arm_tax_country_name']) ? $general_settings['arm_tax_country_name'] : '';
 
                     if(!empty($country_tax_field_opts)) {
+                        global $wpdb;
                         $country_tax_amount = isset($general_settings['arm_country_tax_val']) ? $general_settings['arm_country_tax_val'] : '';
                         if(!empty($country_tax_amount)) {
                             $country_tax_amount = maybe_unserialize($country_tax_amount);
@@ -6308,9 +6309,10 @@ if (!class_exists('ARM_membership_setup')) {
                             $return_arr["country_tax_field"] = $country_tax_field;
                             $return_arr["country_tax_field_opts_json"] = json_encode($country_tax_field_opts);
                             $return_arr["country_tax_amount_json"] = json_encode($country_tax_amount);
+                            $user_country = $country_tax_field;
 
                             if(is_user_logged_in() && !empty($user_id)) {
-                                global $wpdb;
+                                
                                 $user_country = $wpdb->get_var( $wpdb->prepare("SELECT meta_value FROM {$wpdb->usermeta} WHERE user_id = %d AND meta_key = %s",$user_id,$country_tax_field)); //phpcs:ignore --Reason $wpdb->usermeta is a table name
                                 if(!empty($user_country) && in_array($user_country, $country_tax_field_opts)) {
                                     $opt_index = array_search($user_country, $country_tax_field_opts);

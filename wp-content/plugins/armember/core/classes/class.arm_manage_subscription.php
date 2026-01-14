@@ -1127,7 +1127,7 @@ if (!class_exists('ARM_subsctriptions')) {
                     $activityID = $rc->arm_activity_id;   
                     if($transaction_count > 0)
                     {
-                        $response_data[$ai][0] = "<div class='arm_show_user_more_transactions' id='arm_show_user_more_transaction_" . esc_attr($activityID) . "' data-id='" . esc_attr($activityID) . "'></div>";
+                        $response_data[$ai][0] = "<div class='arm_show_user_more_transactions arm_max_width_50' id='arm_show_user_more_transaction_" . esc_attr($activityID) . "' data-id='" . esc_attr($activityID) . "'></div>";
                     }
                     else
                     {
@@ -1184,7 +1184,7 @@ if (!class_exists('ARM_subsctriptions')) {
 
                         $gridAction .= "<a href='javascript:void(0)' data-cancel_activity_type='" . esc_attr($status) . "'  data-cancel_activity_id='" . esc_attr($activityID) . "' onclick='showConfirmBoxCallback(".esc_attr($activityID).");'><img src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_denied.svg' class='armhelptip' title='" . esc_attr__('Cancel', 'ARMember') . "' onmouseover=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_denied_hover.svg';\" onmouseout=\"this.src='" . MEMBERSHIPLITE_IMAGES_URL . "/grid_denied.svg';\" /></a>";//phpcs:ignore
                         $arm_transaction_del_cls = 'arm_activity_delete_btn';
-                        $gridAction .= $arm_global_settings->arm_get_confirm_box($activityID, esc_html__("Are you sure you want to cancel this subscription  ?", 'ARMember'), $arm_transaction_del_cls,'',esc_html__("Cancel", 'ARMember'),esc_html__("Close", 'ARMember'),esc_html__("Cancel Subscription", 'ARMember'));
+                        $gridAction .= $arm_global_settings->arm_get_confirm_box($activityID, esc_html__("Are you sure you want to cancel this subscription  ?", 'ARMember'), $arm_transaction_del_cls,'',esc_html__("Confirm", 'ARMember'),esc_html__("Close", 'ARMember'),esc_html__("Cancel Subscription", 'ARMember'));
 
                     }
                     if($status == 'suspended')

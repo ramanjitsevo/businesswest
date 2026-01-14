@@ -1367,7 +1367,7 @@ if (!class_exists('ARM_subscription_plans')) {
                         $payment_mode = !empty($planData['arm_payment_mode']) ? $planData['arm_payment_mode'] : '' ;
                         $plan_cycle = isset($planData['arm_payment_cycle']) ? $planData['arm_payment_cycle'] : '';
                         $paly_cycle_data = $plan->prepare_recurring_data($plan_cycle);
-
+                       
                         if($payment_mode == "auto_debit_subscription" && $cancel_plan_action == "on_expire" && $paly_cycle_data['rec_time'] == 'infinite')
                         {
                             do_action('arm_on_expire_cancel_subscription', $user_id, $plan, $cancel_plan_action, $planData);
@@ -3085,17 +3085,17 @@ if (!class_exists('ARM_subscription_plans')) {
                 $historyRecords = $wpdb->get_results( $wpdb->prepare("SELECT * FROM `" . $ARMember->tbl_arm_activity . "` WHERE `arm_type`=%s AND `arm_user_id`=%d AND `arm_action` != %s {$where_mhlog} ORDER BY `arm_activity_id` DESC {$historyLimit}",'membership',$user_id,'recurring_subscription'), ARRAY_A); //phpcs:ignore --Reason $ARMember->tbl_arm_activity is a table name
 
                     $historyHtml .= '<div class="arm_membership_history_wrapper" data-user_id="' . esc_attr($user_id) . '" data-is_paid_post="'.esc_attr($is_paid_post).'">';
-                    $historyHtml .= '<table class="form-table arm_member_last_subscriptions_table" width="100%">';
+                    $historyHtml .= '<table class="form-table arm_member_last_subscriptions_table arm_view_member_history" width="100%">';
                     $historyHtml .= '<tr>';
-                    $historyHtml .= '<td>'.$mh_label.'</td>';
-                    $historyHtml .= '<td>' . esc_html__('Type', 'ARMember') . '</td>';
+                    $historyHtml .= '<td class="arm_min_width_200">'.$mh_label.'</td>';
+                    $historyHtml .= '<td class="arm_min_width_180">' . esc_html__('Type', 'ARMember') . '</td>';
                     if($is_paid_post != 2){
-                        $historyHtml .= '<td>' . esc_html__('Start Date', 'ARMember') . '</td>';
-                        $historyHtml .= '<td>' . esc_html__('Expire Date', 'ARMember') . '</td>';
+                        $historyHtml .= '<td class="arm_min_width_140">' . esc_html__('Start Date', 'ARMember') . '</td>';
+                        $historyHtml .= '<td class="arm_min_width_140">' . esc_html__('Expire Date', 'ARMember') . '</td>';
                     }
-                    $historyHtml .= '<td>' . esc_html__('Amount', 'ARMember') . '</td>';
-                    $historyHtml .= '<td>' . esc_html__('Payment Gateway', 'ARMember') . '</td>';
-                    $historyHtml .= '<td>' . esc_html__('Added Date', 'ARMember') . '</td>';
+                    $historyHtml .= '<td class="arm_min_width_200">' . esc_html__('Amount', 'ARMember') . '</td>';
+                    $historyHtml .= '<td class="arm_min_width_140">' . esc_html__('Payment Gateway', 'ARMember') . '</td>';
+                    $historyHtml .= '<td class="arm_min_width_200">' . esc_html__('Added Date', 'ARMember') . '</td>';
                     $historyHtml .= '</tr>';
                     $isCurrent = false;
                     $item_id_arrray = array();

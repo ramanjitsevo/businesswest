@@ -6456,7 +6456,7 @@ if( !class_exists('ARM_Stripe_SCA') ){
                             }
                         }
 
-                        $getData = $wpdb->get_row( $wpdb->prepare("SELECT arm_token,arm_log_id,arm_user_id,arm_extra_vars,arm_plan_id FROM `" . $ARMember->tbl_arm_payment_log. "` WHERE (arm_token LIKE %s OR arm_token = %s) AND arm_payment_gateway = %s",'%'.$customer_id.'%',$invoice->subscription,'stripe') ); //phpcs:ignore --Reason $ARMember->tbl_arm_payment_log is a table name
+                        $getData = $wpdb->get_row( $wpdb->prepare("SELECT arm_token,arm_log_id,arm_user_id,arm_extra_vars,arm_plan_id FROM `" . $ARMember->tbl_arm_payment_log. "` WHERE (arm_token LIKE %s OR arm_token = %s) AND arm_payment_gateway = %s",'%'.$customer_id.'%',$subscription_id,'stripe') ); //phpcs:ignore --Reason $ARMember->tbl_arm_payment_log is a table name
 
                         if( !empty( $getData ) && ( ( empty($getData->arm_user_id) || '0' == $getData->arm_user_id ) || ( !empty( $getData->arm_user_id ) && 'subscription_create' == $billing_reason ) ) ){
 

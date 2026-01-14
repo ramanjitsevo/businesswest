@@ -234,7 +234,7 @@ if (!class_exists('ARM_transaction'))
 							<iframe src="<?php echo $invoice_view_url; ?>" id="arm_invoice_iframe" class="arm_width_100_pct" style="height:665px;"></iframe>
 						</div>
 							
-						<div class="popup_footer arm_text_align_center" style=" padding: 0 0 35px;">
+						<div class="popup_footer arm_text_align_center" style=" padding: 0;">
 							<button type="button" name="print" onclick="arm_print_invoice();" value="Print" class="armemailaddbtn"><?php esc_html_e('Print', 'ARMember'); ?></button>
 							<?php 
 							$invoice_pdf_icon_html='';
@@ -1063,33 +1063,33 @@ if (!class_exists('ARM_transaction'))
 					                
 				$trans_records = '';
 				$trans_records .= '<div class="arm_user_transaction_wrapper" data-user_id="' . $user_id . '" data-is_paid_post="'.$is_paid_post.'">';
-				$trans_records .= '<table class="form-table arm_member_last_subscriptions_table" width="100%">';
+				$trans_records .= '<table class="form-table arm_member_last_subscriptions_table arm_view_member_history" width="100%">';
 				$trans_records .= '<tr>';
 				$trans_records .= '<td>#</td>';
 				$membership_data_label = esc_html__('Membership','ARMember');
 				$member_payment_type = esc_html__('Payment Type','ARMember');
 				if($is_paid_post!= 2){
-					$trans_records .= '<td>'.esc_html__('Membership','ARMember').'</td>';
-					$trans_records .= '<td>'.esc_html__('Payment Type','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_160">'.esc_html__('Membership','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Payment Type','ARMember').'</td>';
 				}
 				else if($is_paid_post == 2){
 					$membership_data_label = esc_html__('Gift','ARMember');
 					$member_payment_type = esc_html__('Gift','ARMember');
-					$trans_records .= '<td>'.esc_html__('Gift','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_160">'.esc_html__('Gift','ARMember').'</td>';
 				}
-				$trans_records .= '<td>'.esc_html__('Transaction Status','ARMember').'</td>';
-				$trans_records .= '<td>'.esc_html__('Gateway','ARMember').'</td>';
-				$trans_records .= '<td>'.esc_html__('Amount','ARMember').'</td>';
+				$trans_records .= '<td class="arm_min_width_140">'.esc_html__('Transaction Status','ARMember').'</td>';
+				$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Gateway','ARMember').'</td>';
+				$trans_records .= '<td class="arm_min_width_80">'.esc_html__('Amount','ARMember').'</td>';
 				if($enable_tax){ 
-					$trans_records .= '<td>'.esc_html__('Tax Percentage','ARMember').'</td>';
-					$trans_records .= '<td>'.esc_html__('Tax Amount','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_100">'.esc_html__('Tax Percentage','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Tax Amount','ARMember').'</td>';
 				}
 				if($is_paid_post != 2)
 				{
-					$trans_records .= '<td>'.esc_html__('Used Coupon Code','ARMember').'</td>';
-					$trans_records .= '<td>'.esc_html__('Used Coupon Discount','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Used Coupon Code','ARMember').'</td>';
+					$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Used Coupon Discount','ARMember').'</td>';
 				}
-				$trans_records .= '<td>'.esc_html__('Payment Date','ARMember').'</td>';
+				$trans_records .= '<td class="arm_min_width_120">'.esc_html__('Payment Date','ARMember').'</td>';
 				$trans_records .= '</tr>';
                                 
 				$i = 1;

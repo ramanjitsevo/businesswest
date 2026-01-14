@@ -13,6 +13,7 @@ if (empty($social_settings)) {
         'form' => $default_forms_id,
     );
 }
+$arconnect_registration_page = '';
 $social_options = (!empty($social_settings['options'])) ? $social_settings['options'] : '';
 $social_reg_options = (!empty($social_settings['registration'])) ? $social_settings['registration'] : '';
 $social_reg_options['form_page'] = (!empty($social_reg_options['form_page'])) ? $social_reg_options['form_page'] : '';
@@ -25,6 +26,20 @@ $arm_social_icon_browser_version = $arm_social_icon_browser_info['version'];
 $icon_upload_dir = MEMBERSHIP_UPLOAD_DIR . '/social_icon/';
 if (!is_dir($icon_upload_dir)) {
 	wp_mkdir_p($icon_upload_dir);
+}
+$arm_one_click_social_signup = (!empty($social_options)) ? (isset($social_options['arm_one_click_social_signup']) ? $social_options['arm_one_click_social_signup'] : 0) : 0;
+$arm_social_connect_registration_page = '';
+$arm_social_connect_redirection_page = '';
+if($arm_one_click_social_signup == 0)
+{
+    $arm_social_connect_redirection_page = 'hidden_section';
+    $arm_social_connect_registration_page = '';
+    $arconnect_registration_page = '';
+}
+else{
+    $arm_social_connect_registration_page = 'hidden_section';
+    $arm_social_connect_redirection_page = '';
+    $arconnect_registration_page = 'hidden_section';
 }
 ?>
 <div class="arm_global_settings_main_wrapper armPageContainer">
@@ -44,18 +59,7 @@ if (!is_dir($icon_upload_dir)) {
                         </div>
                         <div class="arm-form-table-content">
                             <div class="armswitch arm_global_setting_switch arm_margin_right_0">
-                                <?php
-                                $arm_one_click_social_signup = (!empty($social_options)) ? (isset($social_options['arm_one_click_social_signup']) ? $social_options['arm_one_click_social_signup'] : 0) : 0;
-                                if($arm_one_click_social_signup == 0)
-                                {
-                                    $arm_social_connect_registration_page = '';
-                                    $arm_social_connect_redirection_page = 'hidden_section';
-                                }
-                                else{
-                                    $arm_social_connect_registration_page = 'hidden_section';
-                                    $arm_social_connect_redirection_page = '';
-                                }
-                                ?>
+                                
                                 <input id="arm_one_click_social_signup" class="armswitch_input arm_one_click_social_signup" type="checkbox" name="arm_social_settings[options][arm_one_click_social_signup]" value="1" data-stype="fb" <?php checked($arm_one_click_social_signup, 1); ?>>
 
                                 <label for="arm_one_click_social_signup" class="armswitch_label"></label>

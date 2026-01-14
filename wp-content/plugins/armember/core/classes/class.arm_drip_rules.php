@@ -1941,7 +1941,7 @@ if (!class_exists('ARM_drip_rules')) {
                                             'plan_start'=> $startPlanDate, 
                                             'drip_start'=> $drip_start_day,
                                             'is_expiration'=>$ruleOptions['rule_expire_days'],
-                                            'view_detail' => htmlentities("<center><a class='arm_openpreview arm_openpreview_popup' href='javascript:void(0)' data-id='".$puid."' data-arm_hide_edit='1'>" . esc_html__('View Detail', 'ARMember') . "</a></center>"),
+                                            'view_detail' => htmlentities("<center><a class='arm_openpreview arm_openpreview_popup' href='javascript:void(0)' data-id='".$puid."' data-arm_hide_edit='1' data-arm_popup_opened='1'>" . esc_html__('View Detail', 'ARMember') . "</a></center>"),
                                         );
                                         
                                     }
@@ -1952,7 +1952,7 @@ if (!class_exists('ARM_drip_rules')) {
                                             'user_email' => $um->user_email,
                                             'plan_array' => $psarray,
                                             'plan_start'=> $startPlanDate,  
-                                            'view_detail' => htmlentities("<center><a class='arm_openpreview arm_openpreview_popup' href='javascript:void(0)'  data-id='".$puid."' data-arm_hide_edit='1'>" . esc_html__('View Detail', 'ARMember') . "</a></center>"),
+                                            'view_detail' => htmlentities("<center><a class='arm_openpreview arm_openpreview_popup' href='javascript:void(0)'  data-id='".$puid."' data-arm_hide_edit='1' data-arm_popup_opened='1'>" . esc_html__('View Detail', 'ARMember') . "</a></center>"),
                                         );
                                     }
                                 }

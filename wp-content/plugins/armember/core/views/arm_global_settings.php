@@ -324,13 +324,13 @@ if($section=='invoices_tax'){
                 <label>
                     <input type="radio" id="arm_common_tax" class="arm_general_input arm_tax_type_radio arm_iradio" name="arm_general_settings[tax_type]" value="common_tax" '. $is_common_tax .' /><span for="arm_common_tax" class="arm_email_settings_help_text">'. esc_html__('Common Tax','ARMember').'&nbsp;('. esc_html__('for all countries','ARMember').')</span>
                 </label>
-                <label class="form-field arm_enable_tax '.$is_tax_enabled.' arm_margin_top_0">
+                <label class="form-field '.$is_tax_enabled.' arm_margin_top_0">
                     <div class="arm-form-table-content">
                         <input type="radio" id="arm_country_tax" class="arm_general_input arm_tax_type_radio arm_iradio" name="arm_general_settings[tax_type]" value="country_tax" '.$country_wise_tax.' /><span for="arm_country_tax" class="arm_email_settings_help_text">'. esc_html__('Countrywise Tax','ARMember').'</span>
                     </div>
                 </label>
             </div>';
-            $arm_html_content .= '<div class="form-field arm_enable_tax arm_enable_common_tax '.$common_tax_section.'">
+            $arm_html_content .= '<div class="form-field arm_enable_common_tax '.$common_tax_section.'">
        
                 <div class="arm_display_flex arm_country_tax_field arm_padding_left_0  arm_margin_top_32 ">
                     <input type="text" name="arm_general_settings[tax_amount]" class="arm_width_100_pct"  id="tax_amount" value="'. esc_attr($tax_amount).'" placeholder="0"  onkeypress="return isNumber(event)">
@@ -341,7 +341,7 @@ if($section=='invoices_tax'){
                 </span>
         </div>';
         $country_tax_section = ($enable_tax == '1' && $tax_type == 'country_tax') ? '' : 'hidden_section';
-        $arm_html_content .= '<div class="form-field arm_enable_tax arm_enable_country_tax '.$country_tax_section.' arm_margin_top_32">
+        $arm_html_content .= '<div class="form-field arm_enable_country_tax '.$country_tax_section.' arm_margin_top_32">
             <div class="arm_email_settings_content_label">'. esc_html__('Select Country Field','ARMember').'
             <i class="arm_helptip_icon armfa armfa-question-circle" title="'. esc_html__("select country field of signup form to be mapped, so tax can be applied upon country selection.", 'ARMember').'"></i>
             </div>
@@ -361,7 +361,7 @@ if($section=='invoices_tax'){
             $country_selected_options = !empty($country_tax_selected_opts[$x]) ? esc_attr($country_tax_selected_opts[$x]) : '';
             $country_selected_options_val = !empty($country_tax_val_arr[$x]) ? esc_attr($country_tax_val_arr[$x]) : '0'; 
         
-            $arm_html_content .= '<div class="form-field arm_enable_tax arm_enable_country_tax arm_country_tr '.$country_tax_section.'" data-ttl-tr="'. esc_attr($total_selected_country) .'">
+            $arm_html_content .= '<div class="form-field arm_enable_country_tax arm_country_tr '.$country_tax_section.'" data-ttl-tr="'. esc_attr($total_selected_country) .'">
                 <div class="arm-form-table-content arm_margin_top_24">
                     <div class="arm_tax_country_list_wrapper" style="gap:8px">
                         <div class="arm_country_tax_field_inpt_wrapper">
@@ -395,7 +395,7 @@ if($section=='invoices_tax'){
             </script>';
         }
         
-            $arm_html_content .= '<div class="form-field arm_enable_tax arm_enable_country_tax '.$country_tax_section.' arm_country_tax_field">
+            $arm_html_content .= '<div class="form-field arm_enable_country_tax '.$country_tax_section.' arm_country_tax_field">
                 <div class="arm_email_settings_content_label arm_margin_top_24">'. esc_html__('Default Tax','ARMember').'
                 <i class="arm_helptip_icon armfa armfa-question-circle arm_helptip_icon_dtax" title="'. esc_html__("For any other country which is not in above list.", 'ARMember').'"></i>
                 </div>
@@ -407,7 +407,7 @@ if($section=='invoices_tax'){
         $tax_display_type = !empty($general_settings['arm_tax_include_exclude_flag']) ? $general_settings['arm_tax_include_exclude_flag'] : 0;
         $is_included_tax = ($tax_display_type == 1) ? 'checked' : '';
         $is_excluded_tax = ($tax_display_type == 0) ? 'checked' : '';
-        $arm_html_content .= '<div class="form-field arm_enable_tax arm_enable_include_exclude_tax '. $is_tax_enabled .' arm_margin_top_24">
+        $arm_html_content .= '<div class="form-field arm_enable_include_exclude_tax '. $is_tax_enabled .' arm_margin_top_24">
             <div class="arm-form-table-label">'.esc_html__('Include/Exclude Tax','ARMember').'</div>
             <div class="arm-form-table-content arm_margin_top_12">
 
@@ -416,7 +416,7 @@ if($section=='invoices_tax'){
             </div>
         </div>
         </div>
-    </table>';                
+    </table>';
     $invc_pre_sfx_mode = isset($general_settings['invc_pre_sfx_mode']) ? $general_settings['invc_pre_sfx_mode'] : 0;
     $invc_prefix_val = isset($general_settings['invc_prefix_val']) ? $general_settings['invc_prefix_val'] : '#';
     $invc_suffix_val = isset($general_settings['invc_suffix_val']) ? $general_settings['invc_suffix_val'] : '';
@@ -444,15 +444,15 @@ if($section=='invoices_tax'){
         <div class="arm_form_field_block arm_invc_pre_sfx_tr'.$invoice_suffix_mode.'">
             <div class="arm_content_border arm_margin_top_24"></div>
             <div class="arm_email_setting_flex_group arm_payment_getway_page arm_margin_top_24">
-                <div class="arm_form_field_block arm_invc_pre_sfx_tr">
+                <div class="arm_form_field_block">
                     <label class="arm-form-table-label">'. esc_html__('Enter Invoice Prefix', 'ARMember').'</label>
                     <input type="text" name="arm_general_settings[invc_prefix_val]" class="arm_margin_top_12 arm_width_100_pct" id="arm_invc_prefix_val" value="'. esc_attr($invc_prefix_val).'" >
                 </div>
-                <div class="arm_form_field_block arm_invc_pre_sfx_tr">
+                <div class="arm_form_field_block">
                     <label class="arm-form-table-label">'. esc_html__('Enter Invoice Suffix', 'ARMember').'</label>
                     <input type="text" name="arm_general_settings[invc_suffix_val]" class="arm_margin_top_12 arm_width_100_pct" id="arm_invc_suffix_val" value="'. esc_attr($invc_suffix_val).'" >
                 </div>
-                <div class="arm_form_field_block arm_invc_pre_sfx_tr">
+                <div class="arm_form_field_block">
                     <label class="arm-form-table-label">'. esc_html__('Enter Minimum Invoice Digit(s)', 'ARMember').'</label>
                         <input type="number" name="arm_general_settings[invc_min_digit]" class="arm_margin_top_12 arm_max_width_100_pct arm_width_100_pct" id="arm_invc_min_digit" value="'. esc_attr($invc_min_digit).'" >
                 </div>

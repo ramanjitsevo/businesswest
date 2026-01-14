@@ -308,23 +308,12 @@ if (!class_exists('ARM_member_forms')) {
                     <div class="arm_page_wrap">
                         <div class="arm_admin_form_content">
                             <table class="form-table">';        
-                            if ( !empty( $dbFormFields ) ) {
-                                foreach ( $dbFormFields as $meta_key => $field ) {
-                                    $field_options = maybe_unserialize( $field );
-                                    $field_options = apply_filters( 'arm_change_field_options', $field_options );
-                                    $meta_key      = !empty( $field_options['meta_key'] ) ? $field_options['meta_key'] : $field_options['id'];
-                                    $field_id      = $meta_key . arm_generate_random_code();
-                                    if ( in_array( $meta_key, $arm_member_include_fields_keys ) && !in_array( $meta_key, array( 'user_login', 'section', 'roles', 'html', 'hidden', 'submit', 'repeat_email', 'social_fields' ) ) ) {
-                                        if ( $meta_key == 'user_pass' ) {
-                                            $arm_repeated_fields['repeat_pass'] = 'repeat_pass';
-                                            $amr_confirm_pass_lbl = esc_html__( 'Confirm Password', 'ARMember');
-                                            if ( isset( $dbFormFields['repeat_pass'] ) && isset( $dbFormFields['repeat_pass']['label'] ) ) {
-                                                $amr_confirm_pass_lbl = !empty($dbFormFields['repeat_pass']['label']) ? $dbFormFields['repeat_pass']['label']  : esc_html__( 'Confirm Password', 'ARMember'); 
-                                            }
-                                            $amr_user_pass_lbl = esc_html__( 'Password', 'ARMember' );
-                                            if ( isset( $dbFormFields['user_pass'] ) && isset( $dbFormFields['user_pass']['label'] ) ) {
-                                                $amr_user_pass_lbl = !empty( $dbFormFields['user_pass']['label'] ) ?  $dbFormFields['user_pass']['label'] : esc_html__( 'Password', 'ARMember' );
-                                            }
+                            
+                                        $arm_repeated_fields['repeat_pass'] = 'repeat_pass';
+                                        $amr_confirm_pass_lbl = esc_html__( 'Confirm Password', 'ARMember');
+                                        
+                                        $amr_user_pass_lbl = esc_html__( 'Password', 'ARMember' );
+                                        
                                         $arm_form_content .= '<tr class="form-field arm_user_password_field">
                                             <th>
                                                 <label
@@ -358,10 +347,6 @@ if (!class_exists('ARM_member_forms')) {
                                             </div>
                                         </td>
                                     </tr>';
-                                        }
-                                    }
-                                }
-                            }
 
                             $arm_form_content .= '</table>
                         </div>
@@ -374,20 +359,22 @@ if (!class_exists('ARM_member_forms')) {
     
         }
 
-        function arm_get_field_html_func(){
+        function arm_get_field_html_func($arm_form_id='', $arm_is_ajax = 1,$post_data=array()){
 
             global $wpdb, $armPrimaryStatus, $ARMember, $arm_slugs, $arm_members_class, $arm_member_forms, $arm_global_settings, $arm_subscription_plans, $arm_social_feature, $is_multiple_membership_feature, $arm_email_settings, $arm_pay_per_post_feature, $arm_members_activity,$arm_capabilities_global,$arm_ajax_pattern_start,$arm_ajax_pattern_end;
 
             $ARMember->arm_check_user_cap($arm_capabilities_global['arm_manage_members'], '1',1);
 
-            $arm_form_id=101;
-            if (isset($_REQUEST['arm_form_id'])) {
+            if (isset($_REQUEST['arm_form_id']) && empty($arm_form_id)) {
                 $arm_form_id = intval($_REQUEST['arm_form_id']);
                 if (!is_numeric($arm_form_id)) {
                     $arm_form_id=101;
                 } 
             }
-            $user_id = !empty($_REQUEST['user_id']) ? abs(intval($_REQUEST['user_id'])) : '';
+            else{
+                $arm_form_id = intval($arm_form_id);
+            }
+            $user_id = !empty($post_data['id']) ? abs(intval($post_data['id'])) : '';
             $user = $arm_members_class->arm_get_member_detail($user_id);
             $arm_suffix_icon_pass = '<span class="arm_visible_password_admin arm-df__fc-icon --arm-suffix-icon" id="" style=""><i class="armfa armfa-eye"></i></span>';
 
@@ -708,7 +695,7 @@ if (!class_exists('ARM_member_forms')) {
                                                     
                                         $meta_key = isset($field_options['meta_key']) ? $field_options['meta_key'] : $field_options['id'];
                                         $field_id = $meta_key . arm_generate_random_code();
-                                        if (!in_array($meta_key, $exclude_keys) && !in_array($field_options['type'], array('section', 'roles', 'html', 'hidden', 'submit', 'repeat_pass', 'repeat_email','social_fields'))) {
+                                        if (!in_array($meta_key, $exclude_keys) && !in_array($field_options['type'], array('section', 'roles', 'html', 'submit', 'repeat_pass', 'repeat_email','social_fields'))) {
                                             $arm_field_meta_required_atr = (isset($field_options['required']) && $field_options['required'] == 1) ? '<span class="required_icon">*</span>' : '';
                                             $arm_form_content .= '<tr class="form-field">
                                                 <th>
@@ -735,11 +722,13 @@ if (!class_exists('ARM_member_forms')) {
                                         foreach ($form_settings['hidden_fields'] as $hiddenF) {
                                                             
                                             $hiddenMetaKey = (isset($hiddenF['meta_key']) && !empty($hiddenF['meta_key'])) ? $hiddenF['meta_key'] : sanitize_title('arm_hidden_' . $hiddenF['title']);
-                                            $hiddenValue = get_user_meta($user_id, $hiddenMetaKey, true);
-                                            $hiddenValue = (!empty($hiddenValue)) ? $hiddenValue : $hiddenF['value'];
-                                            $hiddentitle = (!empty($hiddenF['title'])) ? $hiddenF['title'] : '';
+                                            $hiddenValue = get_user_meta($user_id, $hiddenMetaKey, true);                                           
+                                            $hiddenValue = !empty($hiddenValue) ? $hiddenValue : $hiddenF['value'];
+                                            $hiddentitle = (!empty($hiddenF['title'])) ? $hiddenF['title'] : '';                                           
+
+                                            $hiddenValue = !empty($hiden_val) ? $hiden_val : $hiddenValue;
                                                             
-                                            $arm_form_content .= '<tr class="form-field"><th>'.$hiddentitle.'</th><td><input type="text" name="' . $hiddenMetaKey . '" value="' . $hiddenValue . '"/></td></tr>'; //phpcs:ignore
+                                            $arm_form_content .= '<tr class="form-field"><th><label>'.$hiddentitle.'<label></th><td><input type="text" name="' . $hiddenMetaKey . '" value="' . $hiddenValue . '"/></td></tr>'; //phpcs:ignore
                                                             
                                         }
                                     }
@@ -895,8 +884,14 @@ if (!class_exists('ARM_member_forms')) {
                 </div>';
                 $response = array("type"=>'success',"res"=>$arm_form_content);
             }
-            echo $arm_ajax_pattern_start.''.json_encode($response).''.$arm_ajax_pattern_end;
-            die();
+            if(!empty($arm_is_ajax))
+            {
+                echo $arm_ajax_pattern_start.''.json_encode($response).''.$arm_ajax_pattern_end;
+                die();
+            }
+            else{
+                return $arm_form_content;
+            }
     
         }
 
@@ -6049,8 +6044,8 @@ if (!class_exists('ARM_member_forms')) {
                                     }
                                     $output .= '<div class="arm_file_preview_container" id="'.esc_attr($path_parts['filename']).'" style="position:relative;">';
                                     $output .= '<div class="arm_uploaded_file_info" id="arm_uploaded_file_info" style="position:relative;">';
-                                    $output .= '<img class="'.esc_attr($file_class).'" src="' .esc_attr($fileUrl). '"/>';
-                                    $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span>';
+                                    $output .= '<a href="' .esc_attr($fileUrl). '" target="_blank"><img class="'.esc_attr($file_class).'" src="' .esc_attr($fileUrl). '"/>';
+                                    $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span></a>';
                                     $output .= '<input type="hidden" class="arm_file_url" value="' .esc_attr($field_val). '"/>';
                                     
                                     if(empty($readonly))
@@ -6095,8 +6090,8 @@ if (!class_exists('ARM_member_forms')) {
                                         }
                                         $output .= '<div class="arm_file_preview_container" id="'.esc_attr($path_parts['filename']).'" style="position:relative;">';
                                         $output .= '<div class="arm_uploaded_file_info" id="arm_uploaded_file_info" style="position:relative;">';
-                                        $output .= '<img class="'.esc_attr($file_class).'" src="' .esc_attr($fileUrl). '"/>';
-                                        $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span>';
+                                        $output .= '<a href="' .esc_attr($fileUrl). '" target="_blank"><img class="'.esc_attr($file_class).'" src="' .esc_attr($fileUrl). '"/>';
+                                        $output .= '<span class="arm_uploaded_file_name">'.$filename.'</span></a>';
                                         $output .= '<input type="hidden" class="arm_file_url" value="' .esc_attr($field_val). '"/>';
                                         
                                         if(empty($readonly))
@@ -6903,7 +6898,7 @@ if (!class_exists('ARM_member_forms')) {
 
         function arm_admin_save_member_details_func() {
 
-            global $wp, $wpdb, $current_user, $arm_slugs, $arm_errors, $ARMember, $arm_members_class, $arm_global_settings, $arm_subscription_plans, $arm_buddypress_feature, $arm_manage_communication, $is_multiple_membership_feature, $arm_pay_per_post_feature, $arm_subscription_cancel_msg, $arm_capabilities_global,$arm_ajax_pattern_start,$arm_ajax_pattern_end;
+            global $wp, $wpdb, $current_user, $arm_slugs, $arm_errors, $ARMember, $arm_members_class, $arm_global_settings, $arm_subscription_plans, $arm_buddypress_feature, $arm_manage_communication, $is_multiple_membership_feature, $arm_pay_per_post_feature, $arm_subscription_cancel_msg, $arm_capabilities_global,$arm_ajax_pattern_start,$arm_ajax_pattern_end,$arm_social_feature;
 
             $ARMember->arm_check_user_cap($arm_capabilities_global['arm_manage_members'], '1',1);
 
@@ -6913,11 +6908,11 @@ if (!class_exists('ARM_member_forms')) {
 
             $redirect_to = admin_url('admin.php?page=' . $arm_slugs->manage_members);
             if (!empty($member_data['arm_action']) && in_array($member_data['arm_action'], array('add_member', 'update_member'))) {
-                if (!empty($member_data['user_pass']) && preg_match('/\s/', $member_data['user_pass'])) {
-                    unset($member_data);
-                    $message = esc_html__("Space not allowed in password field", 'ARMember');
-                    $arm_errors->add('arm_reg_error', $message);
-                    return $arm_errors;
+                if (!empty($member_data['user_pass']) && preg_match("/\s/", $member_data['user_pass'])) {
+                    $message = esc_html__("This password is invalid because it uses illegal characters or whitespace. Please enter a valid password.", 'ARMember');
+                    $response = array("type"=>"error","msg" => $message);
+                    echo arm_pattern_json_encode($response);
+                    die();
                 }
 
                 // sesion handling
@@ -7270,6 +7265,28 @@ if (!class_exists('ARM_member_forms')) {
 
 
                     unset($member_data['arm_user_suspended_plan']);
+
+                    if($arm_social_feature->isSocialFeature)
+                    {
+                        $arm_is_social_fields_arr = array();
+                        if(!empty($member_data['arm_member_social_ac_selection']))
+                        {
+                            $arm_is_social_fields_arr = $member_data['arm_member_social_ac_selection'];
+                        }
+                        $member_data['arm_member_social_ac_selection'] = $arm_is_social_fields_arr;
+						$socialProfileFields = $this->arm_social_profile_field_types();
+						if (!empty($socialProfileFields) ) {
+							foreach ($socialProfileFields as $spfKey => $spfLabel) {
+								$spfMetaKey = 'arm_social_field_' . $spfKey;                               
+								if(empty($member_data[$spfMetaKey]))
+								{
+									$member_data[$spfMetaKey] = '';
+								}
+							}
+						}
+                    }
+
+
                     $admin_save_flag = 1;
                     do_action('arm_member_update_meta', $user_ID, $member_data, $admin_save_flag);
 
@@ -7479,7 +7496,7 @@ if (!class_exists('ARM_member_forms')) {
                                                 $removed_suspended_plans = 1;
                                             }
                                         }
-					$arm_members_class->arm_add_manual_user_payment($user_ID, $extend_renewal_date_plan_id, $member_data);
+                                        $arm_members_class->arm_add_manual_user_payment($user_ID, $extend_renewal_date_plan_id, $member_data);
                                     }
                                     else if(isset($old_plan_data['arm_current_plan_detail']['arm_subscription_plan_type']) && $old_plan_data['arm_current_plan_detail']['arm_subscription_plan_type']=='paid_finite' && (isset($member_data['arm_skip_next_renewal_'.$extend_renewal_date_plan_id]) && $member_data['arm_skip_next_renewal_'.$extend_renewal_date_plan_id]==1))
                                     {
@@ -9379,11 +9396,10 @@ if (!class_exists('ARM_member_forms')) {
                                             if ($payment_gateway != 'bank_transfer') {
                                                 update_user_meta($user_ID, 'arm_user_plan_ids', array_values($old_plan_ids));
                                                  
-                                                    update_user_meta($user_ID, 'arm_user_last_plan', $new_plan);
+                                                update_user_meta($user_ID, 'arm_user_last_plan', $new_plan);
                                                 if($start_time <= strtotime(current_time('mysql'))){
                                                    
                                                     if (!empty($planObj->plan_role)) {
-
                                                         $user->add_role($planObj->plan_role);
                                                     }
                                                 }
@@ -9477,7 +9493,6 @@ if (!class_exists('ARM_member_forms')) {
                                             if($start_time <= strtotime(current_time('mysql'))){
                                             
                                              if (!empty($planObj->plan_role)) {
-
                                                     $user->add_role($planObj->plan_role);
                                                 }
                                             
@@ -9539,14 +9554,12 @@ if (!class_exists('ARM_member_forms')) {
                                             update_user_meta($user_ID, 'arm_user_plan_ids', $arm_new_update_plan_arr); 
                                             
                                             update_user_meta($user_ID, 'arm_user_last_plan', $new_plan);
-                                            if($start_time <= strtotime(current_time('mysql'))){
-                                                 
-                                                
+                                            if($start_time <= strtotime(current_time('mysql'))){    
                                                 if (!empty($planObj->plan_role)) {
                                                     //$user->set_role($planObj->plan_role);
                                                     $user->add_role($planObj->plan_role);
                                                 }
-                                             }
+                                            }
                                             
                                         }
                                     }

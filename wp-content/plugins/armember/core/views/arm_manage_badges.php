@@ -216,7 +216,7 @@ function arm_load_badge_list_grid() {
 	<form method="post" action="#" id="arm_add_badges_wrapper_frm" class="arm_admin_form arm_add_badges_wrapper_frm">
 		<table cellspacing="0">
 			<tr class="popup_wrapper_inner">	
-				<td class="add_new_badges_close_btn arm_popup_close_btn" style="right : 25px"></td>
+				<td class="add_new_badges_close_btn arm_popup_close_btn" style="right : 32px"></td>
 				<td class="popup_header arm_font_size_20 arm_font_weight_500"><?php esc_html_e('Add New Badge','ARMember');?></td>
 				<td class="popup_content_text arm_padding_32">
                     <div style="width: 100%;position:absolute;top:50%;left:0;text-align:center;display:none;" class="arm_loading_popup"><img src="<?php echo MEMBERSHIPLITE_IMAGES_URL;?>/arm_loader.gif"></div>

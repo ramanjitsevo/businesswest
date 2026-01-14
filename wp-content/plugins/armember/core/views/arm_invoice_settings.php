@@ -144,7 +144,7 @@ $enable_tax= isset($general_settings['enable_tax']) ? $general_settings['enable_
                                 </div>
                             </div>
                            
-                            <span class="arm_warning_text  arm_info_text arm-note-message --notice arm_margin_0 arm_margin_top_20"><?php printf( esc_html__('NOTE : Please add %sbr%s to use line break in plain text.','ARMember'),'&lt;','&gt;'); //phpcs:ignore?></span>
+                            <span class="arm-note-message --alert arm_margin_0 arm_margin_top_20"><?php printf( esc_html__('NOTE : Please add %sbr%s to use line break in plain text.','ARMember'),'&lt;','&gt;'); //phpcs:ignore?></span>
                 
                         </div>
                        

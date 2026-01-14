@@ -76,7 +76,7 @@ function arm_load_communication_messages_list_grid() {
 						<div class="divTable arm_email_template_table">
 							<div class="divTableHeading">
 								<div class="divTableRow divTableRowheader arm_email_template_table">
-									<div class="divTableHead arm_padding_left_32"><?php esc_html_e('Active/Inactive', 'ARMember');?></div>
+									<div class="divTableHead arm_padding_left_32 arm_min_width_140"><?php esc_html_e('Active/Inactive', 'ARMember');?></div>
 									<div class="divTableHead"><?php esc_html_e('Message Subject', 'ARMember');?></div>
 									<div class="divTableHead"><?php esc_html_e('Subscription', 'ARMember');?></div>
 									<div class="divTableHead"><?php esc_html_e('Type', 'ARMember');?></div>

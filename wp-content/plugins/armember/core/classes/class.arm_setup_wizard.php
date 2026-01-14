@@ -632,7 +632,7 @@ if (!class_exists('ARM_setup_Wizard')) {
 
                 <div class="arm-ws-footer-wrapper">
                     <div class="arm-ws-footer-left">
-                    <a href="https://www.youtube.com/watch?v=8COXGo-NetQ" target="_blank" class="arm-wsc-btn arm-wsc-btn--primary arm-youtube-btn">
+                    <a href="https://youtu.be/WhKgS2jv2xM" target="_blank" class="arm-wsc-btn arm-wsc-btn--primary arm-youtube-btn">
                             <img src="'. MEMBERSHIPLITE_IMAGES_URL.'/arm-youtube-icon.webp" alt="ARMember">
                             '. esc_html__('Watch Tutorial','ARMember').'
                         </a>
@@ -818,7 +818,7 @@ if (!class_exists('ARM_setup_Wizard')) {
 
                 <div class="arm-ws-footer-wrapper">
                     <div class="arm-ws-footer-left">
-                    <a href="https://www.youtube.com/watch?v=8COXGo-NetQ" target="_blank" class="arm-wsc-btn arm-wsc-btn--primary arm-youtube-btn">
+                    <a href="https://youtu.be/WhKgS2jv2xM" target="_blank" class="arm-wsc-btn arm-wsc-btn--primary arm-youtube-btn">
                             <img src="'. MEMBERSHIPLITE_IMAGES_URL.'/arm-youtube-icon.webp" alt="ARMember">
                             '. esc_html__('Watch Tutorial','ARMember').'
                     </a>

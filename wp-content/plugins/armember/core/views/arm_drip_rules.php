@@ -3,21 +3,10 @@ global $wpdb, $ARMember, $arm_slugs, $arm_global_settings, $arm_access_rules, $a
 $all_plans = $arm_subscription_plans->arm_get_all_subscription_plans('arm_subscription_plan_id, arm_subscription_plan_name');
 
 global $arm_members_activity;
-$setact = 0;
-global $check_sorting;
-$setact = $arm_members_activity->$check_sorting();
 $drip_types = $arm_drip_rules->arm_drip_rule_types();
 ?>
 <div class="wrap arm_page arm_drip_content_main_wrapper">
-	<?php
-    if ($setact != 1) {
-		if($ARMember->arm_licence_notice_status()){
-			$admin_css_url = admin_url('admin.php?page=arm_manage_license');
-			$nonce = wp_create_nonce('arm_wp_nonce');
-			?>
-			<div class="armember_notice_warning armember_licence_notice_warning">ARMember License is not activated. Please activate license from <a href="<?php echo esc_url($admin_css_url); ?>">here</a><span class="armember_close_licence_notice_icon" id="armember_close_licence_notice_icon" data-nonce="<?php echo $nonce;?>" data-type="armember" title="<?php esc_html_e('Dismiss for 7 days', 'ARMember'); ?>"></span></div>
-    <?php }
-	} ?>
+
 	<div class="content_wrapper arm_drip_content_container" id="content_wrapper">
 		<div class="page_title">
 			<?php esc_html_e('Drip Content','ARMember');
@@ -60,7 +49,6 @@ echo $arm_global_settings->arm_get_bpopup_html($bulk_delete_drip_rules_popup_arg
 /* **********./End Bulk Delete Drip Rules Popup/.********** */
 ?>
 <!--./******************** Add New Drip Rule Form ********************/.-->
-<div class="arm_drip_rule_items_list_container" id="arm_drip_rule_items_list_container"></div>
 <div class="arm_add_new_drip_rule_wrapper popup_wrapper">
 	<div class="content_wrapper arm_add_edit_drip_rule_content" id="content_wrapper">
 		<div class="popup_header page_title">
@@ -110,6 +98,7 @@ echo $arm_global_settings->arm_get_bpopup_html($bulk_delete_drip_rules_popup_arg
 										<img src="<?php echo MEMBERSHIPLITE_IMAGES_URL.'/arm_loader.gif' //phpcs:ignore?>" id="arm_loader_img_drip_rule_items" class="arm_loader_img_drip_rule_items" style="display: none;" width="20" height="20" />
 									</div>
 									<input id="arm_drip_rule_items_input" type="text" value="" placeholder="<?php esc_attr_e('Search by title...', 'ARMember');?>" required data-msg-required="<?php esc_attr_e('Please select atleast one page/post.', 'ARMember');?>" class="arm_max_width_100_pct arm_width_100_pct">
+									<div class="arm_drip_rule_items_list_container" id="arm_drip_rule_items_list_container"></div>
 									<div class="arm_drip_rule_items " id="arm_drip_rule_items" style="display: none;"></div>
 								</td>
 							</tr>

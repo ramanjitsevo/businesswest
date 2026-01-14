@@ -1456,7 +1456,20 @@ if (!class_exists('ARM_shortcodes')) {
                         $content .='<p class="arm_discription">' . esc_html__('(Use Cropper to set image and use mouse scroller for zoom image.)', 'ARMember') . '</p>';
                         $content .='</div>';
                     }
-                    $content .= $arm_members_directory->arm_template_style($id, $opts['template_options']);
+                    if(!is_admin())
+                    {
+                        wp_register_style('arm_profile_dir_card_shortcode_css_'.$id,false,array(),MEMBERSHIP_VERSION);
+                        wp_enqueue_style('arm_profile_dir_card_shortcode_css_'.$id);
+                        if(wp_style_is('arm_profile_dir_card_shortcode_css_'.$id, 'enqueued'))
+                        {
+                            
+                            $arm_template_style_css = $arm_members_directory->arm_template_style($id, $opts['template_options'],1);
+                            wp_add_inline_style('arm_profile_dir_card_shortcode_css_'.$id,$arm_template_style_css);
+                        }
+                    }
+                    else{
+                        $content .= $arm_members_directory->arm_template_style($id, $opts['template_options']);
+                    }
                     $arm_profile_form_rtl = $arm_directory_form_rtl = '';
                     if (is_rtl()) {
                         $arm_profile_form_rtl = 'arm_profile_form_rtl';

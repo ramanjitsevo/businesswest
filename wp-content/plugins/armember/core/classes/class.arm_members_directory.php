@@ -3498,7 +3498,7 @@ if (!class_exists('ARM_members_directory')) {
                             );
             return apply_filters('arm_directory_template_default_color_scheme', $color_schemes);
         }
-        function arm_template_style($tempID = 0, $tempOptions = array())
+        function arm_template_style($tempID = 0, $tempOptions = array(),$is_return=0)
         {
             global $ARMember, $arm_member_forms;
             $templateStyle = '';
@@ -3599,11 +3599,13 @@ if (!class_exists('ARM_members_directory')) {
                 $buttonColorRGB['r'] = (!empty($buttonColorRGB['r'])) ? $buttonColorRGB['r'] : 0;
                 $buttonColorRGB['g'] = (!empty($buttonColorRGB['g'])) ? $buttonColorRGB['g'] : 0;
                 $buttonColorRGB['b'] = (!empty($buttonColorRGB['b'])) ? $buttonColorRGB['b'] : 0;
-                
-                if (is_admin()) {
-                    $templateStyle .= '<style type="text/css" id="arm_profile_runtime_css">';
-                } else {
-                    $templateStyle .= '<style type="text/css">';
+                $templateStyle = '';
+                if(empty($is_return))
+                {
+                    $templateStyle = '<style type="text/css">';
+                    if (is_admin()) {
+                        $templateStyle = '<style type="text/css" id="arm_profile_runtime_css">';
+                    }
                 }
 
                 $armSearchPosition = "top";
@@ -3882,7 +3884,10 @@ if (!class_exists('ARM_members_directory')) {
 
                 $templateStyle .= apply_filters('arm_change_profile_directory_style_outside','',$tempOptions, $tempID);
 
-                $templateStyle .= '</style>';
+                if(empty($is_return))
+                {
+                    $templateStyle .= '</style>';
+                }
             }
 
             $arm_response = array('arm_link' => '', 'arm_css' => $templateStyle);

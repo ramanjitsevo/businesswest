@@ -45,7 +45,7 @@ jQuery(document).on('keyup','#armmanagepost_search',function(e){
 })
 
 function show_grid_loader() {
-    jQuery("#armember_datatable").hide();
+    jQuery(".dataTables_scroll").hide();
     jQuery(".footer").hide();
     jQuery('.arm_loading_grid').show();
 }
@@ -87,6 +87,8 @@ function arm_load_paid_post_list_grid(is_filtered){
 		"bPaginate": true,
 		"sServerMethod": "POST",
 		"bAutoWidth" : false,
+        "sScrollX": "100%",
+			"bScrollCollapse": true,
 		"aaSorting": [],
 		"aoColumnDefs": [
 			{ "bVisible": false, "aTargets": [] },
@@ -100,7 +102,6 @@ function arm_load_paid_post_list_grid(is_filtered){
         "fnStateSave": function (oSettings, oData) {
             oData.aaSorting = [];
             oData.abVisCols = [];
-            oData.aoSearchCols = [];
             this.oApi._fnCreateCookie(
                 oSettings.sCookiePrefix + oSettings.sInstance,
                 this.oApi._fnJsonString(oData),
@@ -132,7 +133,7 @@ function arm_load_paid_post_list_grid(is_filtered){
 		"fnDrawCallback":function(){
 			arm_show_data();
 			jQuery('.arm_loading_grid').hide();
-            jQuery("#armember_datatable").show();
+            jQuery(".dataTables_scroll").show();
             jQuery(".footer").show();
 			if (jQuery.isFunction(jQuery().tipso)) {
                 jQuery('.armhelptip').each(function () {
@@ -147,6 +148,7 @@ function arm_load_paid_post_list_grid(is_filtered){
                     });
                 });
             }
+            table.dataTable().fnAdjustColumnSizing(false);
 		}
 	});
 	var filter_box = jQuery('#arm_filter_wrapper').html();
@@ -219,16 +221,15 @@ if (!empty($custom_post_types)) {
 			<form method="GET" id="subscription_plans_list_form" class="data_grid_list">
 				<input type="hidden" name="page" value="<?php echo isset( $arm_slugs->paid_post ) ? esc_attr($arm_slugs->paid_post) : '';?>" />
 				<input type="hidden" name="armaction" value="list" />
-
-				<div id="armmainformnewlist">
-					<table cellpadding="0" cellspacing="0" border="0" class="display arm_on_display arm_hide_datatable" id="armember_datatable">
+				<div id="armmainformnewlist" class="armember_activity_datatable_div ">
+					<table cellpadding="0" cellspacing="0" border="0" class="display arm_hide_datatable" id="armember_datatable">
 						<thead>
 							<tr>
 								<?php /*<th style="max-width:140px"><?php esc_html_e('Enable / Disable Paid Post','ARMember');?></th>*/ ?>
-								<th class="arm_min_width_50"><?php esc_html_e('Post ID','ARMember');?></th>
-								<th class="arm_min_width_200"><?php esc_html_e('Paid Post ID','ARMember');?></th>
-								<th class="arm_min_width_200"><?php esc_html_e('Post Title','ARMember');?></th>
-								<th class="arm_max_width_100"><?php esc_html_e('Post Type','ARMember');?></th>
+								<th class="arm_min_width_100"><?php esc_html_e('Post ID','ARMember');?></th>
+								<th class="arm_min_width_140"><?php esc_html_e('Paid Post ID','ARMember');?></th>
+								<th class="arm_min_width_140"><?php esc_html_e('Post Title','ARMember');?></th>
+								<th class="arm_min_width_200"><?php esc_html_e('Post Type','ARMember');?></th>
 								<th class="arm_width_150"><?php esc_html_e(' Members','ARMember');?></th>
 								<th class="armGridActionTD"></th>
 							</tr>

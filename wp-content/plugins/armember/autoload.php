@@ -20,7 +20,7 @@ define('MEMBERSHIP_INC_DIR', MEMBERSHIP_DIR . '/inc');
 define('MEMBERSHIP_VIEWS_DIR', MEMBERSHIP_DIR . '/core/views');
 define('MEMBERSHIP_VIEWS_URL', MEMBERSHIP_URL . '/core/views');
 define('MEMBERSHIP_TXTDOMAIN', 'ARMember');
-define('MEMBERSHIP_VIDEO_URL', 'https://www.youtube.com/embed/8COXGo-NetQ');
+define('MEMBERSHIP_VIDEO_URL', 'https://www.youtube.com/embed/WhKgS2jv2xM');
 define('MEMBERSHIP_DOCUMENTATION_URL', 'https://www.armemberplugin.com/documentation');
 define('MEMBERSHIP_DOCUMENTATION_PAYMENT_GATEWAY_PAYPAL_URL', 'https://www.armemberplugin.com/documents/enable-interaction-with-paypal');
 define('MEMBERSHIP_DOCUMENTATION_PAYMENT_GATEWAY_STRIPE_URL', 'https://www.armemberplugin.com/documents/enable-interaction-with-stripe');
@@ -115,9 +115,9 @@ define('MEMBERSHIP_UPLOAD_URL', $upload_url);
 
 /* Defining Membership Plugin Version */
 global $arm_version, $arm_lite_compatibilty_version;
-$arm_version = '7.0.1';
+$arm_version = '7.0.2';
 define('MEMBERSHIP_VERSION', $arm_version);
-$arm_lite_compatibilty_version = '4.0.68';
+$arm_lite_compatibilty_version = '5.0.2';
 
 global $arm_ajaxurl;
 $arm_ajaxurl = admin_url('admin-ajax.php');

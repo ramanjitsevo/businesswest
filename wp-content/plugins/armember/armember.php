@@ -2,7 +2,7 @@
 /*
   Plugin Name: ARMember - Complete Membership Plugin
   Description: The most powerful membership plugin to handle any complex membership wordpress sites with super ease.
-  Version: 7.0.1
+  Version: 7.0.2
   Requires at least: 5.0
   Requires PHP: 5.6
   Plugin URI: https://www.armemberplugin.com

@@ -1,9 +1,6 @@
 <?php
 global $arm_common_lite;
 $filter_search = (!empty($_POST['search'])) ? sanitize_text_field($_POST['search']) : '';//phpcs:ignore
-if (isset($_REQUEST['arm_default_private_content_save'])) {//phpcs:ignore
-	do_action('arm_save_default_private_content', $_REQUEST);//phpcs:ignore
-}
 ?>
 
 <style type="text/css" title="currentStyle">
@@ -172,15 +169,7 @@ $user_meta_table = $wpdb->usermeta;
 
 ?>
 <div class="wrap arm_page arm_private_content_main_wrapper">
-	<?php
-    if ($setact != 1) {
-		if($ARMember->arm_licence_notice_status()){
-			$admin_css_url = admin_url('admin.php?page=arm_manage_license');
-			$nonce = wp_create_nonce('arm_wp_nonce');
-			?>
-			<div class="armember_notice_warning armember_licence_notice_warning">ARMember License is not activated. Please activate license from <a href="<?php echo esc_url($admin_css_url); ?>">here</a><span class="armember_close_licence_notice_icon" id="armember_close_licence_notice_icon" data-nonce="<?php echo $nonce;?>" data-type="armember" title="<?php esc_html_e('Dismiss for 7 days', 'ARMember'); ?>"></span></div>
-    <?php }
-	} ?>
+
 	<div class="content_wrapper arm_private_content_wrapper arm_position_relative" id="content_wrapper" >
 		<div class="arm_loading_grid" style="display: none;"><?php echo $arm_common_lite->arm_loader_img_func();?></div>
 		<div class="page_title">
@@ -260,7 +249,7 @@ $user_meta_table = $wpdb->usermeta;
 			<span class="arm-note-message --alert arm_margin_top_10 arm_margin_bottom_10 arm_display_block"><?php printf( esc_html__('NOTE : If private content is not set for specific user and user is not in above list than default private content will be displayed to the user.','ARMember'),'&lt;','&gt;'); //phpcs:ignore?></span>
 		</div>
 
-		<form method="post" name="default_private_content_form" id="default_private_content_form" style="display:none;">
+		<form action="javascript:void(0)" name="default_private_content_form" id="default_private_content_form" style="display:none;">
 			<table cellpadding="0" cellspacing="0" border="0" class="display arm_on_display" id="armember_private_content_default">
 				<tr>
 					<td colspan="2">
@@ -295,7 +284,8 @@ $user_meta_table = $wpdb->usermeta;
 	                        </span>  
 	                    </div>
 					</td>
-					<td class="arm_padding_top_0 arm_vertical_align_top">
+					<td class="arm_padding_top_0 arm_vertical_align_top arm_default_content_btn">
+						<img src="<?php echo MEMBERSHIPLITE_IMAGES_URL.'/arm_loader.gif' //phpcs:ignore?>" id="arm_loader_img_defualt_private_content" class="arm_loader_img arm_submit_btn_loader"  style=" display: none;" width="20" height="20" style="position:absolute;top:20px;left:79%"/>
 						<button class="arm_save_btn arm_margin_0" value="" id="arm_default_private_content_save" name="arm_default_private_content_save" type="submit"><?php esc_html_e('Save', 'ARMember') ?></button>
 					</td>
 				</tr>			

@@ -421,7 +421,7 @@ if(isset($_POST["arm_export_report_data"]) && $_POST["arm_export_report_data"] =
         </div>
 
         <div class="armclear"></div>
-        <form  method="post" action="#" id="arm_report_analytics_form">
+        <form  method="post" action="#" id="arm_report_analytics_form" style="visibility:hidden">
 
 <?php
 if (in_array($get_action, array('member_report', 'payment_report', 'pay_per_post_report','coupon_report'))) {
@@ -537,7 +537,7 @@ if (in_array($get_action, array('member_report', 'payment_report', 'pay_per_post
                         <span class="add_rule_content"><?php esc_html_e('Invoice Detail','ARMember' );?></span>
                     </div>
                     <div class="popup_content_text arm_invoice_detail_popup_text arm_padding_24" id="arm_invoice_detail_popup_text" ></div>
-                    <div class="popup_footer arm_text_align_center" style=" padding: 0 0 35px;">
+                    <div class="popup_footer arm_text_align_center" style=" padding: 0;">
                         <?php 
                         $invoice_pdf_icon_html='';
                         $invoice_pdf_icon_html=apply_filters('arm_membership_invoice_details_outside',$invoice_pdf_icon_html,$log_id);

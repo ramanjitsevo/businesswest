@@ -62,7 +62,7 @@ if (!class_exists('ARM_members_activity'))
 			    }
 			}
 	
-		if (version_compare($arm_newdbversion, '7.0.1', '<') && version_compare($arm_newdbversion,'1.8.1','>')) {
+		if (version_compare($arm_newdbversion, '7.0.2', '<') && version_compare($arm_newdbversion,'1.8.1','>')) {
 				$path = MEMBERSHIP_VIEWS_DIR . '/upgrade_latest_data.php';
 				include($path); //phpcs:ignore
 				$arm_crons->armember_send_anonymous_data_cron_func();

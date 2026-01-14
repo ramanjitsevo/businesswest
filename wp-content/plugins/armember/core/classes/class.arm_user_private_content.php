@@ -13,7 +13,7 @@ if (!class_exists('ARM_user_private_content_feature')) {
             if($this->isPrivateContentFeature==true)
             {
 	            add_action('wp_ajax_arm_save_private_content', array($this, 'arm_save_private_content_func'));
-	            add_action('arm_save_default_private_content', array($this, 'arm_save_default_private_content_func'));
+	            add_action('wp_ajax_arm_save_default_private_content', array($this, 'arm_save_default_private_content_func'));
 
 	            add_action('wp_ajax_arm_delete_private_content', array($this, 'arm_delete_private_content'), 10);
 	            add_action('wp_ajax_arm_changes_status_private_content', array($this, 'arm_changes_status_private_content'), 10);
@@ -133,16 +133,16 @@ if (!class_exists('ARM_user_private_content_feature')) {
         	
         }
 
-        function arm_save_default_private_content_func($posted_data = array()) {
-        	global $wp, $wpdb, $arm_slugs, $ARMember, $arm_global_settings,$ARMemberAllowedHTMLTagsArray;
-        	$redirect_to = admin_url('admin.php?page=' . $arm_slugs->private_content);
-        	if (isset($posted_data) && !empty($posted_data) && $posted_data['page'] == 'arm_manage_private_content') { 
-        		$private_content = isset($posted_data['arm_default_private_content']) ?  wp_kses($posted_data['arm_default_private_content'],$ARMemberAllowedHTMLTagsArray) : '';
-        		update_option('arm_member_default_private_content', $private_content);
-        		$ARMember->arm_set_message('success', esc_html__('Default private content has been added successfully.', 'ARMember'));
-        		wp_redirect($redirect_to);
-        		exit;
-        	}
+        function arm_save_default_private_content_func() {
+            global $wp, $wpdb, $arm_slugs, $ARMember, $arm_global_settings,$ARMemberAllowedHTMLTagsArray,$arm_capabilities_global;
+            $response = array('status'=>"error",'msg'=>esc_html__('Something went wrong! Please try again','ARMember'));	
+        	$ARMember->arm_check_user_cap($arm_capabilities_global['arm_manage_private_content'],0,1);//phpcs:ignore --Reason:Verifying nonce
+            $posted_data = $_POST;
+            $private_content = !empty($posted_data['arm_default_private_content']) ?  wp_kses($posted_data['arm_default_private_content'],$ARMemberAllowedHTMLTagsArray) : '';
+            $upd_opt = update_option('arm_member_default_private_content', $private_content);
+            $response = array('status'=>"success",'msg'=>esc_html__('Default private content has been updated successfully.', 'ARMember'));
+            echo arm_pattern_json_encode($response);
+            die();
         }
 
         function arm_save_private_content_func() {

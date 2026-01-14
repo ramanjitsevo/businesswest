@@ -1659,7 +1659,7 @@ if( false == $arm_update_lite_response ) {
     update_option( 'arm_show_lite_update_failed_notice', 1 );
 }
 
-$arm_newdbversion = '7.0.1';
+$arm_newdbversion = '7.0.2';
 update_option('arm_new_version_installed',1);
 update_option('arm_version', $arm_newdbversion);
 

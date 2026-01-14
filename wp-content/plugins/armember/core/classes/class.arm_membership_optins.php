@@ -45,13 +45,22 @@ if (!class_exists('ARM_membership_optins'))
             global $ARMember,$wpdb,$arm_social_feature,$arm_is_social_signup;
             $user_metadata = array();
             $user_meta_data = get_user_meta($user_id);
-            foreach($user_meta_data as $key => $value){
-                if (isset($value[0])) {
-                    $user_metadata[$key] = $value[0];
-                }
+            if(!empty($user_meta_data))
+            {
+	            foreach($user_meta_data as $key => $value){
+	                if (isset($value[0])) {
+	                    $user_metadata[$key] = $value[0];
+	                }
+	            }
+            }
+            else {
+                $user_meta_data = array();
             }
             $user_info = get_user_by('id', $user_id);
-            $user_metadata['user_email'] = $user_info->user_email;
+            if(!empty($user_info) && !empty($user_info->user_email))
+            {
+                $user_metadata['user_email'] = $user_info->user_email;
+            }
 
             if($arm_is_social_signup){
                 $social_settings = $arm_social_feature->arm_get_social_settings();

@@ -371,7 +371,6 @@
     display: table-cell;
     padding: 20px 10px 22px 52px;
     border-bottom: 2px solid #CED4DE;
-    column-count: 2;
     text-align: left;
 }
 .arm_template_wrapper_profiletemplate1 .arm_profile_detail_tbl .arm_profile_detail_data.arm_data_value{
@@ -399,6 +398,12 @@
     border: none;
 }
 
+@media screen and (max-width: 1600px) and (min-width:1400px) {
+    .arm_template_wrapper_profiletemplate1 .arm_profile_header_info{
+        max-width: 64% !important;
+    }
+
+}
 @media (max-width: 768px){
     .arm_template_wrapper_profiletemplate1 .arm_user_avatar{
         width:140px !important;

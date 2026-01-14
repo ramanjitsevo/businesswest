@@ -1712,19 +1712,25 @@ if (!class_exists('ARM_restriction')) {
                         }
                     }
                     
-                    if (is_array($excluded_array)) {
-                        $args['exclude'] = array_merge($excluded_array, $hide_terms);
-                        if(!empty($args['include']) && is_array($args['include']) && !empty($hide_terms) ){
-                            foreach($args['include'] as $key => $include_id)
-                            {
-                                if(in_array($include_id,$hide_terms))
+                    if (is_array($excluded_array)) {                       
+                        if(!empty($args['exclude']))
+                        {
+                            $args['exclude'] = array_merge($excluded_array, $hide_terms);
+                            
+                            
+                            if(!empty($args['include']) && is_array($args['include']) && !empty($hide_terms) ){
+                                foreach($args['include'] as $key => $include_id)
                                 {
-                                    unset($args['include'][$key]);
+                                    
+                                    if(in_array($include_id,$hide_terms))
+                                    {
+                                        unset($args['include'][$key]);
+                                    }
                                 }
-                            }
-                        }                       
+                            }                       
+                        }
                     } else {
-                        if (empty($excluded_array)) {
+                        if (empty($excluded_array) && !empty($args['exclude'])) {
                             $excluded_array = array();
                             $args['exclude'] = array_merge($excluded_array, $hide_terms);
                             if(!empty($args['include']) && is_array($args['include']) && !empty($hide_terms) ){
@@ -1739,13 +1745,17 @@ if (!class_exists('ARM_restriction')) {
                         } else {
                             $exploded_excluded_terms = explode(",", $excluded_array);
                             $exploded_new_excluded_terms = array_merge($exploded_excluded_terms, $hide_terms);   
-                            $args['exclude'] = implode(",", $exploded_new_excluded_terms);
-                            if(!empty($args['include']) && is_array($args['include']) && !empty($hide_terms) ){
-                                foreach($args['include'] as $key => $include_id)
-                                {
-                                    if(in_array($include_id,$hide_terms))
+                            if(!empty($args['exclude']))
+                            {
+
+                                $args['exclude'] = implode(",", $exploded_new_excluded_terms);
+                                if(!empty($args['include']) && is_array($args['include']) && !empty($hide_terms) ){
+                                    foreach($args['include'] as $key => $include_id)
                                     {
-                                        unset($args['include'][$key]);
+                                        if(in_array($include_id,$hide_terms))
+                                        {
+                                            unset($args['include'][$key]);
+                                        }
                                     }
                                 }
                             }

@@ -8,24 +8,7 @@ $edit_mode = 0;
 $member_id = "";
 $private_content = "";
 $enable_private_content = "1";
-if (isset($_GET['action']) && $_GET['action'] == 'edit_private_content' && isset($_GET['member_id']) && !empty($_GET['member_id'])) {
-	$member_id = intval($_GET['member_id']);
-	$edit_mode = 1;
-	$action = 'edit_private_content';
-	$form_mode = esc_html__("Edit Userwise Private Content", 'ARMember');
-
-	$member_private_content = get_user_meta( $member_id, 'arm_member_private_content', true );
-	$member_data = get_userdata( $member_id );
-	
-	$member_login_name = $member_data->user_login . " (".$member_data->user_email.")";
-	if(!empty($member_private_content)) {
-		$member_private_content = json_decode($member_private_content);
-		
-		$private_content = stripslashes_deep(stripslashes_deep($member_private_content->private_content));
-		$enable_private_content = (string)$member_private_content->enable_private_content;
-	}
-}
-
+$member_login_name = '';
 
 global $arm_members_activity;
 $setact = 0;
@@ -38,15 +21,6 @@ $get_all_armembers = $wpdb->get_results("SELECT arm_member_id,arm_user_id,arm_us
 ?>
 
 <div class="wrap arm_page arm_add_edit_private_content_main_wrapper armPageContainer popup_wrapper">
-	<?php
-    if ($setact != 1) {
-		if($ARMember->arm_licence_notice_status()){
-			$admin_css_url = admin_url('admin.php?page=arm_manage_license');
-			$nonce = wp_create_nonce('arm_wp_nonce');
-			?>
-			<div class="armember_notice_warning armember_licence_notice_warning">ARMember License is not activated. Please activate license from <a href="<?php echo esc_url($admin_css_url); ?>">here</a><span class="armember_close_licence_notice_icon" id="armember_close_licence_notice_icon" data-nonce="<?php echo $nonce;?>" data-type="armember" title="<?php esc_html_e('Dismiss for 7 days', 'ARMember'); ?>"></span></div>
-    <?php }
-	} ?>
 	<div class="content_wrapper arm_private_content_wrapper" id="content_wrapper">
 		
 		<div class="page_title arm_add_private_content_title">
