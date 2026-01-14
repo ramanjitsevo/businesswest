@@ -633,11 +633,11 @@
 .menu-container .font-101374 a { font-family: 'Roboto Slab' !important; }
 
 /*----------------------------------------------------------
-#'Lavishly Yours'
+#Poppins
 ----------------------------------------------------------*/
 .font-174215,
 .btn-custom-typo.font-174215,
-.menu-container .font-174215 a { font-family: 'Lavishly Yours' !important; }
+.menu-container .font-174215 a { font-family: Poppins !important; }
 
 /*----------------------------------------------------------
 # fontsize-160000
@@ -812,7 +812,7 @@ h6:not([class*="fontsize-"]),.h6:not([class*="fontsize-"]) { font-size: 14px; }
 /* #GENERAL */
 body {
   font-weight: 400;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 ::selection {
   background: #69b654;
@@ -2449,10 +2449,10 @@ button[type="submit"],
 }
 .uncode-noconsent-gdpr-text {
   font-weight: 400;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 .lg-dropdown {
-  font-family: Roboto;
+  font-family: Poppins;
 }
 @media (min-width: 960px) {
   #uncode-custom-cursor.basic-style > span:first-child,
@@ -2834,7 +2834,7 @@ button[type="submit"] {
 .unmenu-block,
 .burger-label,
 #masthead .overlay .overlay-search-wrapper .search-container form .search-container-inner input {
-  font-family: Roboto;
+  font-family: Poppins;
 }
 .font-family-topbar,
 .top-menu.top-menu-enhanced {
@@ -2842,7 +2842,7 @@ button[type="submit"] {
 }
 @media (max-width: 959px) {
   .menu-primary ul.menu-smart a {
-    font-family: Roboto;
+    font-family: Poppins;
     font-weight: 400;
   }
 }
