@@ -68,6 +68,9 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
 	opacity:1 !important;
 }
 
+.d-flex .w-auto{
+  width: auto;
+}
 
 .bw-tabs-content .tribe-events-c-subscribe-dropdown__button{
   color: #006cb0;
