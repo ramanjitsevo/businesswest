@@ -104,10 +104,6 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
     font-family:Poppins!important;   
 }
 
-.pcp-carousel-wrapper .sp-pcp-carousel{
-    margin-right: 20px;
-}
-
 .events-wrapper{
     padding-top:15px;
 }
@@ -116,10 +112,6 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
     padding-top:20px;
     padding-right:20px;
     padding-bottom:20px;
-}
-
-.arm_group_membership_content {
-    padding-right:20px;
 }
 
 /* Force Events archive background to white */

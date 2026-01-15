@@ -131,7 +131,8 @@
 
 /* Tabs Navigation */
 .bw-tabs-nav {
-  width: 280px;
+  min-width: 250px;
+  width: 250px;
   background: #fff;
   min-height: 500px;
 }
@@ -235,7 +236,7 @@
 /* Tabs Content */
 .bw-tabs-content {
   flex: 1;
-  padding: 0px 0px 25px 25px;
+  padding: 0px 25px 0px 25px;
 }
 
 .bw-tab-pane {
@@ -659,7 +660,17 @@ td[data-label="Username"],
   display: none !important;
 }
 
+.arm_group_membership_content {
+  width: 92%;
+}
 
+.arm_group_membership_action{
+  justify-content: space-around;
+}
+
+.tribe-common-l-container.tribe-events-l-container{
+  padding-top: 0 !important;
+}
 
 /* Responsive */
 @media (max-width: 991px) {
