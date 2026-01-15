@@ -5,6 +5,10 @@
    Accent: #d7367d (Pink)
    Blue: #005AEE (Blue)
 */
+/*Navbar overrides*/
+.dropdown.menu-item-link .drop-menu.un-submenu{
+  left:0px!important
+}
 
 /* Utility Classes */
 .bw-w-100 {
@@ -645,6 +649,8 @@
 td[data-label="Username"], .arm_gm_username_th {
     display: none !important;
 }
+
+
 
 /* Responsive */
 @media (max-width: 991px) {

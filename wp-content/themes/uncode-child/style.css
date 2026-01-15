@@ -51,9 +51,23 @@ Version: 2.1.0
 }
 
 /*** Customise event detail page ***/
+
 body.wp-singular.tribe_events-template-default.single{
-  background-color: transparent;
+	background-color:transparent !important;
 }
+
+body.archive.post-type-archive.post-type-archive-tribe_events{
+	background-color:transparent!important;
+}
+
+body.wp-singular.tribe_events-template-default.single .navbar{
+	opacity:1 !important;
+}
+
+body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
+	opacity:1 !important;
+}
+
 
 .bw-tabs-content .tribe-events-c-subscribe-dropdown__button{
   color: #006cb0;
@@ -73,4 +87,175 @@ body.wp-singular.tribe_events-template-default.single{
 
 .arm_form.arm_form_101 .arm-control-group.w-100 {
     width: 100%;
+}
+
+/* Inline style */
+.detail-container--single.location .detail-value {
+  font-size: 20px !important;
+}
+
+.bw-banner-title{
+    font-weight: 300!important;
+    font-family:Poppins!important;
+}
+
+.bw-banner-subtitle{
+    font-weight: 300!important;
+    font-family:Poppins!important;
+    font-size: 1rem!important;
+}
+
+.bw-banner{
+    background: linear-gradient(120deg, #6fb95e, #056db7)!important;
+}
+
+.bw-tabs-nav{
+    padding: 0px 0!important;
+    background: white!important;
+}
+
+.bw-tab.bw-active{
+    color:black!important;
+    border-left: 3px solid #69b654;
+}
+
+.bw-tab-title{
+   color:black!important; 
+   font-family:Poppins!important;
+   font-weight:300!important;
+}
+
+.bw-tab-icon{
+   color:black!important; 
+}
+
+.bw-event-name{
+    font-weight: 400!important;
+    font-family:Poppins!important;
+    font-size: 1rem!important;
+    
+}
+
+.bw-tabs-content .sp-pcp-title a{
+    font-family:Poppins!important;   
+}
+
+.pcp-carousel-wrapper .sp-pcp-carousel{
+    margin-right: 20px;
+}
+
+.bw-card{
+    margin-right: 20px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0)!important;
+}
+
+.events-wrapper{
+    padding-top:15px;
+}
+
+.arm-form-container{
+    padding-top:20px;
+    padding-right:20px;
+    padding-bottom:20px;
+}
+
+.arm_group_membership_content {
+    padding-right:20px;
+}
+
+/* Hiding the map from Homepage */
+#bw-members-map {
+  display: none !important;
+}
+
+/* Force Events archive background to white */
+body.post-type-archive-tribe_events,
+body.post-type-archive-tribe_events #main-container,
+body.post-type-archive-tribe_events .main-container,
+body.post-type-archive-tribe_events .page-wrapper {
+  background: #fff !important;
+}
+
+/* Green line on homepage post teasers */
+.tmb .t-entry-visual .t-entry-visual-overlay {
+  border-top: 6px solid #6aba57;
+}
+
+/* BUSINESS LOGIN – single border + correct hover */
+#menu-item-161710 > a {
+  border: 1.5px solid #056db7 !important;
+  color: #056db7 !important;
+  background: transparent !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  font-weight: 300 !important;
+  transition: all 0.25s ease;
+}
+
+/* Remove Uncode inner “button” styling so you don’t get double borders or overlays */
+#menu-item-161710 .menu-btn-container,
+#menu-item-161710 .menu-btn-table {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Force inner text/icon to follow the link colour */
+#menu-item-161710 * {
+  color: inherit !important;
+}
+
+/* Kill any pseudo-element overlays that can “white wash” the button */
+#menu-item-161710 > a::before,
+#menu-item-161710 > a::after,
+#menu-item-161710 span::before,
+#menu-item-161710 span::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Hover: set background + make sure EVERYTHING inside stays white */
+#menu-item-161710:hover > a,
+#menu-item-161710 > a:hover {
+  background: #056db7 !important;
+  border-color: #056db7 !important;
+  color: #ffffff !important;
+}
+
+#menu-item-161710:hover > a *,
+#menu-item-161710 > a:hover * {
+  color: #ffffff !important;
+}
+
+/* FORCE font weight for Business Login */
+#menu-item-161710 > a,
+#menu-item-161710 > a span {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 300 !important;
+  font-variation-settings: "wght" 300 !important;
+}
+
+.menu-icons i:not(.fa.dropdown){
+    font-size:30px!important;
+    color:#6aba57!important;
+}
+
+/* Hide "Member since" row on member cards */
+.bw-member-since {
+  display: none !important;
+}
+
+.bw-tabs-content .bw-tab-content-header h2{
+    font-family:'Poppins';
+    font-weight:300;
+}
+
+.swiper-container .pcp-button-next,
+.swiper-container .pcp-button-prev{
+    border:1px solid #056db7!important;
+    border-radius:10px!important;
+}
+
+.bw-tabs-content .pcp-post-thumb-wrapper{
+    border-radius: 10px!important;
+    border: 1px solid transparent!important;
 }
