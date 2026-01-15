@@ -131,29 +131,6 @@
     height: 500px;
 }
 
-.bw-map-loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-.bw-map-loading .spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid var(--bw-primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -432,23 +409,7 @@
     width: 100%;
 }
 
-.bw-view-profile-btn,
-.bw-show-map-btn {
-    flex: 1;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
+
 
 .bw-view-profile-btn {
     background: var(--bw-primary);
@@ -460,18 +421,6 @@
     color: white !important; /* Maintain white text color on hover */
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(105, 182, 84, 0.3);
-}
-
-.bw-show-map-btn {
-    background: white;
-    color: var(--bw-dark);
-    border: 2px solid var(--bw-primary);
-}
-
-.bw-show-map-btn:hover {
-    background: var(--bw-primary);
-    color: white !important; /* Maintain white text color on hover */
-    border-color: var(--bw-primary);
 }
 
 /* ========================================
@@ -641,14 +590,23 @@
     outline-offset: 2px;
 }
 
-.bw-search-input:focus,
-.bw-filter-select:focus,
-.bw-page-btn:focus,
-.bw-view-profile-btn:focus,
-.bw-show-map-btn:focus {
-    outline: 2px solid #0073aa;
-    outline-offset: 2px;
+.bw-view-profile-btn{
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
+
 
 /* Print Styles */
 @media print {

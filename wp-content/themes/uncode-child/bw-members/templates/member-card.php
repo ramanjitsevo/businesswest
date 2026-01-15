@@ -52,13 +52,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             </a>
         </h4>
         
-        <?php if ( ! empty( $member['member_since_formatted'] ) ) : ?>
-            <div class="bw-member-since">
-                <span class="dashicons dashicons-calendar"></span>
-                <span class="bw-since-text">Member since <?php echo esc_html( $member['member_since_formatted'] ); ?></span>
-            </div>
-        <?php endif; ?>       
-        
     </div>
     
     <!-- Member Actions -->
@@ -68,16 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            target="_blank"
            rel="noopener">
             View Profile
-        </a>
-        <?php if ( ! empty( $member['latitude'] ) && ! empty( $member['longitude'] ) ) : ?>
-        <button type="button" 
-                class="bw-show-map-btn" 
-                data-member-id="<?php echo esc_attr( $member['id'] ); ?>"
-                aria-label="Show on map">
-            <span class="dashicons dashicons-location-alt"></span>
-            Show on Map
-        </button>
-        <?php endif; ?>
+        </a>       
     </div>
     
 </div>

@@ -94,46 +94,10 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
   font-size: 20px !important;
 }
 
-.bw-banner-title{
-    font-weight: 300!important;
-    font-family:Poppins!important;
-}
-
-.bw-banner-subtitle{
-    font-weight: 300!important;
-    font-family:Poppins!important;
-    font-size: 1rem!important;
-}
-
-.bw-banner{
-    background: linear-gradient(120deg, #6fb95e, #056db7)!important;
-}
-
-.bw-tabs-nav{
-    padding: 0px 0!important;
-    background: white!important;
-}
-
-.bw-tab.bw-active{
-    color:black!important;
-    border-left: 3px solid #69b654;
-}
-
 .bw-tab-title{
    color:black!important; 
    font-family:Poppins!important;
    font-weight:300!important;
-}
-
-.bw-tab-icon{
-   color:black!important; 
-}
-
-.bw-event-name{
-    font-weight: 400!important;
-    font-family:Poppins!important;
-    font-size: 1rem!important;
-    
 }
 
 .bw-tabs-content .sp-pcp-title a{
@@ -142,11 +106,6 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
 
 .pcp-carousel-wrapper .sp-pcp-carousel{
     margin-right: 20px;
-}
-
-.bw-card{
-    margin-right: 20px;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0)!important;
 }
 
 .events-wrapper{
@@ -161,11 +120,6 @@ body.archive.post-type-archive.post-type-archive-tribe_events .navbar{
 
 .arm_group_membership_content {
     padding-right:20px;
-}
-
-/* Hiding the map from Homepage */
-#bw-members-map {
-  display: none !important;
 }
 
 /* Force Events archive background to white */
@@ -237,11 +191,6 @@ body.post-type-archive-tribe_events .page-wrapper {
 .menu-icons i:not(.fa.dropdown){
     font-size:30px!important;
     color:#6aba57!important;
-}
-
-/* Hide "Member since" row on member cards */
-.bw-member-since {
-  display: none !important;
 }
 
 .bw-tabs-content .bw-tab-content-header h2{

@@ -30,10 +30,7 @@ add_shortcode( 'bw_members_list', 'bw_members_list_shortcode' );
 function bw_members_list_shortcode( $atts ) {
     
     $atts = shortcode_atts( array(
-        'members_per_page' => 12,
-        'default_lat' => '51.4545',
-        'default_lng' => '-2.5879',
-        'map_zoom' => 10,
+        'members_per_page' => 12,      
     ), $atts, 'bw_members_list' );
     
     bw_enqueue_members_assets();   
@@ -51,17 +48,6 @@ function bw_enqueue_members_assets() {
     wp_enqueue_script( 'jquery' );
     $dependencies = array( 'jquery' );
     
-    if ( defined( 'GOOGLE_MAPS_API_KEY' ) && ! empty( GOOGLE_MAPS_API_KEY ) ) {
-        wp_enqueue_script(
-            'google-maps',
-            'https://maps.googleapis.com/maps/api/js?key=' . esc_attr( GOOGLE_MAPS_API_KEY ) . '&libraries=places',
-            array(),
-            null,
-            true
-        );
-        $dependencies[] = 'google-maps';
-    }
-    
     // Enqueue custom JavaScript
     wp_enqueue_script(
         'bw-members-map',
@@ -73,10 +59,7 @@ function bw_enqueue_members_assets() {
     
     wp_localize_script( 'bw-members-map', 'bwMembersData', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'nonce' => wp_create_nonce( 'bw_members_nonce' ),
-        'default_lat' => 51.4545,
-        'default_lng' => -2.5879,
-        'default_zoom' => 10,
+        'nonce' => wp_create_nonce( 'bw_members_nonce' ),       
         'default_banner' => get_stylesheet_directory_uri() . '/assets/images/default-banner.jpg',
         'default_logo' => get_stylesheet_directory_uri() . '/assets/images/default-logo.png',
     ) );    
@@ -217,12 +200,8 @@ function bw_get_members_data( $search = '', $industry = '', $paged = 1 ) {
             if ( $member_industry !== $industry ) {
                 continue; // Skip this member
             }
-        }
-        
-        // Get location coordinates
-        $latitude = ! empty( $user_meta['latitude'] ) ? $user_meta['latitude'] : '';
-        $longitude = ! empty( $user_meta['longitude'] ) ? $user_meta['longitude'] : '';
-        
+        }        
+       
         // Get phone number
         $phone = $get_field_value( $field_mapping['phone'] );
         
@@ -299,9 +278,7 @@ function bw_get_members_data( $search = '', $industry = '', $paged = 1 ) {
             'business_name' => esc_html( $business_name ),
             'company' => esc_html( $company ),
             'phone' => esc_html( $phone ),
-            'address' => esc_html( $full_address ),
-            'latitude' => ! empty( $latitude ) ? floatval( $latitude ) : 0,
-            'longitude' => ! empty( $longitude ) ? floatval( $longitude ) : 0,
+            'address' => esc_html( $full_address ),            
             'industry' => esc_html( $member_industry ),
             'member_plan' => esc_html( $member_plan ),
             'logo_url' => esc_url( $logo_url ),
@@ -357,8 +334,7 @@ function bw_get_armember_field_mapping() {
         'state' => array( 'text_zcbrf', 'state' ),
         'zip_code' => array( 'text_aclrk', 'zip_code', 'postcode' ),
         'country' => array( 'country' ),
-        'latitude' => array( 'latitude', 'lat' ),
-        'longitude' => array( 'longitude', 'lng', 'long' ),
+
     );
 }
 

@@ -43,16 +43,8 @@ $members = $members_data['members'];
                 </span>
             </div>
         </div>
-    </div>
-    
-    <!-- Google Map Section -->
-    <div class="bw-map-container">
-        <div id="bw-members-map" class="bw-map" style="height: 500px; width: 100%;"></div>
-        <div class="bw-map-loading" id="bw-map-loading">
-            <span class="spinner"></span>
-            <p>Loading map...</p>
-        </div>
-    </div>
+    </div>    
+
     
     <!-- Members Grid Section -->
     <div class="bw-members-grid-container">
