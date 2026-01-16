@@ -21,62 +21,36 @@ function bw_render_tabs($arm_plans)
             'title' => __(DASHBOARD_TAB_HOME, 'uncode'),
             'icon' => '<i class="fa fa-home" role="presentation"></i>',
             'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
-            'content' => bw_dashboard_home_content()
+            'content' => bw_dashboard_home_content(),
+            'has_submenu' => false,
         ),
         'events' => array(
             'title' => __(DASHBOARD_TAB_EVENTS, 'uncode'),
             'icon' => '<i class="fa fa-calendar" role="presentation"></i>',
-            'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
+            'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),            
+            'content' => bw_events(),
             'has_submenu' => false,
-          /* 'submenus' => array(
-                'upcoming-events' => array(
-                    'title' => 'Upcoming Events',
-                    'icon' => '<i class="fa fa-clock-o" role="presentation"></i>',
-                    'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
-                    'content' => do_shortcode('[tribe_events view="list"]')
-                ),
-                'calendar' => array(
-                    'title' => 'Calendar',
-                    'icon' => '<i class="fa fa-calendar-o" role="presentation"></i>',
-                    'plans' => array('owner', 'staff', 'admin'),
-                    'content' => do_shortcode("[tribe_mini_calendar]")
-                ),
-                'manage-events' => array(
-                    'title' => 'Manage Events',
-                    'icon' => '<i class="fa fa-cog" role="presentation"></i>',
-                   'plans' => array('owner', 'staff', 'admin'),
-                    'content' => '[bw_manage_events_content]',
-                    'link' => '/wp-admin/edit.php?post_type=tribe_events',
-                    'target' => '_blank'
-                )
-            ),*/
-            'content' => bw_events()
-        ),
-
-        //Hide entirely for Phase 1
-       /* 'classifieds' => array(
-            'title' => 'Classifieds',
-            'icon' => '<i class="fa fa-bullhorn" role="presentation"></i>',
-            'plans' => array('owner', 'staff', 'admin'),
-            'content' => ''
-        ),*/
+        ),        
         'my-profile' => array(
             'title' => __(DASHBOARD_TAB_MY_PROFILE, 'uncode'),
             'icon' => '<i class="fa fa-user" role="presentation"></i>',
             'plans' => array(ARM_PLAN_STAFF, ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
-            'content' => bw_my_profile()
+            'content' => bw_my_profile(),
+            'has_submenu' => false,
         ),
         'my-business' => array(
             'title' => __(DASHBOARD_TAB_MY_BUSINESS, 'uncode'),
             'icon' => '<i class="fa fa-building" role="presentation"></i>',
             'plans' => array(ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
-            'content' => bw_my_business()
+            'content' => bw_my_business(),
+            'has_submenu' => false,
         ),
         'my-team' => array(
             'title' => __(DASHBOARD_TAB_MY_TEAM, 'uncode'),
             'icon' => '<i class="fa fa-users" role="presentation"></i>',
             'plans' => array(ARM_PLAN_ADMIN, ARM_PLAN_OWNER),
-            'content' => bw_my_team()
+            'content' => bw_my_team(),
+            'has_submenu' => false,
         )
     );
 
@@ -91,7 +65,6 @@ function bw_render_tabs($arm_plans)
         if (!empty(array_intersect($arm_plans, $tab['plans']))) {
 
             $active_class = $first_tab ? 'bw-active' : '';
-
 
             if (!empty($tab['has_submenu']) && !empty($tab['submenus'])) {
 

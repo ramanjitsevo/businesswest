@@ -14,12 +14,8 @@ if (!defined('ABSPATH')) {
 include_once 'includes/bw-helper.php';
 include_once 'includes/bw-invite-role-manager.php';
 
-/**
- * Register the shortcode
- */
-function bw_dashboard_shortcode($atts)
-{
-    // Enqueue ARMember Group Membership styles and scripts
+function bw_enque_scripts() {
+     // Enqueue ARMember Group Membership styles and scripts
     $arm_gm_css_path = WP_PLUGIN_DIR . '/armembergroupmembership/css/arm_gm_front.css';
     $arm_gm_js_path = WP_PLUGIN_DIR . '/armembergroupmembership/js/arm_gm_front.js';
     
@@ -39,7 +35,13 @@ function bw_dashboard_shortcode($atts)
 
     wp_enqueue_style('bw-dashboard-css', get_stylesheet_directory_uri() . '/assets/css/bw-dashboard.css', array(), '1.0.0');
     wp_enqueue_script('bw-dashboard-js', get_stylesheet_directory_uri() . '/assets/js/bw-dashboard.js', array('jquery'), '1.0.0', true);
-    
+}
+
+/**
+ * Register the shortcode
+ */
+function bw_dashboard_shortcode($atts)
+{    
     $arm_plans = bw_current_user_plans();
     ob_start();
 
@@ -47,6 +49,8 @@ function bw_dashboard_shortcode($atts)
         echo "<h2>" . __('This account is not associated with any Membership plans', 'uncode') . "</h2>";
         return;
     }
+
+    bw_enque_scripts();
     
     // Include required files
     include_once 'includes/bw-banner.php';
