@@ -240,12 +240,16 @@
 }
 
 .bw-tab-pane {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  height: 0;
 }
 
 .bw-tab-pane.bw-active {
   display: block;
+  visibility: visible;
   animation: fadeIn 0.5s ease;
+  height: auto;
 }
 
 @keyframes fadeIn {
